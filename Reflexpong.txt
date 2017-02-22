@@ -1,0 +1,41 @@
+ball += ball_y_dir;
+  if(ball >= (MAXY - BALL_LENGTH)) {
+    ball_y_dir *= rand() % 10 + (-1);
+	ball_x_dir *= rand() % (10) + (-10);
+  } else if (ball <= MINY) {
+    ball_y_dir *= rand() % 10 + (-1);
+	ball_x_dir *= rand() % (10) + (-10);
+  }
+
+  // horizontal motion of the ball.  Need to decide if it hit a bat or not
+  ball_x += ball_x_dir;
+  if(ball_x >= MAXX) {
+    if((ball > bat2-BALL_LENGTH) && (ball < (bat2 + BAT_LENGTH))) {
+      // ball hit bat2
+      ball_x_dir *= rand() % (-10) + (-1);          // just reflect it for now
+      // this makes it bounce off up or down the screen depending on
+      // where you hit it
+      ball_y_dir *= rand() % 10 + (-10);
+    } else {
+      // player 2 missed the ball, increment player 1's score
+      player1_score++;
+      // reset the ball to the centre of the screen player 1 serves
+      ball_x_dir = 3;
+      ball_y_dir = 0;
+      ball_x = (MAXX - MINX) / 2 + MINX;
+      ball = (512 / 3) + 50;
+    }
+  } else if(ball_x <= MINX) {
+    if((ball > bat1-BALL_LENGTH) && (ball < (bat1 + BAT_LENGTH))) {
+      // ball hit bat1
+      ball_x_dir *= rand() % (-10) + (-1);
+      ball_y_dir *= rand() % 10 + (-10);
+    } else {
+      // player 1 missed the ball, give player 2 the points and serve
+      player2_score++;
+      ball_x_dir = -3;
+      ball_y_dir = 0;
+      ball_x = (MAXX - MINX) / 2 + MINX;
+      ball = (512 / 3) + 50;
+    }
+  }
