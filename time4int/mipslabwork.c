@@ -4,7 +4,7 @@
 
    This file should be changed by YOU! So add something here:
 
-   This file modified 2015-12-24 by Ture Teknolog 
+   This file modified 2015-12-24 by Ture Teknolog
 
    Latest update 2015-08-28 by F Lundevall
 
@@ -46,7 +46,7 @@ void user_isr( void )
 	{
 		if (timeoutcounter == 100)
 		{
-		timeoutcounter = 0;    
+		timeoutcounter = 0;
 		time2string(textstring, mytime);
 		display_string(3, textstring);
 		display_update();
@@ -64,7 +64,7 @@ void user_isr( void )
 			PORTE = bindis;
 			IFS(0) = 0;
 		}
-	
+
 	//return;
 }
 
@@ -75,10 +75,11 @@ void labinit( void )
 	//*porte = *porte & 0x0;
 	PORTE = 0x0;
 	TRISD |= 0x7f0;
-	
+	INTCON = 0x8; // high flank on swith 3 (rising edge)
+
 	IPC(3) = 0x1c000000;			// external interrupt 3
-	
-	
+
+
 	T2CON = 0x60;
 	PR2 = TMR2PERIOD;
 
@@ -97,7 +98,7 @@ void labwork( void )
 	display_string(0, itoaconv(prime));
 	display_update();
 }
-	
+
 						/*porte = *porte & 0x0;
   if (bindis = 256)
   {
@@ -115,19 +116,19 @@ void labwork( void )
 		  s = s << 4;
 		  mytime |= s;
 		  break;
-		  
+
 		  case 2:
 		  mytime &= 0xf0ff;
 		  s = s << 8;
 		  mytime |= s;
 		  break;
-		  
+
 		  case 4:
 		  mytime &= 0x0fff;
 		  s = s << 12;
 		  mytime |= s;
 		  break;
-		  
+
 		  case 3: 			// minst och mellersta
 		  mytime &= 0xf00f;
 		  s = s << 4;
@@ -135,7 +136,7 @@ void labwork( void )
 		  s = s << 4;
 		  mytime |= s;
 		  break;
-		  
+
 		  case 6:			// högsta och mellersta
 		  mytime &= 0x00ff;
 		  s = s << 8;
@@ -143,7 +144,7 @@ void labwork( void )
 		  s = s << 4;
 		  mytime |= s;
 		  break;
-		  
+
 		  case 5:			// högsta och minsta
 		  mytime &= 0x0f0f;
 		  s = s << 4;
@@ -151,7 +152,7 @@ void labwork( void )
 		  s = s << 8;
 		  mytime |= s;
 		  break;
-		  
+
 		  case 7:			// samtliga
 		  mytime &= 0x000f;
 		  s = s << 4;
@@ -168,8 +169,8 @@ void labwork( void )
 	    if (timeoutcounter == 100)
   {
 	  timeoutcounter = 0;
-    Test time-out event flag 
-     
+    Test time-out event flag
+
   time2string( textstring, mytime );
   display_string( 3, textstring );
   display_update();
@@ -179,6 +180,6 @@ void labwork( void )
   display_image(96, icon);
   }
   timeoutcounter++;
-  IFS(0) = 0; /* Reset all event flags (crude!) 
+  IFS(0) = 0; /* Reset all event flags (crude!)
   }
 } */
