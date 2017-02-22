@@ -1,4 +1,4 @@
-#include <math.h>
+
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <pic32mx.h>  /* Declarations of system-specific addresses etc */
 #include <stdio.h>
@@ -28,6 +28,21 @@ int ball_y_dir;	// direction and speed of the ball in Y axis
 int player1_score;	// player 1 score
 int player2_score;	// player 2 score
 int p;		// keep track of which player's score is displayed
+
+unsigned int lfsr113_Bits (void)
+{
+   static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
+   unsigned int b;
+   b  = ((z1 << 6) ^ z1) >> 13;
+   z1 = ((z1 & 4294967294U) << 18) ^ b;
+   b  = ((z2 << 2) ^ z2) >> 27; 
+   z2 = ((z2 & 4294967288U) << 2) ^ b;
+   b  = ((z3 << 13) ^ z3) >> 21;
+   z3 = ((z3 & 4294967280U) << 7) ^ b;
+   b  = ((z4 << 3) ^ z4) >> 12;
+   z4 = ((z4 & 4294967168U) << 13) ^ b;
+   return (z1 ^ z2 ^ z3 ^ z4);
+}
 
 void setup() {
   
@@ -119,11 +134,11 @@ void gameplay() {
   // it gets to the top or bottom of the screen.
   ball += ball_y_dir;
   if(ball >= (MAXY - BALL_LENGTH)) {
-    ball_y_dir *= rand() % (-10) + (-1);
-	ball_x_dir *= rand() % (10) + (-10);
+    ball_y_dir *= (lfsr113_Bits() % (-10) + (-1));
+	ball_x_dir *= (lfsr113_Bits() % (10) + (-10));
   } else if (ball <= MINY) {
-    ball_y_dir *= rand() % (-10) + (-1);
-	ball_x_dir *= rand() % (10) + (-10);
+    ball_y_dir *= (lfsr113_Bits() % (-10) + (-1));
+	ball_x_dir *= (lfsr113_Bits() % (10) + (-10));
   }
 
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
@@ -131,10 +146,10 @@ void gameplay() {
   if(ball_x >= MAXX) {
     if((ball > bat2-BALL_LENGTH) && (ball < (bat2 + BAT_LENGTH))) {
       // ball hit bat2
-      ball_x_dir *= rand() % (-10) + (-1);          // just reflect it for now
+      ball_x_dir *= (lfsr113_Bits() % (-10) + (-1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
-      ball_y_dir *= rand() % 10 + (-10);
+      ball_y_dir *= (lfsr113_Bits() % (10) + (-10));
     } else {
       // player 2 missed the ball, increment player 1's score
       player1_score++;
@@ -147,8 +162,8 @@ void gameplay() {
   } else if(ball_x <= MINX) {
     if((ball > bat1-BALL_LENGTH) && (ball < (bat1 + BAT_LENGTH))) {
       // ball hit bat1
-      ball_x_dir *= rand() % (-10) + (-1);
-      ball_y_dir *= rand() % 10 + (-10);
+      ball_x_dir *= (lfsr113_Bits() % (-10) + (-1));
+      ball_y_dir *= (lfsr113_Bits() % (10) + (-10));
     } else {
       // player 1 missed the ball, give player 2 the points and serve
       player2_score++;
