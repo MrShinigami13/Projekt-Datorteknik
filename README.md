@@ -10,3 +10,6 @@ http://www.rickard.gunee.com/projects/video/pic/howto.php
 
 Ljud:
 https://diyhacking.com/arduino-audio-player/
+
+
+fungerande pong med vga: http://nathandumont.com/blog/pong-on-a-vga-monitor-with-the-chipkit-uno32
