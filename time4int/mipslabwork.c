@@ -53,17 +53,24 @@ void user_isr( void )
 		tick(&mytime);
 		}
 		timeoutcounter++;
-		IFS(0) = 0;
+		IFS(0) &= ~0x100;
 	}
 	else if (IFS(0) & 0x8000)
 		{
-			/*volatile int sw3 = PORTD;
+			volatile int sw3 = PORTD;
 			sw3 = sw3 >> 10;
-			sw3 &= 0x1;*/
+			sw3 &= 0x1;
 			bindis++;
 			PORTE = bindis;
-			IFS(0) = 0;
+			delay(1);
+			labwork();
+			if(sw3 == 0){
+				IFS(0) &= ~0x8000;
+
+			}
+
 		}
+
 
 	//return;
 }
@@ -98,88 +105,3 @@ void labwork( void )
 	display_string(0, itoaconv(prime));
 	display_update();
 }
-
-						/*porte = *porte & 0x0;
-  if (bindis = 256)
-  {
-	  bindis = 0;
-  }
-  //delay( 1000 );
-    int b = getbtns();
-  if (b > 0)
-  {
-	  int s = getsw();
-	  switch (b)
-	  {
-		  case 1:
-		  mytime &= 0xff0f;
-		  s = s << 4;
-		  mytime |= s;
-		  break;
-
-		  case 2:
-		  mytime &= 0xf0ff;
-		  s = s << 8;
-		  mytime |= s;
-		  break;
-
-		  case 4:
-		  mytime &= 0x0fff;
-		  s = s << 12;
-		  mytime |= s;
-		  break;
-
-		  case 3: 			// minst och mellersta
-		  mytime &= 0xf00f;
-		  s = s << 4;
-		  mytime |= s;
-		  s = s << 4;
-		  mytime |= s;
-		  break;
-
-		  case 6:			// högsta och mellersta
-		  mytime &= 0x00ff;
-		  s = s << 8;
-		  mytime |= s;
-		  s = s << 4;
-		  mytime |= s;
-		  break;
-
-		  case 5:			// högsta och minsta
-		  mytime &= 0x0f0f;
-		  s = s << 4;
-		  mytime |= s;
-		  s = s << 8;
-		  mytime |= s;
-		  break;
-
-		  case 7:			// samtliga
-		  mytime &= 0x000f;
-		  s = s << 4;
-		  mytime |= s;
-		  s = s << 4;
-		  mytime |= s;
-		  s = s << 4;
-		  mytime |= s;
-		  break;
-	  }
-  }
-  if(IFS(0) & 0x100)
-  {
-	    if (timeoutcounter == 100)
-  {
-	  timeoutcounter = 0;
-    Test time-out event flag
-
-  time2string( textstring, mytime );
-  display_string( 3, textstring );
-  display_update();
-  tick( &mytime );
-  bindis++;
-  *porte = bindis;
-  display_image(96, icon);
-  }
-  timeoutcounter++;
-  IFS(0) = 0; /* Reset all event flags (crude!)
-  }
-} */
