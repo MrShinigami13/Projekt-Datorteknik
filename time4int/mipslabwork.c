@@ -62,7 +62,6 @@ void user_isr( void )
 			sw3 &= 0x1;
 			bindis++;
 			PORTE = bindis;
-			delay(1);
 			labwork();
 			if(sw3 == 0){
 				IFS(0) &= ~0x8000;
