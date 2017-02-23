@@ -71,16 +71,17 @@ void user_isr( void )
 		}*/
 		else if (IFS(0) & 0x80) // int1
 			{
+
+				labwork();		// behöver ha ett kort delay av någon form för att inte göra flera loopar
 				volatile int sw1 = PORTD;
 				sw1 = sw1 >> 8;
 				sw1 &= 0x1;
-				bindis++;
-				PORTE = bindis;
-				labwork();
 				if(sw1 == 0){
 					IFS(0) &= ~0x80;
 
 				}
+				bindis++;
+				PORTE = bindis;
 
 			}
 			else if (IFS(0) & 0x800) // int2
