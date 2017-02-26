@@ -178,3 +178,19 @@ const uint8_t const icon[] = { // ny test bild
 		0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0, 0, 0, 0, 0, 0, 0,
 };
+
+const uint8_t const scorezero[] = {
+	60, 66, 129, 129, 129, 129, 66, 60,
+};
+
+const uint8_t const scoreone[] = {
+	0, 136, 140, 254, 255, 255, 128, 0,
+};
+
+const uint8_t const scoretwo[] = {
+	0, 140, 206, 231, 243, 255, 222, 140,
+};
+
+const uint8_t const scorethree[] = {
+	0, 0, 68, 198, 146, 146, 254, 108,
+};

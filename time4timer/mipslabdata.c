@@ -142,8 +142,6 @@ const uint8_t const font[] = {
 };
 
 const uint8_t const icon[] = {
-
-
 	0, 0, 0, 0, 0, 0, 31, 4,
 	4, 4, 31, 0, 0, 0, 31, 18,
 	18, 16, 16, 0, 0, 0, 0, 1,

@@ -9,6 +9,7 @@
 
 /* Declare display-related functions from mipslabfunc.c */
 void display_image(int x, const uint8_t *data);
+void display_score(int x, const uint8_t *data);
 void display_init(void);
 void display_string(int line, char *s);
 void display_update(void);
@@ -39,6 +40,13 @@ void display_debug( volatile int * const addr );
 extern const uint8_t const font[128*8];
 /* Declare bitmap array containing icon */
 extern const uint8_t const icon[128];
+
+// Declar bitmap array containing score numbers
+extern const uint8_t const scorezero[8];
+extern const uint8_t const scoreone[8];
+extern const uint8_t const scoretwo[8];
+extern const uint8_t const scorethree[8];
+
 /* Declare text buffer for display output */
 extern char textbuffer[4][16];
 

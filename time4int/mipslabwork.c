@@ -82,48 +82,52 @@ void user_isr( void )
 				}
 				bindis++;
 				PORTE = bindis;
+				display_score(96, 0, scorezero);
 
 			}
 			else if (IFS(0) & 0x800) // int2
 				{
+					labwork();
 					volatile int sw2 = PORTD;
 					sw2 = sw2 >> 9;
 					sw2 &= 0x1;
 					bindis++;
 					PORTE = bindis;
-					labwork();
 					if(sw2 == 0){
 						IFS(0) &= ~0x800;
 
 					}
+					display_score(96, 1, scoreone);
 
 				}
 				else if (IFS(0) & 0x8000) //int3
 					{
+						labwork();
 						volatile int sw3 = PORTD;
 						sw3 = sw3 >> 10;
 						sw3 &= 0x1;
 						bindis++;
 						PORTE = bindis;
-						labwork();
 						if(sw3 == 0){
 							IFS(0) &= ~0x8000;
 
 						}
+						display_score(96, 2, scoretwo);
 
 					}
 					else if (IFS(0) & 0x80000) // int4
 						{
+							labwork();
 							volatile int sw4 = PORTD;
 							sw4 = sw4 >> 11;
 							sw4 &= 0x1;
 							bindis++;
 							PORTE = bindis;
-							labwork();
 							if(sw4 == 0){
 								IFS(0) &= ~0x80000;
 
 							}
+							display_score(96, 3, scorethree);
 
 						}
 
@@ -165,4 +169,5 @@ void labwork( void )
 	prime = nextprime(prime);
 	display_string(0, itoaconv(prime));
 	display_update();
+	display_image(96,icon);
 }
