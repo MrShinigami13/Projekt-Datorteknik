@@ -39,6 +39,16 @@ void tick( unsigned int * timep );
 */
 void display_debug( volatile int * const addr );
 
+extern int paddle1_x;
+extern int paddle1_y;
+extern int paddle2_x;
+extern int paddle2_y;
+extern int ball_x;
+extern int ball_y;
+extern int ball_speed;
+extern int player1score;
+extern int player2score;
+
 /* Declare bitmap array containing font */
 extern const uint8_t const font[128*8];
 /* Declare bitmap array containing icon */

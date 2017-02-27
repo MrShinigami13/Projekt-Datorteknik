@@ -50,7 +50,7 @@ int prime = 1234567;
 int timeoutcounter = 0;
 int bindis = 0;
 int mytime = 0x5957;
-int paddle1_x = 0;
+/*int paddle1_x = 0;
 int paddle1_y = 12;
 int paddle2_x = 126;
 int paddle2_y = 12;
@@ -58,7 +58,7 @@ int ball_x = 62;
 int ball_y = 14;
 int ball_speed = 0;
 int player1score = 0;
-int player2score = 0;
+int player2score = 0;*/
 
 char textstring[] = "text, more text, and even more text!";
 
