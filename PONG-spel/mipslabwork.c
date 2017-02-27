@@ -39,6 +39,7 @@ int prime = 1234567;
 int timeoutcounter = 0;
 int bindis = 0;
 int mytime = 0x5957;
+int paddle_y = 0;
 
 char textstring[] = "text, more text, and even more text!";
 
@@ -85,7 +86,7 @@ void user_isr( void )
 				}
 				bindis++;
 				PORTE = bindis;
-				display_score(96, 0, scorezero);
+				display_score(48, 0, scorezero);
 
 			}
 			else if (IFS(0) & 0x800) // int2
@@ -100,7 +101,7 @@ void user_isr( void )
 						IFS(0) &= ~0x800;
 
 					}
-					display_score(96, 1, scoreone);
+					display_score(48, 0, scoreone);
 
 				}
 				else if (IFS(0) & 0x8000) //int3
@@ -115,7 +116,7 @@ void user_isr( void )
 							IFS(0) &= ~0x8000;
 
 						}
-						display_score(96, 2, scoretwo);
+						display_score(48, 0, scoretwo);
 
 					}
 					else if (IFS(0) & 0x80000) // int4
@@ -130,7 +131,14 @@ void user_isr( void )
 								IFS(0) &= ~0x80000;
 
 							}
-							display_score(96, 3, scorethree);
+
+							display_paddle(126,paddle_y, paddle);
+						paddle_y++;
+						if(paddle_y > 32)
+						{
+							paddle_y = 0;
+						}
+							display_score(48, 0, scorethree);
 
 						}
 
@@ -149,7 +157,7 @@ void labinit( void )
 	INTCON = 0x1E; // high flank on swith 3 (rising edge)
 
 	IPC(1) = 0x1c000000;			// external interrupt 1
-	IPC(2) = 0x1c000000;			// external interrupt 2
+	IPC(2) = 0x1c00001c;			// external interrupt 2 och timer 2
 	IPC(3) = 0x1c000000;			// external interrupt 3
 	IPC(4) = 0x1c000000;			// external interrupt 4
 
@@ -162,7 +170,7 @@ void labinit( void )
 	PR2 = 0x08A6;
 
 	// enable the timer interrupts for doing the ball and bats and h_sync
-	IFS0CLR = _IFS0_T2IF_MASK | _IFS0_T3IF_MASK | _IFS0_T4IF_MASK | _IFS0_T5IF_MASK;
+	//IFS0CLR = _IFS0_T2IF_MASK | _IFS0_T3IF_MASK | _IFS0_T4IF_MASK | _IFS0_T5IF_MASK;
 	LATDSET = HSYNC_MASK | VSYNC_MASK;
 	// enable the timers and output compare
 	T2CONSET = 0x8000;
@@ -186,7 +194,7 @@ void labinit( void )
 
 	TMR2 = 0;
 	T2CONSET = 0x8000;
-	IPC(2) = 0x1c;
+//	IPC(2) = 0x1c;
 	//IEC(0) = 0x8100;			//lade till bit för INT3, tidigare 0x100 fungerande
 	IEC(0) = 0x88980; // för interrupts sw1-4 och timer2
 	enable_interrupt();
@@ -197,7 +205,7 @@ void labinit( void )
 void labwork( void )
 {
 	prime = nextprime(prime);
-	display_string(0, itoaconv(prime));
+	//display_string(0, itoaconv(prime));
 	display_update();
-	display_image(96,icon);
+	//display_image(96,icon);
 }

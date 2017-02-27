@@ -10,6 +10,7 @@
 /* Declare display-related functions from mipslabfunc.c */
 void display_image(int x, const uint8_t *data);
 void display_score(int x, int y, const uint8_t *data);
+void display_paddle(int x, int y, const uint8_t *data);
 void display_init(void);
 void display_string(int line, char *s);
 void display_update(void);
@@ -45,6 +46,7 @@ extern const uint8_t const scorezero[8];
 extern const uint8_t const scoreone[8];
 extern const uint8_t const scoretwo[8];
 extern const uint8_t const scorethree[8];
+extern const uint8_t const paddle[2];
 /* Declare text buffer for display output */
 extern char textbuffer[4][16];
 
