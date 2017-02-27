@@ -26,7 +26,7 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define PADDLE_LENGTH 2
 #define BALL_LENGTH 4
 
-#define PADDLE_COL 0xF 	
+#define PADDLE_COL 0xF
 #define BALL_COL 0xF
 
 #define MINX 0
@@ -87,6 +87,8 @@ void user_isr( void )
 		timeoutcounter = 0;
 		time2string(textstring, mytime);
 		display_string(3, textstring);
+    display_paddle(paddle1_x,paddle1_y,paddle1);
+    display_paddle(paddle2_x,paddle2_y,paddle2);
 		display_update();
 		tick(&mytime);
 		}
@@ -260,7 +262,7 @@ void gameplay() {
   ball_x += ball_x;
   if(ball_x >= MAXX) {
     if((ball_y > paddle2_y - BALL_LENGTH) && (ball < (paddle2_y + PADDLE_LENGTH))) {
-      // ball hit bat2 
+      // ball hit bat2
       ball_x *= (rand() % (-10) + (-1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
@@ -288,10 +290,9 @@ void gameplay() {
       ball = 13;*/
     }
   }
-  
+
   // toggle the lsb of p to alternate who gets the score next time
  /* p^=1;
   // delay a bit before the next position update
   delay(10);*/
 }
-
