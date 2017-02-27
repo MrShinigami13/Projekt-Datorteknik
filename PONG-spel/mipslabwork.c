@@ -241,49 +241,49 @@ void gameplay() {
 
   // vertical motion of the ball, just invert the vertical component if
   // it gets to the top or bottom of the screen.
-  ball += ball_y_dir;
-  if(ball >= (MAXY - BALL_LENGTH)) {
-    ball_y_dir *= (lfsr113_Bits() % (-10) + (-1));
-	ball_x_dir *= (lfsr113_Bits() % (10) + (-10));
-  } else if (ball <= MINY) {
-    ball_y_dir *= (lfsr113_Bits() % (-10) + (-1));
-	ball_x_dir *= (lfsr113_Bits() % (10) + (-10));
+  ball_y += ball_y;
+  if(ball_y >= (MAXY - BALL_LENGTH)) {
+    ball_y *= (rand() % (-10) + (-1));
+	ball_x *= (rand() % (10) + (-10));
+  } else if (ball_y <= MINY) {
+    ball_y *= (lfsr113_Bits() % (10) + (1));
+	ball_x *= (lfsr113_Bits() % (10) + (-10));
   }
 
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
-  ball_x += ball_x_dir;
+  ball_x += ball_x;
   if(ball_x >= MAXX) {
-    if((ball > bat2-BALL_LENGTH) && (ball < (bat2 + BAT_LENGTH))) {
-      // ball hit bat2
-      ball_x_dir *= (lfsr113_Bits() % (-10) + (-1));          // just reflect it for now
+    if((ball > paddle2_x - BALL_LENGTH) && (ball < (paddle2_x + BAT_LENGTH))) {
+      // ball hit bat2 
+      ball_x *= (rand() % (-10) + (-1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
-      ball_y_dir *= (lfsr113_Bits() % (10) + (-10));
+      ball_y *= (rand() % (10) + (-10));
     } else {
       // player 2 missed the ball, increment player 1's score
-      player1_score++;
+      player1score++;
       // reset the ball to the centre of the screen player 1 serves
-      ball_x_dir = 3;
-      ball_y_dir = 0;
-      ball_x = (MAXX - MINX) / 2 + MINX;
-      ball = 13;
+      ball_x = 62;
+      ball_y = 14;
+      /*ball_x = (MAXX - MINX) / 2 + MINX;
+      ball = 13;*/
     }
   } else if(ball_x <= MINX) {
-    if((ball > bat1-BALL_LENGTH) && (ball < (bat1 + BAT_LENGTH))) {
+    if((ball_x > paddle1_x - BALL_LENGTH) && (ball_x < (paddle1_x + BAT_LENGTH))) {
       // ball hit bat1
-      ball_x_dir *= (lfsr113_Bits() % (-10) + (-1));
-      ball_y_dir *= (lfsr113_Bits() % (10) + (-10));
+      ball_x *= (rand() % (10) + (1));
+      ball_y *= (rand() % (10) + (-10));
     } else {
       // player 1 missed the ball, give player 2 the points and serve
-      player2_score++;
-      ball_x_dir = -3;
-      ball_y_dir = 0;
-      ball_x = (MAXX - MINX) / 2 + MINX;
-      ball = 13;
+      player2score++;
+      ball_x = 62;
+      ball_y = 14;
+      /*ball_x = (MAXX - MINX) / 2 + MINX;
+      ball = 13;*/
     }
   }
   // see which of the players score to show this time
-  if(p % 2) {
+  /*if(p % 2) {
     // enable player 1's 7seg display and disable player 2's
     digitalWrite(11, HIGH);
     digitalWrite(12, LOW);
@@ -299,5 +299,5 @@ void gameplay() {
   // toggle the lsb of p to alternate who gets the score next time
   p^=1;
   // delay a bit before the next position update
-  delay(10);
+  delay(10);*/
 }
