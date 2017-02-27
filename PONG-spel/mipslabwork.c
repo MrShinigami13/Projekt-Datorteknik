@@ -57,7 +57,7 @@ unsigned int rand (void)
    unsigned int b;
    b  = ((z1 << 6) ^ z1) >> 13;
    z1 = ((z1 & 4294967294U) << 18) ^ b;
-   b  = ((z2 << 2) ^ z2) >> 27; 
+   b  = ((z2 << 2) ^ z2) >> 27;
    z2 = ((z2 & 4294967288U) << 2) ^ b;
    b  = ((z3 << 13) ^ z3) >> 21;
    z3 = ((z3 & 4294967280U) << 7) ^ b;
@@ -155,12 +155,7 @@ void user_isr( void )
 
 							}
 
-							display_paddle(126,paddle_y, paddle);
-						paddle_y++;
-						if(paddle_y > 32)
-						{
-							paddle_y = 0;
-						}
+
 							display_score(48, 0, scorethree);
 
 						}
@@ -283,6 +278,7 @@ void gameplay() {
     }
   }
   // see which of the players score to show this time
+<<<<<<< HEAD
   /*if(p % 2) {
     // enable player 1's 7seg display and disable player 2's
     digitalWrite(11, HIGH);
@@ -301,3 +297,11 @@ void gameplay() {
   // delay a bit before the next position update
   delay(10);*/
 }
+=======
+  
+  // toggle the lsb of p to alternate who gets the score next time
+  p^=1;
+  // delay a bit before the next position update
+  delay(10);
+}
+>>>>>>> origin/master
