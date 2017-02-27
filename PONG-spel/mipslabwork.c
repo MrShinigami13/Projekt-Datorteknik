@@ -23,6 +23,17 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define HSYNC_MASK 0x01
 #define VSYNC_MASK 0x02
 
+#define PADDLE_LENGTH 2
+#define BALL_LENGTH 4
+
+#define PADDLE_COL 0xF 	
+#define BALL_COL 0xF
+
+#define MINX 0
+#define MAXX 128
+#define MINY 9
+#define MAXY 32
+
 /*T2CON = 0x60;
 #define TMR2PERIOD ((80000000 / 64) / 10)
 
@@ -241,14 +252,14 @@ void gameplay() {
     ball_y *= (rand() % (-10) + (-1));
 	ball_x *= (rand() % (10) + (-10));
   } else if (ball_y <= MINY) {
-    ball_y *= (lfsr113_Bits() % (10) + (1));
-	ball_x *= (lfsr113_Bits() % (10) + (-10));
+    ball_y *= (rand() % (10) + (1));
+	ball_x *= (rand() % (10) + (-10));
   }
 
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
   ball_x += ball_x;
   if(ball_x >= MAXX) {
-    if((ball > paddle2_x - BALL_LENGTH) && (ball < (paddle2_x + BAT_LENGTH))) {
+    if((ball_y > paddle2_y - BALL_LENGTH) && (ball < (paddle2_y + PADDLE_LENGTH))) {
       // ball hit bat2 
       ball_x *= (rand() % (-10) + (-1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
@@ -264,7 +275,7 @@ void gameplay() {
       ball = 13;*/
     }
   } else if(ball_x <= MINX) {
-    if((ball_x > paddle1_x - BALL_LENGTH) && (ball_x < (paddle1_x + BAT_LENGTH))) {
+    if((ball_y > paddle1_y - BALL_LENGTH) && (ball_y < (paddle1_y + PADDLE_LENGTH))) {
       // ball hit bat1
       ball_x *= (rand() % (10) + (1));
       ball_y *= (rand() % (10) + (-10));

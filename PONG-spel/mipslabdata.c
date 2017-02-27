@@ -327,6 +327,14 @@ const uint8_t const scorethree[] = {
 	0, 0, 68, 198, 146, 146, 254, 108,
 };
 
-const uint8_t const paddle[] = {
+const uint8_t const paddle1[] = {
 	255, 255,
+};
+
+const uint8_t const paddle2[] = {
+	255, 255,
+};
+
+const uint8_t const ball[] = {
+	15, 15, 15, 15,
 };
