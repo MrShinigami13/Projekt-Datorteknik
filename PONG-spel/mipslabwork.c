@@ -277,31 +277,10 @@ void gameplay() {
       ball = 13;*/
     }
   }
-  // see which of the players score to show this time
-<<<<<<< HEAD
-  /*if(p % 2) {
-    // enable player 1's 7seg display and disable player 2's
-    digitalWrite(11, HIGH);
-    digitalWrite(12, LOW);
-    // drive the score onto player 1's display
-    sevenseg(player1_score);
-  } else {
-    // enable player 2's 7seg display and disable player 2's
-    digitalWrite(11, LOW);
-    digitalWrite(12, HIGH);
-    // drive the score onto player 2's display
-    sevenseg(player2_score);
-  }
+  
   // toggle the lsb of p to alternate who gets the score next time
-  p^=1;
+ /* p^=1;
   // delay a bit before the next position update
   delay(10);*/
 }
-=======
-  
-  // toggle the lsb of p to alternate who gets the score next time
-  p^=1;
-  // delay a bit before the next position update
-  delay(10);
-}
->>>>>>> origin/master
+
