@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c labwork.s mipslabdata.c mipslabfunk.c mipslabwork.c vectors.s stubs.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c labwork.s mipslabdata.c mipslabfunk.c mipslabwork.c vectors.s stubs.c OledFunc.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/labwork.o ${OBJECTDIR}/mipslabdata.o ${OBJECTDIR}/mipslabfunk.o ${OBJECTDIR}/mipslabwork.o ${OBJECTDIR}/vectors.o ${OBJECTDIR}/stubs.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/labwork.o.d ${OBJECTDIR}/mipslabdata.o.d ${OBJECTDIR}/mipslabfunk.o.d ${OBJECTDIR}/mipslabwork.o.d ${OBJECTDIR}/vectors.o.d ${OBJECTDIR}/stubs.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/labwork.o ${OBJECTDIR}/mipslabdata.o ${OBJECTDIR}/mipslabfunk.o ${OBJECTDIR}/mipslabwork.o ${OBJECTDIR}/vectors.o ${OBJECTDIR}/stubs.o ${OBJECTDIR}/OledFunc.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/labwork.o.d ${OBJECTDIR}/mipslabdata.o.d ${OBJECTDIR}/mipslabfunk.o.d ${OBJECTDIR}/mipslabwork.o.d ${OBJECTDIR}/vectors.o.d ${OBJECTDIR}/stubs.o.d ${OBJECTDIR}/OledFunc.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/labwork.o ${OBJECTDIR}/mipslabdata.o ${OBJECTDIR}/mipslabfunk.o ${OBJECTDIR}/mipslabwork.o ${OBJECTDIR}/vectors.o ${OBJECTDIR}/stubs.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/labwork.o ${OBJECTDIR}/mipslabdata.o ${OBJECTDIR}/mipslabfunk.o ${OBJECTDIR}/mipslabwork.o ${OBJECTDIR}/vectors.o ${OBJECTDIR}/stubs.o ${OBJECTDIR}/OledFunc.o
 
 # Source Files
-SOURCEFILES=main.c labwork.s mipslabdata.c mipslabfunk.c mipslabwork.c vectors.s stubs.c
+SOURCEFILES=main.c labwork.s mipslabdata.c mipslabfunk.c mipslabwork.c vectors.s stubs.c OledFunc.c
 
 
 CFLAGS=
@@ -146,6 +146,12 @@ ${OBJECTDIR}/stubs.o: stubs.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/stubs.o 
 	@${FIXDEPS} "${OBJECTDIR}/stubs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/stubs.o.d" -o ${OBJECTDIR}/stubs.o stubs.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/OledFunc.o: OledFunc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/OledFunc.o.d 
+	@${RM} ${OBJECTDIR}/OledFunc.o 
+	@${FIXDEPS} "${OBJECTDIR}/OledFunc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/OledFunc.o.d" -o ${OBJECTDIR}/OledFunc.o OledFunc.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -176,6 +182,12 @@ ${OBJECTDIR}/stubs.o: stubs.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/stubs.o.d 
 	@${RM} ${OBJECTDIR}/stubs.o 
 	@${FIXDEPS} "${OBJECTDIR}/stubs.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/stubs.o.d" -o ${OBJECTDIR}/stubs.o stubs.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/OledFunc.o: OledFunc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/OledFunc.o.d 
+	@${RM} ${OBJECTDIR}/OledFunc.o 
+	@${FIXDEPS} "${OBJECTDIR}/OledFunc.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/OledFunc.o.d" -o ${OBJECTDIR}/OledFunc.o OledFunc.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 

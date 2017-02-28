@@ -12,7 +12,9 @@
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <p32xxxx.h>  /* Declarations of system-specific addresses etc */
-#include "header.h" /* Declatations for these labs */
+#include "mipslab.h" /* Declatations for these labs */
+
+
 
 volatile int * trise = (volatile int *) 0xbf886100;
 volatile int * porte = (volatile int *) 0xbf886110;
@@ -34,6 +36,7 @@ void user_isr( void )
     timeoutcounter = 0;
     time2string(textstring, mytime);
     display_string(3, textstring);
+    
     display_update();
     tick(&mytime);
     }

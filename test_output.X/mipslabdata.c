@@ -6,7 +6,7 @@
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <p32xxxx.h>  /* Declarations of system-specific addresses etc */
-#include "header.h" /* Declatations for these labs */
+#include "mipslab.h" /* Declatations for these labs */
 
 char textbuffer[4][16];
 

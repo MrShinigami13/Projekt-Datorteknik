@@ -6,7 +6,7 @@
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
 #include <p32xxxx.h>  /* Declarations of system-specific addresses etc */
-#include "header.h" /* Declatations for these labs */
+#include "mipslab.h" /* Declatations for these labs */
 
 /* Declare a helper function which is local to this file */
 static void num32asc( char * s, int );
