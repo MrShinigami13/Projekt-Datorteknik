@@ -6,6 +6,7 @@
 extern int		xcoOledCur;
 extern int		ycoOledCur;
 extern char *	pbOledCur;
+extern char		rgbOledBmp[];
 
 extern int		bnOledCur;
 extern char		clrOledCur;
