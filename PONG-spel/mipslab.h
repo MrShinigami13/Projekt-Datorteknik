@@ -8,6 +8,13 @@
    For copyright and licensing, see file COPYING */
 
 /* Declare display-related functions from mipslabfunc.c */
+
+#define	cbOledDispMax	512		//max number of bytes in display buffer
+
+#define	ccolOledMax		128		//number of display columns
+#define	crowOledMax		32		//number of display rows
+#define	cpagOledMax		4		//number of display memory pages
+
 void display_image(int x, const uint8_t *data);
 void display_score(int x, int y, const uint8_t *data);
 void display_paddle1(int x, int y, const uint8_t *data);

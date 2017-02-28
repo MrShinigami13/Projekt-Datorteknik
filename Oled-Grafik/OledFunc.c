@@ -1,6 +1,7 @@
 
 #include <p32xxxx.h>
 #include "OledDriver.h"
+#include "mipslab.h"
 
 
 extern int		xcoOledCur;
