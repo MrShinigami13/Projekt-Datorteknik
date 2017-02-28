@@ -1,16 +1,16 @@
 
 #include <p32xxxx.h>
-#include "OledDriver.h"
+
 #include "mipslab.h"
 
 
-extern int		xcoOledCur;
-extern int		ycoOledCur;
-extern char *	pbOledCur;
+int		xcoOledCur;
+int		ycoOledCur;
+char *	pbOledCur;
 
-extern int		bnOledCur;
-extern char		clrOledCur;
-extern char *	pbOledPatCur;
+int		bnOledCur;
+char		clrOledCur;
+char *	pbOledPatCur;
 
 
 void	OledMoveDown();
