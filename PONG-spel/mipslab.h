@@ -20,6 +20,8 @@ void display_score(int x, int y, const uint8_t *data);
 void display_paddle1(int x, int y, const uint8_t *data);
 void display_paddle2(int x, int y, const uint8_t *data);
 void display_ball(int x, int y, const uint8_t *data);
+void OledMoveTo(int xco, int yco);
+void OledPutBmp(int dxco, int dyco, char * pbBits);
 void display_init(void);
 void display_string(int line, char *s);
 void display_update(void);
