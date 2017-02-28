@@ -87,9 +87,10 @@ void user_isr( void )
 		timeoutcounter = 0;
 		time2string(textstring, mytime);
 		display_string(3, textstring);
-    display_paddle(paddle1_x,paddle1_y,paddle1);
-    display_paddle(paddle2_x,paddle2_y,paddle2);
-		display_update();
+    display_update();
+    //display_paddle(paddle1_x,paddle1_y,paddle1);
+    //display_paddle(paddle2_x,paddle2_y,paddle2);
+
 		tick(&mytime);
 		}
 		timeoutcounter++;
@@ -112,7 +113,7 @@ void user_isr( void )
 		else if (IFS(0) & 0x80) // int1
 			{
 
-				labwork();		// behöver ha ett kort delay av någon form för att inte göra flera loopar
+			//	labwork();		// behöver ha ett kort delay av någon form för att inte göra flera loopar
 				volatile int sw1 = PORTD;
 				sw1 = sw1 >> 8;
 				sw1 &= 0x1;
@@ -122,12 +123,12 @@ void user_isr( void )
 				}
 				bindis++;
 				PORTE = bindis;
-				display_score(48, 0, scorezero);
+				//display_score(48, 0, scorezero);
 
 			}
 			else if (IFS(0) & 0x800) // int2
 				{
-					labwork();
+					//labwork();
 					volatile int sw2 = PORTD;
 					sw2 = sw2 >> 9;
 					sw2 &= 0x1;
@@ -137,12 +138,12 @@ void user_isr( void )
 						IFS(0) &= ~0x800;
 
 					}
-					display_score(48, 0, scoreone);
+					//display_score(48, 0, scoreone);
 
 				}
 				else if (IFS(0) & 0x8000) //int3
 					{
-						labwork();
+						//labwork();
 						volatile int sw3 = PORTD;
 						sw3 = sw3 >> 10;
 						sw3 &= 0x1;
@@ -152,12 +153,12 @@ void user_isr( void )
 							IFS(0) &= ~0x8000;
 
 						}
-						display_score(48, 0, scoretwo);
+						//display_score(48, 0, scoretwo);
 
 					}
 					else if (IFS(0) & 0x80000) // int4
 						{
-							labwork();
+							//labwork();
 							volatile int sw4 = PORTD;
 							sw4 = sw4 >> 11;
 							sw4 &= 0x1;
@@ -169,7 +170,7 @@ void user_isr( void )
 							}
 
 
-							display_score(48, 0, scorethree);
+							//display_score(48, 0, scorethree);
 
 						}
 
@@ -237,8 +238,9 @@ void labwork( void )
 {
 
 	//display_string(0, itoaconv(prime));
-	display_update();
-	//display_image(96,icon);
+	//display_update();
+	display_image(96,icon);
+  //display_image(paddle1_x,paddle1);
 }
 
 void gameplay() {
