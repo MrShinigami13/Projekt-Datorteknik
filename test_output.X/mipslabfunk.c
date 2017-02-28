@@ -160,6 +160,7 @@ void display_image(int x, const uint8_t *data) {
 			spi_send_recv(data[i*32 + j]);
 	}
 }
+/*
 void display_score(int x, const uint8_t *data) {
 	int i, j;
 
@@ -179,7 +180,7 @@ void display_score(int x, const uint8_t *data) {
 			spi_send_recv(data[i*32 + j]);
 	}
 }
-
+*/
 
 void display_update(void) {
 	int i, j, k;

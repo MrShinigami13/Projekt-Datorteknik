@@ -11,7 +11,7 @@
    For copyright and licensing, see file COPYING */
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
-#include <pic32mx.h>  /* Declarations of system-specific addresses etc */
+#include <p32xxxx.h>  /* Declarations of system-specific addresses etc */
 #include "mipslab.h"  /* Declatations for these labs */
 
 volatile int * trise = (volatile int *) 0xbf886100;
@@ -50,7 +50,7 @@ int prime = 1234567;
 int timeoutcounter = 0;
 int bindis = 0;
 int mytime = 0x5957;
-/*int paddle1_x = 0;
+int paddle1_x = 0;
 int paddle1_y = 12;
 int paddle2_x = 126;
 int paddle2_y = 12;
@@ -58,11 +58,11 @@ int ball_x = 62;
 int ball_y = 14;
 int ball_speed = 0;
 int player1score = 0;
-int player2score = 0;*/
+int player2score = 0;
 
 char textstring[] = "text, more text, and even more text!";
 
-unsigned int rand (void)
+unsigned int random (void)
 {
    static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
    unsigned int b;
@@ -80,7 +80,7 @@ unsigned int rand (void)
 /* Interrupt Service Routine */
 void user_isr( void )
 {
-	if (IFS(0) & 0x100)
+	if (IFS0 & 0x100)
 	{
 		if (timeoutcounter == 100)
 		{
@@ -88,15 +88,17 @@ void user_isr( void )
 		time2string(textstring, mytime);
 		display_string(3, textstring);
     display_update();
+    OledMoveTo(paddle2_x,paddle2_y);
+    OledPutBmp(2,8,paddle2);
     //display_paddle(paddle1_x,paddle1_y,paddle1);
     //display_paddle(paddle2_x,paddle2_y,paddle2);
 
 		tick(&mytime);
 		}
 		timeoutcounter++;
-		IFS(0) &= ~0x100;
+		IFS0 &= ~0x100;
 	}
-	/*else if (IFS(0) & 0x8000) //original
+	/*else if (IFS0 & 0x8000) //original
 		{
 			volatile int sw3 = PORTD;
 			sw3 = sw3 >> 10;
@@ -105,12 +107,12 @@ void user_isr( void )
 			PORTE = bindis;
 			labwork();
 			if(sw3 == 0){
-				IFS(0) &= ~0x8000;
+				IFS0 &= ~0x8000;
 
 			}
 
 		}*/
-		else if (IFS(0) & 0x80) // int1
+		else if (IFS0 & 0x80) // int1
 			{
 
 			//	labwork();		// behöver ha ett kort delay av någon form för att inte göra flera loopar
@@ -118,7 +120,7 @@ void user_isr( void )
 				sw1 = sw1 >> 8;
 				sw1 &= 0x1;
 				if(sw1 == 0){
-					IFS(0) &= ~0x80;
+					IFS0 &= ~0x80;
 
 				}
 				bindis++;
@@ -126,7 +128,7 @@ void user_isr( void )
 				//display_score(48, 0, scorezero);
 
 			}
-			else if (IFS(0) & 0x800) // int2
+			else if (IFS0 & 0x800) // int2
 				{
 					//labwork();
 					volatile int sw2 = PORTD;
@@ -135,13 +137,13 @@ void user_isr( void )
 					bindis++;
 					PORTE = bindis;
 					if(sw2 == 0){
-						IFS(0) &= ~0x800;
+						IFS0 &= ~0x800;
 
 					}
 					//display_score(48, 0, scoreone);
 
 				}
-				else if (IFS(0) & 0x8000) //int3
+				else if (IFS0 & 0x8000) //int3
 					{
 						//labwork();
 						volatile int sw3 = PORTD;
@@ -150,13 +152,13 @@ void user_isr( void )
 						bindis++;
 						PORTE = bindis;
 						if(sw3 == 0){
-							IFS(0) &= ~0x8000;
+							IFS0 &= ~0x8000;
 
 						}
 						//display_score(48, 0, scoretwo);
 
 					}
-					else if (IFS(0) & 0x80000) // int4
+					else if (IFS0 & 0x80000) // int4
 						{
 							//labwork();
 							volatile int sw4 = PORTD;
@@ -165,7 +167,7 @@ void user_isr( void )
 							bindis++;
 							PORTE = bindis;
 							if(sw4 == 0){
-								IFS(0) &= ~0x80000;
+								IFS0 &= ~0x80000;
 
 							}
 
@@ -188,10 +190,10 @@ void labinit( void )
 	TRISD |= 0x7f0; // va |=
 	INTCON = 0x1E; // high flank on swith 3 (rising edge)
 
-	IPC(1) = 0x1c000000;			// external interrupt 1
-	IPC(2) = 0x1c00001c;			// external interrupt 2 och timer 2
-	IPC(3) = 0x1c000000;			// external interrupt 3
-	IPC(4) = 0x1c000000;			// external interrupt 4
+	IPC1 = 0x1c000000;			// external interrupt 1
+	IPC2 = 0x1c00001c;			// external interrupt 2 och timer 2
+	IPC3 = 0x1c000000;			// external interrupt 3
+	IPC4 = 0x1c000000;			// external interrupt 4
 
 
 	// output controll (hardware PWM)
@@ -227,8 +229,8 @@ void labinit( void )
 	TMR2 = 0;
 	T2CONSET = 0x8000;
 //	IPC(2) = 0x1c;
-	//IEC(0) = 0x8100;			//lade till bit för INT3, tidigare 0x100 fungerande
-	IEC(0) = 0x88980; // för interrupts sw1-4 och timer2
+	//IEC(0) = 0x8100;			//lade till bit för INT3, tidigare 0x100 fungerandome
+	IEC0 = 0x88980; // för interrupts sw1-4 och timer2
 	enable_interrupt();
   return;
 }
@@ -253,22 +255,22 @@ void gameplay() {
   // it gets to the top or bottom of the screen.
   ball_y += ball_y;
   if(ball_y >= (MAXY - BALL_LENGTH)) {
-    ball_y *= (rand() % (-10) + (-1));
-	ball_x *= (rand() % (10) + (-10));
+    ball_y *= (random() % (-10) + (-1));
+	ball_x *= (random() % (10) + (-10));
   } else if (ball_y <= MINY) {
-    ball_y *= (rand() % (10) + (1));
-	ball_x *= (rand() % (10) + (-10));
+    ball_y *= (random() % (10) + (1));
+	ball_x *= (random() % (10) + (-10));
   }
 
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
   ball_x += ball_x;
   if(ball_x >= MAXX) {
-    if((ball_y > paddle2_y - BALL_LENGTH) && (ball < (paddle2_y + PADDLE_LENGTH))) {
+    if((ball_y > paddle2_y - BALL_LENGTH) && (ball_y < (paddle2_y + PADDLE_LENGTH))) {
       // ball hit bat2
-      ball_x *= (rand() % (-10) + (-1));          // just reflect it for now
+      ball_x *= (random() % (-10) + (-1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
-      ball_y *= (rand() % (10) + (-10));
+      ball_y *= (random() % (10) + (-10));
     } else {
       // player 2 missed the ball, increment player 1's score
       player1score++;
@@ -281,8 +283,8 @@ void gameplay() {
   } else if(ball_x <= MINX) {
     if((ball_y > paddle1_y - BALL_LENGTH) && (ball_y < (paddle1_y + PADDLE_LENGTH))) {
       // ball hit bat1
-      ball_x *= (rand() % (10) + (1));
-      ball_y *= (rand() % (10) + (-10));
+      ball_x *= (random() % (10) + (1));
+      ball_y *= (random() % (10) + (-10));
     } else {
       // player 1 missed the ball, give player 2 the points and serve
       player2score++;

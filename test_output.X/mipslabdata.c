@@ -5,10 +5,12 @@
    For copyright and licensing, see file COPYING */
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
-#include <pic32mx.h>  /* Declarations of system-specific addresses etc */
+#include <p32xxxx.h>  /* Declarations of system-specific addresses etc */
 #include "mipslab.h"  /* Declatations for these labs */
 
 char textbuffer[4][16];
+char textbuffer2[512];
+
 
 const uint8_t const font[] = {
 
@@ -327,14 +329,14 @@ const uint8_t const scorethree[] = {
 	0, 0, 68, 198, 146, 146, 254, 108,
 };
 
-const uint8_t const paddle1[] = {
+uint8_t paddle1[] = {
 	255, 255,
 };
 
-const uint8_t const paddle2[] = {
+uint8_t paddle2[] = {
 	255, 255,
 };
 
-const uint8_t const ball[] = {
+uint8_t ball[] = {
 	15, 15, 15, 15,
 };

@@ -8,6 +8,7 @@
    For copyright and licensing, see file COPYING */
 
 /* Declare display-related functions from mipslabfunc.c */
+#include <stdint.h>
 
 #define	cbOledDispMax	512		//max number of bytes in display buffer
 
@@ -67,11 +68,12 @@ extern const uint8_t const scorezero[8];
 extern const uint8_t const scoreone[8];
 extern const uint8_t const scoretwo[8];
 extern const uint8_t const scorethree[8];
-extern const uint8_t const paddle1[2];
-extern const uint8_t const paddle2[2];
-extern const uint8_t const ball[4];
+extern uint8_t paddle1[2];
+extern uint8_t paddle2[2];
+extern uint8_t ball[4];
 /* Declare text buffer for display output */
 extern char textbuffer[4][16];
+extern char textbuffer2[512];
 
 /* Declare functions written by students.
    Note: Since we declare these functions here,
