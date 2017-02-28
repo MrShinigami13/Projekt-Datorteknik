@@ -97,11 +97,13 @@ uint8_t spi_send_recv(uint8_t data) {
 }
 
 void display_init(void) {
+     
+ 
         DISPLAY_CHANGE_TO_COMMAND_MODE;
 	quicksleep(10);
 	DISPLAY_ACTIVATE_VDD;
-	quicksleep(1000000);
-
+	quicksleep(1000);
+LATEbits.LATE1 = 1;
 	spi_send_recv(0xAE);
 	DISPLAY_ACTIVATE_RESET;
 	quicksleep(10);
@@ -115,7 +117,7 @@ void display_init(void) {
 	spi_send_recv(0xF1);
 
 	DISPLAY_ACTIVATE_VBAT;
-	quicksleep(10000000);
+	quicksleep(10000);
 
 	spi_send_recv(0xA1);
 	spi_send_recv(0xC8);
@@ -185,6 +187,8 @@ void display_score(int x, const uint8_t *data) {
 void display_update(void) {
 	int i, j, k;
 	int c;
+     LATEbits.LATE2 = 1;
+  
 	for(i = 0; i < 4; i++) {
 		DISPLAY_CHANGE_TO_COMMAND_MODE;
 		spi_send_recv(0x22);

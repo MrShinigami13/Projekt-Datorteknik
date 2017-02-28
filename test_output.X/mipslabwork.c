@@ -88,8 +88,8 @@ void user_isr( void )
 		time2string(textstring, mytime);
 		display_string(3, textstring);
     display_update();
-    OledMoveTo(paddle2_x,paddle2_y);
-    OledPutBmp(2,8,paddle2);
+    //OledMoveTo(paddle2_x,paddle2_y);
+    //OledPutBmp(2,8,paddle2);
     //display_paddle(paddle1_x,paddle1_y,paddle1);
     //display_paddle(paddle2_x,paddle2_y,paddle2);
 
@@ -112,6 +112,7 @@ void user_isr( void )
 			}
 
 		}*/
+    /*
 		else if (IFS0 & 0x80) // int1
 			{
 
@@ -174,16 +175,17 @@ void user_isr( void )
 
 							//display_score(48, 0, scorethree);
 
-						}
+						} */
 
 
-
-	//return;
+	return;
 }
 
 /* Lab-specific initialization goes here */
 void labinit( void )
 {
+    
+   
 	*trise = *trise & 0xff00; // 1111 1111 0000 0000
 	//*porte = *porte & 0x0;
 	PORTE = 0x0;
@@ -194,9 +196,10 @@ void labinit( void )
 	IPC2 = 0x1c00001c;			// external interrupt 2 och timer 2
 	IPC3 = 0x1c000000;			// external interrupt 3
 	IPC4 = 0x1c000000;			// external interrupt 4
+   
 
 
-	// output controll (hardware PWM)
+/*	// output controll (hardware PWM)
 	OC1CON = 0x0000;
 	OC1R = 0x083a;
 	OC1RS = 0x083a;
@@ -217,6 +220,7 @@ void labinit( void )
 	PMAEN = 0;
 	PMMODE = 0x23FF;
 	PMCON = 0x8000;
+ * */
 /* behöver skrivas om FIXME
 	ConfigIntTimer2((T2_INT_ON | T2_INT_PRIOR_3));
   ConfigIntTimer3((T3_INT_ON | T3_INT_PRIOR_3));
@@ -230,17 +234,22 @@ void labinit( void )
 	T2CONSET = 0x8000;
 //	IPC(2) = 0x1c;
 	//IEC(0) = 0x8100;			//lade till bit för INT3, tidigare 0x100 fungerandome
-	IEC0 = 0x88980; // för interrupts sw1-4 och timer2
+	//IEC0 = 0x88980; // för interrupts sw1-4 och timer2
+    IEC0 = 0x100;
 	enable_interrupt();
-  return;
+    LATEbits.LATE3 = 1;
+ 
 }
 
 /* This function is called repetitively from the main program */
 void labwork( void )
 {
 
-	//display_string(0, itoaconv(prime));
-	//display_update();
+    LATEbits.LATE4 = 1;
+	display_string(0, itoaconv(prime));
+	display_update();
+    //OledMoveTo(paddle2_x,paddle2_y);
+    //OledPutBmp(2,8,paddle2);
 	display_image(96,icon);
   //display_image(paddle1_x,paddle1);
 }

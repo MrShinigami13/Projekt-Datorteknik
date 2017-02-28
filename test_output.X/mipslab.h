@@ -31,6 +31,7 @@ uint8_t spi_send_recv(uint8_t data);
 /* Declare lab-related functions from mipslabfunc.c */
 char * itoaconv( int num );
 void labwork(void);
+void labinit(void);
 int nextprime( int inval );
 void quicksleep(int cyc);
 void tick( unsigned int * timep );
@@ -48,6 +49,7 @@ void tick( unsigned int * timep );
    about half of the digits shown by display_debug.
 */
 void display_debug( volatile int * const addr );
+void enable_interrupt();
 
 extern int paddle1_x;
 extern int paddle1_y;

@@ -12,6 +12,18 @@
 #include "mipslab.h" /* Declatations for these labs */
 
 int main(void) {
+     
+   TRISEbits.TRISE0 = 0;
+   TRISEbits.TRISE1 = 0;
+   TRISEbits.TRISE2 = 0;
+   TRISEbits.TRISE3 = 0;
+   TRISEbits.TRISE4 = 0;
+   TRISEbits.TRISE5 = 0;
+   TRISEbits.TRISE6 = 0;
+  // Set pin RF0 to 1 (3.3v)
+  LATEbits.LATE0 = 1;
+ 
+  
 	/* Set up peripheral bus clock */
         /* OSCCONbits.PBDIV = 1; */
         OSCCONCLR = 0x100000; /* clear PBDIV bit 1 */
@@ -46,7 +58,8 @@ int main(void) {
 	SPI2CONSET = 0x20;
 	/* SPI2CON bit ON = 1; */
 	SPI2CONSET = 0x8000;
-
+    
+    LATEbits.LATE5 = 1;
 	display_init();
 	display_string(0, "KTH/ICT lab");
 	display_string(1, "in Computer");
@@ -54,11 +67,11 @@ int main(void) {
 	display_string(3, "Welcome!");
 	display_update();
 
-	display_image(96, icon);
+	//display_image(96, icon);
 
 	labinit(); /* Do any lab-specific initialization */
-
-	while( 1 )
+    int lkjjkladslkkldsflk = 1;
+	while(lkjjkladslkkldsflk = 1)
 	{
 	  labwork(); /* Do lab-specific things again and again */
 	}

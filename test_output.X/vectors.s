@@ -10,7 +10,7 @@
 
 .macro STUB num
 	.align 4
-	.section .vector_new_\num,"ax",@progbits
+	.section .vector_new_\num,code # old: .section .vector_new_\num,"ax",@progbits
 	.global __vector_\num
 	__vector_\num:
 		movi $k0, _isr_primary_install
@@ -239,7 +239,7 @@ _isr_trampoline:
 
 
 # Exceptions are handled here (trap, syscall, etc)
-.section .gen_handler,"ax",@progbits
+.section .gen_handler,code # old: .section .gen_handler,"ax",@progbits
 .set noreorder
 .ent _gen_exception
 _gen_exception:
