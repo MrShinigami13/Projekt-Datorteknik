@@ -20,6 +20,8 @@ void display_score(int x, int y, const uint8_t *data);
 void display_paddle1(int x, int y, const uint8_t *data);
 void display_paddle2(int x, int y, const uint8_t *data);
 void display_ball(int x, int y, const uint8_t *data);
+void OledMoveTo(int xco, int yco);
+void OledPutBmp(int dxco, int dyco, char * pbBits);
 void display_init(void);
 void display_string(int line, char *s);
 void display_update(void);
@@ -31,16 +33,6 @@ void labwork(void);
 int nextprime( int inval );
 void quicksleep(int cyc);
 void tick( unsigned int * timep );
-
-
-extern int		xcoOledCur;
-extern int		ycoOledCur;
-extern char *	pbOledCur;
-
-extern int		bnOledCur;
-extern char		clrOledCur;
-extern char *	pbOledPatCur;
-
 
 /* Declare display_debug - a function to help debugging.
 
@@ -91,15 +83,3 @@ void time2string( char *, int );
 /* Written as part of i/o lab: getbtns, getsw */
 int getbtns(void);
 int getsw(void);
-
-
-#if !defined(OLEDGRPH_H)
-#define	OLEDGRPH_H
-
-void	OledMoveTo(int xco, int yco);
-void	OledGetPos(int * pxco, int * pyco);
-
-void	OledGetBmp(int dxco, int dyco, uint8_t * pbBmp);
-void	OledPutBmp(int dxco, int dyco, uint8_t * pbBmp);
-
-#endif

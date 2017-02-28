@@ -1,5 +1,6 @@
 
 #include <p32xxxx.h>
+
 #include "mipslab.h"
 
 
@@ -38,7 +39,7 @@ void OledMoveTo(int xco, int yco)
 	/* Compute the display access parameters corresponding to
 	** the specified position.
 	*/
-	pbOledCur = &rgbOledBmp[((yco/8) * ccolOledMax) + xco];
+	pbOledCur = &textbuffer[((yco/8) * ccolOledMax) + xco];
 	bnOledCur = yco & 7;
 
 }
@@ -127,7 +128,7 @@ OledPutBmp(int dxco, int dyco, char * pbBits)
 	bnAlign = ycoTop & 0x07;
 	mskUpper = (1 << bnAlign) - 1;
 	mskLower = ~mskUpper;
-	pbDspLeft = &rgbOledBmp[((ycoTop/8) * ccolOledMax) + xcoLeft];
+	pbDspLeft = &textbuffer[((ycoTop/8) * ccolOledMax) + xcoLeft];
 	pbBmpLeft = pbBits;
 	fTop = 1;
 
@@ -223,7 +224,7 @@ OledMoveUp()
 		/* If we have gone off of the top of the display,
 		** go back down.
 		*/
-		if (pbOledCur < rgbOledBmp) {
+		if (pbOledCur < textbuffer) {
 			pbOledCur += ccolOledMax;
 		}
 	}
@@ -263,7 +264,7 @@ OledMoveDown()
 		/* If we have gone off the end of the display memory
 		** go back up a page.
 		*/
-		if (pbOledCur >= rgbOledBmp+cbOledDispMax) {
+		if (pbOledCur >= textbuffer+cbOledDispMax) {
 			pbOledCur -= ccolOledMax;
 		}
 	}
@@ -292,7 +293,7 @@ OledMoveLeft()
 
 	/* Are we at the left edge of the display already
 	*/
-	if (((pbOledCur - rgbOledBmp) & (ccolOledMax-1)) == 0) {
+	if (((pbOledCur - textbuffer) & (ccolOledMax-1)) == 0) {
 		return;
 	}
 
@@ -325,7 +326,7 @@ OledMoveRight()
 
 	/* Are we at the right edge of the display already
 	*/
-	if (((pbOledCur-rgbOledBmp) & (ccolOledMax-1)) == (ccolOledMax-1)) {
+	if (((pbOledCur-textbuffer) & (ccolOledMax-1)) == (ccolOledMax-1)) {
 		return;
 	}
 
