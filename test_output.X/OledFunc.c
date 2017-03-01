@@ -12,11 +12,11 @@ int		bnOledCur;
 char		clrOledCur;
 char *	pbOledPatCur;
 char (*pfnDoRop)(char Pix,char bDsp, char mskPix);
-
+/*
 void	OledMoveDown();
 void	OledMoveUp();
 void	OledMoveRight();
-void	OledMoveLeft();
+void	OledMoveLeft();*/
 
 int		OledClampXco(int xco);
 int		OledClampYco(int yco);

@@ -11,8 +11,10 @@
    For copyright and licensing, see file COPYING */
 
 #include <stdint.h>   /* Declarations of uint_32 and the like */
+#include <stdio.h>
 #include <p32xxxx.h>  /* Declarations of system-specific addresses etc */
 #include "mipslab.h"  /* Declatations for these labs */
+#include <xc.h>
 
 volatile int * trise = (volatile int *) 0xbf886100;
 //volatile int * porte = (volatile int *) 0xbf886110;
@@ -78,8 +80,10 @@ unsigned int random (void)
 }
 
 /* Interrupt Service Routine */
+
 void user_isr( void )
 {
+    LATEbits.LATE3 = 1;
 	if (IFS0 & 0x100)
 	{
 		if (timeoutcounter == 100)
@@ -185,19 +189,25 @@ void user_isr( void )
 void labinit( void )
 {
     
-   
+    
 	*trise = *trise & 0xff00; // 1111 1111 0000 0000
 	//*porte = *porte & 0x0;
 	PORTE = 0x0;
 	TRISD |= 0x7f0; // va |=
-	INTCON = 0x1E; // high flank on swith 3 (rising edge)
+	/*INTCON = 0x1E; // high flank on swith 3 (rising edge)
 
 	IPC1 = 0x1c000000;			// external interrupt 1
 	IPC2 = 0x1c00001c;			// external interrupt 2 och timer 2
 	IPC3 = 0x1c000000;			// external interrupt 3
 	IPC4 = 0x1c000000;			// external interrupt 4
    
-
+*/
+    
+    INTCONbits.INT1EP = 1;
+    INTCONbits.INT2EP = 1;
+    INTCONbits.INT3EP = 1;
+    INTCONbits.INT4EP = 1;
+    
 
 /*	// output controll (hardware PWM)
 	OC1CON = 0x0000;
@@ -227,17 +237,34 @@ void labinit( void )
   ConfigIntTimer4((T4_INT_ON | T4_INT_PRIOR_4));
   ConfigIntTimer5((T5_INT_ON | T5_INT_PRIOR_5));
 */
-	T2CON = 0x60;
+	//T2CON = 0x60;
+    T2CONbits.ON = 1;
 	PR2 = TMR2PERIOD;
+    
 
 	TMR2 = 0;
-	T2CONSET = 0x8000;
+	//T2CONSET = 0x8000;
 //	IPC(2) = 0x1c;
 	//IEC(0) = 0x8100;			//lade till bit för INT3, tidigare 0x100 fungerandome
 	//IEC0 = 0x88980; // för interrupts sw1-4 och timer2
-    IEC0 = 0x100;
+    //IEC0 = 0x100;
+    IEC0bits.INT1IE = 1;
+    IEC0bits.INT2IE = 1;
+    IEC0bits.INT3IE = 1;
+    IEC0bits.INT4IE = 1;
+    IFS0bits.INT1IF = 0;
+    IFS0bits.INT2IF = 0;
+    IFS0bits.INT3IF = 0;
+    IFS0bits.INT4IF = 0;
+    IEC0bits.T2IE = 1;
+    IFS0bits.T2IF = 0;
+  
+    
 	enable_interrupt();
-    LATEbits.LATE3 = 1;
+    //interrupts();
+   
+    LATEbits.LATE4 = 1;
+    
  
 }
 
@@ -245,12 +272,13 @@ void labinit( void )
 void labwork( void )
 {
 
-    LATEbits.LATE4 = 1;
+   
 	display_string(0, itoaconv(prime));
+    display_image(96,icon);
 	display_update();
-    //OledMoveTo(paddle2_x,paddle2_y);
+   // OledMoveTo(paddle2_x,paddle2_y);
     //OledPutBmp(2,8,paddle2);
-	display_image(96,icon);
+	
   //display_image(paddle1_x,paddle1);
 }
 

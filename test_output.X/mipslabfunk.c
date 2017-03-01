@@ -161,6 +161,7 @@ void display_image(int x, const uint8_t *data) {
 		for(j = 0; j < 32; j++)
 			spi_send_recv(data[i*32 + j]);
 	}
+    return;
 }
 /*
 void display_score(int x, const uint8_t *data) {
@@ -187,8 +188,10 @@ void display_score(int x, const uint8_t *data) {
 void display_update(void) {
 	int i, j, k;
 	int c;
+    if(PORTEbits.RE2 == 0)
      LATEbits.LATE2 = 1;
-  
+    else
+        LATEbits.LATE2 = 0;
 	for(i = 0; i < 4; i++) {
 		DISPLAY_CHANGE_TO_COMMAND_MODE;
 		spi_send_recv(0x22);

@@ -67,13 +67,14 @@ int main(void) {
 	display_string(3, "Welcome!");
 	display_update();
 
-	//display_image(96, icon);
+	display_image(96, icon);
 
 	labinit(); /* Do any lab-specific initialization */
-    int lkjjkladslkkldsflk = 1;
-	while(lkjjkladslkkldsflk = 1)
+  
+	while(1)
 	{
 	  labwork(); /* Do lab-specific things again and again */
+      
 	}
 	return 0;
 }

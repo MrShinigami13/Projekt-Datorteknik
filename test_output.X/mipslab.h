@@ -49,7 +49,7 @@ void tick( unsigned int * timep );
    about half of the digits shown by display_debug.
 */
 void display_debug( volatile int * const addr );
-void enable_interrupt();
+void enable_interrupt(void);
 
 extern int paddle1_x;
 extern int paddle1_y;
