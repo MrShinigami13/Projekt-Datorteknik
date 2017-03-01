@@ -65,6 +65,7 @@ extern int player2score;
 extern const uint8_t const font[128*8];
 /* Declare bitmap array containing icon */
 extern const uint8_t const icon[128];
+extern const uint8_t const icon2[128];
 // Declar bitmap array containing score numbers
 extern const uint8_t const scorezero[8];
 extern const uint8_t const scoreone[8];

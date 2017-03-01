@@ -12,6 +12,7 @@
 #include "mipslab.h" /* Declatations for these labs */
 
 int main(void) {
+    
      
    TRISEbits.TRISE0 = 0;
    TRISEbits.TRISE1 = 0;

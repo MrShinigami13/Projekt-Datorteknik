@@ -80,6 +80,7 @@ void tick( unsigned int * timep )
    repeated calls to display_image; display_image overwrites
    about half of the digits shown by display_debug.
 */
+
 void display_debug( volatile int * const addr )
 {
   display_string( 1, "Addr" );
@@ -159,7 +160,7 @@ void display_image(int x, const uint8_t *data) {
 		DISPLAY_CHANGE_TO_DATA_MODE;
 
 		for(j = 0; j < 32; j++)
-			spi_send_recv(data[i*32 + j]);
+			spi_send_recv(~data[i*32 + j]);
 	}
     return;
 }

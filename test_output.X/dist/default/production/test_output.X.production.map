@@ -121,83 +121,84 @@ Microchip PIC32 Memory-Usage Report
 kseg0 Program-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-.text                   0x9d000000         0x1828        6184  App's exec code 
-.rodata                 0x9d001828          0x4a0        1184  Read-only const 
-.text                   0x9d001cc8          0x598        1432  App's exec code 
-.text.general_exception 0x9d002260           0xdc         220   
-.dinit                  0x9d00233c           0xb0         176   
-.text.main_entry        0x9d0023ec           0x54          84   
-.text                   0x9d002440           0x54          84  App's exec code 
-.text._bootstrap_except 0x9d002494           0x48          72   
-.text._general_exceptio 0x9d0024dc           0x48          72   
-.vector_default         0x9d002524           0x48          72   
-.text                   0x9d00256c           0x44          68  App's exec code 
-.rodata                 0x9d0025b0           0x60          96  Read-only const 
-.vector_new_0           0x9d002610           0x20          32   
-.vector_new_1           0x9d002630           0x20          32   
-.vector_new_2           0x9d002650           0x20          32   
-.vector_new_3           0x9d002670           0x20          32   
-.vector_new_4           0x9d002690           0x20          32   
-.vector_new_5           0x9d0026b0           0x20          32   
-.vector_new_6           0x9d0026d0           0x20          32   
-.vector_new_7           0x9d0026f0           0x20          32   
-.vector_new_8           0x9d002710           0x20          32   
-.vector_new_9           0x9d002730           0x20          32   
-.vector_new_10          0x9d002750           0x20          32   
-.vector_new_11          0x9d002770           0x20          32   
-.vector_new_12          0x9d002790           0x20          32   
-.vector_new_13          0x9d0027b0           0x20          32   
-.vector_new_14          0x9d0027d0           0x20          32   
-.vector_new_15          0x9d0027f0           0x20          32   
-.vector_new_16          0x9d002810           0x20          32   
-.vector_new_17          0x9d002830           0x20          32   
-.vector_new_18          0x9d002850           0x20          32   
-.vector_new_19          0x9d002870           0x20          32   
-.vector_new_20          0x9d002890           0x20          32   
-.vector_new_21          0x9d0028b0           0x20          32   
-.vector_new_22          0x9d0028d0           0x20          32   
-.vector_new_23          0x9d0028f0           0x20          32   
-.vector_new_24          0x9d002910           0x20          32   
-.vector_new_25          0x9d002930           0x20          32   
-.vector_new_26          0x9d002950           0x20          32   
-.vector_new_27          0x9d002970           0x20          32   
-.vector_new_28          0x9d002990           0x20          32   
-.vector_new_29          0x9d0029b0           0x20          32   
-.vector_new_30          0x9d0029d0           0x20          32   
-.vector_new_31          0x9d0029f0           0x20          32   
-.vector_new_32          0x9d002a10           0x20          32   
-.vector_new_33          0x9d002a30           0x20          32   
-.vector_new_34          0x9d002a50           0x20          32   
-.vector_new_35          0x9d002a70           0x20          32   
-.vector_new_36          0x9d002a90           0x20          32   
-.vector_new_37          0x9d002ab0           0x20          32   
-.vector_new_38          0x9d002ad0           0x20          32   
-.vector_new_39          0x9d002af0           0x20          32   
-.vector_new_40          0x9d002b10           0x20          32   
-.vector_new_41          0x9d002b30           0x20          32   
-.vector_new_42          0x9d002b50           0x20          32   
-.vector_new_43          0x9d002b70           0x20          32   
-.vector_new_44          0x9d002b90           0x20          32   
-.vector_new_45          0x9d002bb0           0x20          32   
-.vector_new_46          0x9d002bd0           0x20          32   
-.vector_new_47          0x9d002bf0           0x20          32   
-.vector_new_48          0x9d002c10           0x20          32   
-.vector_new_49          0x9d002c30           0x20          32   
-.vector_new_50          0x9d002c50           0x20          32   
-.vector_new_51          0x9d002c70           0x20          32   
-.vector_new_52          0x9d002c90           0x20          32   
-.vector_new_53          0x9d002cb0           0x20          32   
-.vector_new_54          0x9d002cd0           0x20          32   
-.vector_new_55          0x9d002cf0           0x20          32   
-.vector_new_56          0x9d002d10           0x20          32   
-.vector_new_57          0x9d002d30           0x20          32   
-.vector_new_58          0x9d002d50           0x20          32   
-.vector_new_59          0x9d002d70           0x20          32   
-.vector_new_60          0x9d002d90           0x20          32   
-.vector_new_61          0x9d002db0           0x20          32   
-.vector_new_62          0x9d002dd0           0x20          32   
-.vector_new_63          0x9d002df0           0x14          20   
-      Total kseg0_program_mem used  :      0x2e04       11780  9.0% of 0x20000
+.text                   0x9d000000         0x1900        6400  App's exec code 
+.rodata                 0x9d001900          0x520        1312  Read-only const 
+.text                   0x9d001e20          0x3e8        1000  App's exec code 
+.text                   0x9d002210          0x1b0         432  App's exec code 
+.text.general_exception 0x9d0023c0           0xdc         220   
+.dinit                  0x9d00249c           0xb0         176   
+.text.main_entry        0x9d00254c           0x54          84   
+.text                   0x9d0025a0           0x54          84  App's exec code 
+.text._bootstrap_except 0x9d0025f4           0x48          72   
+.text._general_exceptio 0x9d00263c           0x48          72   
+.vector_default         0x9d002684           0x48          72   
+.text                   0x9d0026cc           0x44          68  App's exec code 
+.rodata                 0x9d002710           0x60          96  Read-only const 
+.vector_new_0           0x9d002770           0x20          32   
+.vector_new_1           0x9d002790           0x20          32   
+.vector_new_2           0x9d0027b0           0x20          32   
+.vector_new_3           0x9d0027d0           0x20          32   
+.vector_new_4           0x9d0027f0           0x20          32   
+.vector_new_5           0x9d002810           0x20          32   
+.vector_new_6           0x9d002830           0x20          32   
+.vector_new_7           0x9d002850           0x20          32   
+.vector_new_8           0x9d002870           0x20          32   
+.vector_new_9           0x9d002890           0x20          32   
+.vector_new_10          0x9d0028b0           0x20          32   
+.vector_new_11          0x9d0028d0           0x20          32   
+.vector_new_12          0x9d0028f0           0x20          32   
+.vector_new_13          0x9d002910           0x20          32   
+.vector_new_14          0x9d002930           0x20          32   
+.vector_new_15          0x9d002950           0x20          32   
+.vector_new_16          0x9d002970           0x20          32   
+.vector_new_17          0x9d002990           0x20          32   
+.vector_new_18          0x9d0029b0           0x20          32   
+.vector_new_19          0x9d0029d0           0x20          32   
+.vector_new_20          0x9d0029f0           0x20          32   
+.vector_new_21          0x9d002a10           0x20          32   
+.vector_new_22          0x9d002a30           0x20          32   
+.vector_new_23          0x9d002a50           0x20          32   
+.vector_new_24          0x9d002a70           0x20          32   
+.vector_new_25          0x9d002a90           0x20          32   
+.vector_new_26          0x9d002ab0           0x20          32   
+.vector_new_27          0x9d002ad0           0x20          32   
+.vector_new_28          0x9d002af0           0x20          32   
+.vector_new_29          0x9d002b10           0x20          32   
+.vector_new_30          0x9d002b30           0x20          32   
+.vector_new_31          0x9d002b50           0x20          32   
+.vector_new_32          0x9d002b70           0x20          32   
+.vector_new_33          0x9d002b90           0x20          32   
+.vector_new_34          0x9d002bb0           0x20          32   
+.vector_new_35          0x9d002bd0           0x20          32   
+.vector_new_36          0x9d002bf0           0x20          32   
+.vector_new_37          0x9d002c10           0x20          32   
+.vector_new_38          0x9d002c30           0x20          32   
+.vector_new_39          0x9d002c50           0x20          32   
+.vector_new_40          0x9d002c70           0x20          32   
+.vector_new_41          0x9d002c90           0x20          32   
+.vector_new_42          0x9d002cb0           0x20          32   
+.vector_new_43          0x9d002cd0           0x20          32   
+.vector_new_44          0x9d002cf0           0x20          32   
+.vector_new_45          0x9d002d10           0x20          32   
+.vector_new_46          0x9d002d30           0x20          32   
+.vector_new_47          0x9d002d50           0x20          32   
+.vector_new_48          0x9d002d70           0x20          32   
+.vector_new_49          0x9d002d90           0x20          32   
+.vector_new_50          0x9d002db0           0x20          32   
+.vector_new_51          0x9d002dd0           0x20          32   
+.vector_new_52          0x9d002df0           0x20          32   
+.vector_new_53          0x9d002e10           0x20          32   
+.vector_new_54          0x9d002e30           0x20          32   
+.vector_new_55          0x9d002e50           0x20          32   
+.vector_new_56          0x9d002e70           0x20          32   
+.vector_new_57          0x9d002e90           0x20          32   
+.vector_new_58          0x9d002eb0           0x20          32   
+.vector_new_59          0x9d002ed0           0x20          32   
+.vector_new_60          0x9d002ef0           0x20          32   
+.vector_new_61          0x9d002f10           0x20          32   
+.vector_new_62          0x9d002f30           0x20          32   
+.vector_new_63          0x9d002f50           0x14          20   
+      Total kseg0_program_mem used  :      0x2f5c       12124  9.2% of 0x20000
 
 kseg0 Boot-Memory Usage
 section                    address  length [bytes]      (dec)  Description
@@ -262,7 +263,7 @@ section                    address  length [bytes]      (dec)  Description
 .bev_excpt              0xbfc00380           0x10          16  BEV-Exception 
          Total kseg1_boot_mem used  :       0x218         536  45.9% of 0x490
         --------------------------------------------------------------------------
-         Total Program Memory used  :      0x31a8       12712  9.2% of 0x21e00
+         Total Program Memory used  :      0x3300       13056  9.4% of 0x21e00
         --------------------------------------------------------------------------
 
 
@@ -270,21 +271,21 @@ kseg1 Data-Memory Usage
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
 .sdata                  0xa0000000           0x3c          60  Small init data 
-.sbss                   0xa000003c           0x34          52  Small uninit data 
-.bss                    0xa0000070          0x240         576  Uninitialized data 
-.data                   0xa00002b0           0x28          40  Initialized data 
-.bss                    0xa00002d8           0x18          24  Uninitialized data 
-         Total kseg1_data_mem used  :       0x2f0         752  4.6% of 0x4000
+.sbss                   0xa000003c           0x3c          60  Small uninit data 
+.bss                    0xa0000078          0x240         576  Uninitialized data 
+.data                   0xa00002b8           0x28          40  Initialized data 
+.bss                    0xa00002e0           0x18          24  Uninitialized data 
+         Total kseg1_data_mem used  :       0x2f8         760  4.6% of 0x4000
         --------------------------------------------------------------------------
-            Total Data Memory used  :       0x2f0         752  4.6% of 0x4000
+            Total Data Memory used  :       0x2f8         760  4.6% of 0x4000
         --------------------------------------------------------------------------
 
 
 Dynamic Data-Memory Reservation
 section                    address  length [bytes]      (dec)  Description
 -------                 ----------  -------------------------  -----------
-heap                    0xa00002f8           0x10          16  Reserved for heap 
-stack                   0xa0000320         0x3cd8       15576  Reserved for stack 
+heap                    0xa0000300           0x10          16  Reserved for heap 
+stack                   0xa0000328         0x3cd0       15568  Reserved for stack 
 
         --------------------------------------------------------------------------
 
@@ -931,39 +932,41 @@ END GROUP
                 0xa000003c                _data_end = .
                 0xa000003c                _bss_begin = .
 
-.sbss           0xa000003c       0x34
+.sbss           0xa000003c       0x3c
                 0xa000003c                _sbss_begin = .
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0xa000003c       0x18 build/default/production/mipslabwork.o
+ .sbss          0xa000003c       0x20 build/default/production/mipslabwork.o
                 0xa000003c                timeoutcounter
                 0xa0000040                bindis
                 0xa0000044                paddle1_x
                 0xa0000048                ball_speed
                 0xa000004c                player1score
                 0xa0000050                player2score
+                0xa0000054                oledlek
+                0xa0000058                oledlek2
  *(.scommon)
- .scommon       0xa0000054       0x1c build/default/production/OledFunc.o
-                0xa0000054                ycoOledCur
-                0xa0000058                xcoOledCur
-                0xa000005c                pbOledCur
-                0xa0000060                pbOledPatCur
-                0xa0000064                clrOledCur
-                0xa0000068                bnOledCur
-                0xa000006c                pfnDoRop
-                0xa0000070                _sbss_end = .
-                0xa0000070                . = ALIGN (0x4)
+ .scommon       0xa000005c       0x1c build/default/production/OledFunc.o
+                0xa000005c                ycoOledCur
+                0xa0000060                xcoOledCur
+                0xa0000064                pbOledCur
+                0xa0000068                pbOledPatCur
+                0xa000006c                clrOledCur
+                0xa0000070                bnOledCur
+                0xa0000074                pfnDoRop
+                0xa0000078                _sbss_end = .
+                0xa0000078                . = ALIGN (0x4)
 
-.bss            0xa0000070      0x240
+.bss            0xa0000078      0x240
  *(.dynbss)
  *(COMMON)
- COMMON         0xa0000070      0x240 build/default/production/mipslabdata.o
-                0xa0000070                textbuffer2
-                0xa0000270                textbuffer
-                0xa00002b0                . = ALIGN ((. != 0x0)?0x4:0x1)
-                0xa00002b0                . = ALIGN (0x4)
-                0xa00002b0                _end = .
-                0xa00002b0                _bss_end = .
+ COMMON         0xa0000078      0x240 build/default/production/mipslabdata.o
+                0xa0000078                textbuffer2
+                0xa0000278                textbuffer
+                0xa00002b8                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0xa00002b8                . = ALIGN (0x4)
+                0xa00002b8                _end = .
+                0xa00002b8                _bss_end = .
                 0x00004000                _bmxdudba_address = 0x4000
                 0x00004000                _bmxdupba_address = 0x4000
 
@@ -984,17 +987,17 @@ END GROUP
  *(.gptab.bss)
  *(.gptab.sbss)
 
-.mdebug.abi32   0xa00002b0        0x0
+.mdebug.abi32   0xa00002b8        0x0
  *(.mdebug.abi32)
- .mdebug.abi32  0xa00002b0        0x0 build/default/production/main.o
- .mdebug.abi32  0xa00002b0        0x0 build/default/production/mipslabdata.o
- .mdebug.abi32  0xa00002b0        0x0 build/default/production/mipslabfunk.o
- .mdebug.abi32  0xa00002b0        0x0 build/default/production/mipslabwork.o
- .mdebug.abi32  0xa00002b0        0x0 build/default/production/stubs.o
- .mdebug.abi32  0xa00002b0        0x0 build/default/production/OledFunc.o
- .mdebug.abi32  0xa00002b0        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .mdebug.abi32  0xa00002b0        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
- .mdebug.abi32  0xa00002b0        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .mdebug.abi32  0xa00002b8        0x0 build/default/production/main.o
+ .mdebug.abi32  0xa00002b8        0x0 build/default/production/mipslabdata.o
+ .mdebug.abi32  0xa00002b8        0x0 build/default/production/mipslabfunk.o
+ .mdebug.abi32  0xa00002b8        0x0 build/default/production/mipslabwork.o
+ .mdebug.abi32  0xa00002b8        0x0 build/default/production/stubs.o
+ .mdebug.abi32  0xa00002b8        0x0 build/default/production/OledFunc.o
+ .mdebug.abi32  0xa00002b8        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .mdebug.abi32  0xa00002b8        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
+ .mdebug.abi32  0xa00002b8        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
 .mdebug.abiN32
  *(.mdebug.abiN32)
@@ -1088,47 +1091,47 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2611
+.debug_info     0x00000000     0x26c9
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4f2 build/default/production/main.o
  .debug_info    0x000004f2       0x76 build/default/production/labwork.o
- .debug_info    0x00000568      0x2e9 build/default/production/mipslabdata.o
- .debug_info    0x00000851      0x79e build/default/production/mipslabfunk.o
- .debug_info    0x00000fef      0xcea build/default/production/mipslabwork.o
- .debug_info    0x00001cd9       0x72 build/default/production/vectors.o
- .debug_info    0x00001d4b       0xdd build/default/production/stubs.o
- .debug_info    0x00001e28      0x51a build/default/production/OledFunc.o
- .debug_info    0x00002342       0xf5 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_info    0x00002437       0xf1 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
- .debug_info    0x00002528       0xe9 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_info    0x00000568      0x303 build/default/production/mipslabdata.o
+ .debug_info    0x0000086b      0x79e build/default/production/mipslabfunk.o
+ .debug_info    0x00001009      0xd78 build/default/production/mipslabwork.o
+ .debug_info    0x00001d81       0x72 build/default/production/vectors.o
+ .debug_info    0x00001df3       0xdd build/default/production/stubs.o
+ .debug_info    0x00001ed0      0x52a build/default/production/OledFunc.o
+ .debug_info    0x000023fa       0xf5 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_info    0x000024ef       0xf1 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
+ .debug_info    0x000025e0       0xe9 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
-.debug_abbrev   0x00000000      0x650
+.debug_abbrev   0x00000000      0x68a
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xdf build/default/production/main.o
  .debug_abbrev  0x000000df       0x14 build/default/production/labwork.o
  .debug_abbrev  0x000000f3       0x6c build/default/production/mipslabdata.o
  .debug_abbrev  0x0000015f      0x1bc build/default/production/mipslabfunk.o
- .debug_abbrev  0x0000031b      0x15d build/default/production/mipslabwork.o
- .debug_abbrev  0x00000478       0x12 build/default/production/vectors.o
- .debug_abbrev  0x0000048a       0x2a build/default/production/stubs.o
- .debug_abbrev  0x000004b4      0x124 build/default/production/OledFunc.o
- .debug_abbrev  0x000005d8       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_abbrev  0x00000600       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
- .debug_abbrev  0x00000628       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_abbrev  0x0000031b      0x16e build/default/production/mipslabwork.o
+ .debug_abbrev  0x00000489       0x12 build/default/production/vectors.o
+ .debug_abbrev  0x0000049b       0x2a build/default/production/stubs.o
+ .debug_abbrev  0x000004c5      0x14d build/default/production/OledFunc.o
+ .debug_abbrev  0x00000612       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_abbrev  0x0000063a       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
+ .debug_abbrev  0x00000662       0x28 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
-.debug_line     0x00000000      0xebc
+.debug_line     0x00000000      0xecd
  *(.debug_line)
  .debug_line    0x00000000      0x169 build/default/production/main.o
  .debug_line    0x00000169       0x91 build/default/production/labwork.o
  .debug_line    0x000001fa       0xcb build/default/production/mipslabdata.o
  .debug_line    0x000002c5      0x237 build/default/production/mipslabfunk.o
- .debug_line    0x000004fc      0x1cd build/default/production/mipslabwork.o
- .debug_line    0x000006c9      0x452 build/default/production/vectors.o
- .debug_line    0x00000b1b       0x7e build/default/production/stubs.o
- .debug_line    0x00000b99      0x12b build/default/production/OledFunc.o
- .debug_line    0x00000cc4       0xa9 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_line    0x00000d6d       0xa7 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
- .debug_line    0x00000e14       0xa8 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_line    0x000004fc      0x1de build/default/production/mipslabwork.o
+ .debug_line    0x000006da      0x452 build/default/production/vectors.o
+ .debug_line    0x00000b2c       0x7e build/default/production/stubs.o
+ .debug_line    0x00000baa      0x12b build/default/production/OledFunc.o
+ .debug_line    0x00000cd5       0xa9 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_line    0x00000d7e       0xa7 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
+ .debug_line    0x00000e25       0xa8 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
 .debug_frame    0x00000000      0x448
  *(.debug_frame)
@@ -1141,17 +1144,17 @@ END GROUP
  .debug_frame   0x000003fc       0x2c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
  .debug_frame   0x00000428       0x20 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
-.debug_str      0x00000000        0x0
+.debug_str      0x00000000       0x1a
  *(.debug_str)
  .debug_str     0x00000000        0x0 build/default/production/main.o
  .debug_str     0x00000000        0x0 build/default/production/mipslabdata.o
  .debug_str     0x00000000        0x0 build/default/production/mipslabfunk.o
  .debug_str     0x00000000        0x0 build/default/production/mipslabwork.o
  .debug_str     0x00000000        0x0 build/default/production/stubs.o
- .debug_str     0x00000000        0x0 build/default/production/OledFunc.o
- .debug_str     0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
- .debug_str     0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
- .debug_str     0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+ .debug_str     0x00000000       0x1a build/default/production/OledFunc.o
+ .debug_str     0x0000001a        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+ .debug_str     0x0000001a        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
+ .debug_str     0x0000001a        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
 
 .debug_loc
  *(.debug_loc)
@@ -1222,15 +1225,15 @@ LOAD data_init
 .reginfo        0x00000000       0x18
  .reginfo       0x00000000       0x18 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MX320F128H/crt0_mips32r2.o
 
-.stack          0xa0000320      0x400
- .stack         0xa0000320      0x400 stack
+.stack          0xa0000328      0x400
+ .stack         0xa0000328      0x400 stack
 
-.data           0xa00002b0       0x28
- .data          0xa00002b0       0x28 build/default/production/mipslabwork.o
-                0xa00002b0                textstring
+.data           0xa00002b8       0x28
+ .data          0xa00002b8       0x28 build/default/production/mipslabwork.o
+                0xa00002b8                textstring
 
-.bss            0xa00002d8       0x18
- .bss           0xa00002d8       0x18 build/default/production/mipslabfunk.o
+.bss            0xa00002e0       0x18
+ .bss           0xa00002e0       0x18 build/default/production/mipslabfunk.o
 
 .bss            0x00000000        0x0
  .bss           0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
@@ -1604,8 +1607,8 @@ LOAD data_init
                 0xbfc00480       0x2c c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\debug-exception-return.o
                 0xbfc00480                __DbgExecReturn
 
-.text           0x9d000000     0x1828
- .text          0x9d000000      0xa6c build/default/production/mipslabfunk.o
+.text           0x9d000000     0x1900
+ .text          0x9d000000      0xa74 build/default/production/mipslabfunk.o
                 0x9d000000                quicksleep
                 0x9d00004c                tick
                 0x9d00015c                display_debug
@@ -1613,403 +1616,406 @@ LOAD data_init
                 0x9d00025c                display_init
                 0x9d000388                display_string
                 0x9d000480                display_image
-                0x9d0005a8                display_update
-                0x9d0007c0                nextprime
-                0x9d0008ec                itoaconv
- .text          0x9d000a6c      0x728 build/default/production/mipslabwork.o
-                0x9d000a6c                random
-                0x9d000b78                user_isr
-                0x9d000c44                labinit
-                0x9d000de4                labwork
-                0x9d000e48                gameplay
- .text          0x9d001194      0x694 build/default/production/OledFunc.o
-                0x9d001194                OledMoveTo
-                0x9d001230                OledGetPos
-                0x9d001270                OledPutBmp
-                0x9d0015fc                OledMoveUp
-                0x9d00166c                OledMoveDown
-                0x9d0016dc                OledMoveLeft
-                0x9d001730                OledMoveRight
-                0x9d001788                OledClampXco
-                0x9d0017d8                OledClampYco
+                0x9d0005b0                display_update
+                0x9d0007c8                nextprime
+                0x9d0008f4                itoaconv
+ .text          0x9d000a74      0x7e8 build/default/production/mipslabwork.o
+                0x9d000a74                random
+                0x9d000b80                _isr
+                0x9d000c18                labinit
+                0x9d000db8                labwork
+                0x9d000f10                gameplay
+ .text          0x9d00125c      0x6a4 build/default/production/OledFunc.o
+                0x9d00125c                OledMoveTo
+                0x9d0012f8                OledGetPos
+                0x9d001338                OledPutBmp
+                0x9d0016c4                OledMoveUp
+                0x9d001734                OledMoveDown
+                0x9d0017a4                OledMoveLeft
+                0x9d0017f8                OledMoveRight
+                0x9d001850                OledClampXco
+                0x9d0018a8                OledClampYco
 
-.rodata         0x9d001828      0x4a0
- .rodata        0x9d001828      0x4a0 build/default/production/mipslabdata.o
-                0x9d001828                font
-                0x9d001c28                icon
-                0x9d001ca8                scorezero
-                0x9d001cb0                scoreone
-                0x9d001cb8                scoretwo
-                0x9d001cc0                scorethree
+.rodata         0x9d001900      0x520
+ .rodata        0x9d001900      0x520 build/default/production/mipslabdata.o
+                0x9d001900                font
+                0x9d001d00                icon
+                0x9d001d80                icon2
+                0x9d001e00                scorezero
+                0x9d001e08                scoreone
+                0x9d001e10                scoretwo
+                0x9d001e18                scorethree
 
-.text           0x9d001cc8      0x598
- .text          0x9d001cc8      0x210 build/default/production/main.o
-                0x9d001cc8                main
- .text          0x9d001ed8      0x1d8 build/default/production/labwork.o
-                0x9d001ed8                enable_interrupt
-                0x9d001f18                delay
-                0x9d001f5c                time2string
- .text          0x9d0020b0      0x1b0 build/default/production/vectors.o
-                0x9d0020b0                _isr_primary_install
-                0x9d0020b0                __use_isr_install
-                0x9d0021b0                _isr_trampoline
+.text           0x9d001e20      0x3e8
+ .text          0x9d001e20      0x210 build/default/production/main.o
+                0x9d001e20                main
+ .text          0x9d002030      0x1d8 build/default/production/labwork.o
+                0x9d002030                enable_interrupt
+                0x9d002070                delay
+                0x9d0020b4                time2string
+
+.text           0x9d002210      0x1b0
+ .text          0x9d002210      0x1b0 build/default/production/vectors.o
+                0x9d002210                _isr_primary_install
+                0x9d002210                __use_isr_install
+                0x9d002310                _isr_trampoline
 
 .text.general_exception
-                0x9d002260       0xdc
+                0x9d0023c0       0xdc
  .text.general_exception
-                0x9d002260       0xdc c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(general-exception.o)
-                0x9d002260                _general_exception_context
+                0x9d0023c0       0xdc c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(general-exception.o)
+                0x9d0023c0                _general_exception_context
 
-.dinit          0x9d00233c       0xb0
- .dinit         0x9d00233c       0xb0 data_init
+.dinit          0x9d00249c       0xb0
+ .dinit         0x9d00249c       0xb0 data_init
 
 .text.main_entry
-                0x9d0023ec       0x54
+                0x9d00254c       0x54
  .text.main_entry
-                0x9d0023ec       0x54 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MX320F128H/crt0_mips32r2.o
-                0x9d002420                __crt0_exit
+                0x9d00254c       0x54 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib/./proc/32MX320F128H/crt0_mips32r2.o
+                0x9d002580                __crt0_exit
 
-.text           0x9d002440       0x54
- .text          0x9d002440       0x54 build/default/production/stubs.o
-                0x9d002440                _nmi_handler
-                0x9d002454                _on_reset
-                0x9d002474                _on_bootstrap
+.text           0x9d0025a0       0x54
+ .text          0x9d0025a0       0x54 build/default/production/stubs.o
+                0x9d0025a0                _nmi_handler
+                0x9d0025b4                _on_reset
+                0x9d0025d4                _on_bootstrap
 
 .text._bootstrap_exception_handler
-                0x9d002494       0x48
+                0x9d0025f4       0x48
  .text._bootstrap_exception_handler
-                0x9d002494       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
-                0x9d002494                _bootstrap_exception_handler
+                0x9d0025f4       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-bootstrap-exception-handler.o)
+                0x9d0025f4                _bootstrap_exception_handler
 
 .text._general_exception_handler
-                0x9d0024dc       0x48
+                0x9d00263c       0x48
  .text._general_exception_handler
-                0x9d0024dc       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
-                0x9d0024dc                _general_exception_handler
+                0x9d00263c       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(default-general-exception-handler.o)
+                0x9d00263c                _general_exception_handler
 
 .vector_default
-                0x9d002524       0x48
+                0x9d002684       0x48
  .vector_default
-                0x9d002524       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
-                0x9d002524                _DefaultInterrupt
+                0x9d002684       0x48 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)
+                0x9d002684                _DefaultInterrupt
 
-.text           0x9d00256c       0x44
- .text          0x9d00256c       0x44 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\pic32_software_reset.o
-                0x9d00256c                __pic32_software_reset
+.text           0x9d0026cc       0x44
+ .text          0x9d0026cc       0x44 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\pic32_software_reset.o
+                0x9d0026cc                __pic32_software_reset
 
-.rodata         0x9d0025b0       0x60
- .rodata        0x9d0025b0       0x30 build/default/production/main.o
- .rodata        0x9d0025e0       0x30 build/default/production/mipslabfunk.o
+.rodata         0x9d002710       0x60
+ .rodata        0x9d002710       0x30 build/default/production/main.o
+ .rodata        0x9d002740       0x30 build/default/production/mipslabfunk.o
 
-.vector_new_0   0x9d002610       0x20
- .vector_new_0  0x9d002610       0x20 build/default/production/vectors.o
-                0x9d002610                __vector_0
+.vector_new_0   0x9d002770       0x20
+ .vector_new_0  0x9d002770       0x20 build/default/production/vectors.o
+                0x9d002770                __vector_0
 
-.vector_new_1   0x9d002630       0x20
- .vector_new_1  0x9d002630       0x20 build/default/production/vectors.o
-                0x9d002630                __vector_1
+.vector_new_1   0x9d002790       0x20
+ .vector_new_1  0x9d002790       0x20 build/default/production/vectors.o
+                0x9d002790                __vector_1
 
-.vector_new_2   0x9d002650       0x20
- .vector_new_2  0x9d002650       0x20 build/default/production/vectors.o
-                0x9d002650                __vector_2
+.vector_new_2   0x9d0027b0       0x20
+ .vector_new_2  0x9d0027b0       0x20 build/default/production/vectors.o
+                0x9d0027b0                __vector_2
 
-.vector_new_3   0x9d002670       0x20
- .vector_new_3  0x9d002670       0x20 build/default/production/vectors.o
-                0x9d002670                __vector_3
+.vector_new_3   0x9d0027d0       0x20
+ .vector_new_3  0x9d0027d0       0x20 build/default/production/vectors.o
+                0x9d0027d0                __vector_3
 
-.vector_new_4   0x9d002690       0x20
- .vector_new_4  0x9d002690       0x20 build/default/production/vectors.o
-                0x9d002690                __vector_4
+.vector_new_4   0x9d0027f0       0x20
+ .vector_new_4  0x9d0027f0       0x20 build/default/production/vectors.o
+                0x9d0027f0                __vector_4
 
-.vector_new_5   0x9d0026b0       0x20
- .vector_new_5  0x9d0026b0       0x20 build/default/production/vectors.o
-                0x9d0026b0                __vector_5
+.vector_new_5   0x9d002810       0x20
+ .vector_new_5  0x9d002810       0x20 build/default/production/vectors.o
+                0x9d002810                __vector_5
 
-.vector_new_6   0x9d0026d0       0x20
- .vector_new_6  0x9d0026d0       0x20 build/default/production/vectors.o
-                0x9d0026d0                __vector_6
+.vector_new_6   0x9d002830       0x20
+ .vector_new_6  0x9d002830       0x20 build/default/production/vectors.o
+                0x9d002830                __vector_6
 
-.vector_new_7   0x9d0026f0       0x20
- .vector_new_7  0x9d0026f0       0x20 build/default/production/vectors.o
-                0x9d0026f0                __vector_7
+.vector_new_7   0x9d002850       0x20
+ .vector_new_7  0x9d002850       0x20 build/default/production/vectors.o
+                0x9d002850                __vector_7
 
-.vector_new_8   0x9d002710       0x20
- .vector_new_8  0x9d002710       0x20 build/default/production/vectors.o
-                0x9d002710                __vector_8
+.vector_new_8   0x9d002870       0x20
+ .vector_new_8  0x9d002870       0x20 build/default/production/vectors.o
+                0x9d002870                __vector_8
 
-.vector_new_9   0x9d002730       0x20
- .vector_new_9  0x9d002730       0x20 build/default/production/vectors.o
-                0x9d002730                __vector_9
+.vector_new_9   0x9d002890       0x20
+ .vector_new_9  0x9d002890       0x20 build/default/production/vectors.o
+                0x9d002890                __vector_9
 
-.vector_new_10  0x9d002750       0x20
+.vector_new_10  0x9d0028b0       0x20
  .vector_new_10
-                0x9d002750       0x20 build/default/production/vectors.o
-                0x9d002750                __vector_10
-
-.vector_new_11  0x9d002770       0x20
- .vector_new_11
-                0x9d002770       0x20 build/default/production/vectors.o
-                0x9d002770                __vector_11
-
-.vector_new_12  0x9d002790       0x20
- .vector_new_12
-                0x9d002790       0x20 build/default/production/vectors.o
-                0x9d002790                __vector_12
-
-.vector_new_13  0x9d0027b0       0x20
- .vector_new_13
-                0x9d0027b0       0x20 build/default/production/vectors.o
-                0x9d0027b0                __vector_13
-
-.vector_new_14  0x9d0027d0       0x20
- .vector_new_14
-                0x9d0027d0       0x20 build/default/production/vectors.o
-                0x9d0027d0                __vector_14
-
-.vector_new_15  0x9d0027f0       0x20
- .vector_new_15
-                0x9d0027f0       0x20 build/default/production/vectors.o
-                0x9d0027f0                __vector_15
-
-.vector_new_16  0x9d002810       0x20
- .vector_new_16
-                0x9d002810       0x20 build/default/production/vectors.o
-                0x9d002810                __vector_16
-
-.vector_new_17  0x9d002830       0x20
- .vector_new_17
-                0x9d002830       0x20 build/default/production/vectors.o
-                0x9d002830                __vector_17
-
-.vector_new_18  0x9d002850       0x20
- .vector_new_18
-                0x9d002850       0x20 build/default/production/vectors.o
-                0x9d002850                __vector_18
-
-.vector_new_19  0x9d002870       0x20
- .vector_new_19
-                0x9d002870       0x20 build/default/production/vectors.o
-                0x9d002870                __vector_19
-
-.vector_new_20  0x9d002890       0x20
- .vector_new_20
-                0x9d002890       0x20 build/default/production/vectors.o
-                0x9d002890                __vector_20
-
-.vector_new_21  0x9d0028b0       0x20
- .vector_new_21
                 0x9d0028b0       0x20 build/default/production/vectors.o
-                0x9d0028b0                __vector_21
+                0x9d0028b0                __vector_10
 
-.vector_new_22  0x9d0028d0       0x20
- .vector_new_22
+.vector_new_11  0x9d0028d0       0x20
+ .vector_new_11
                 0x9d0028d0       0x20 build/default/production/vectors.o
-                0x9d0028d0                __vector_22
+                0x9d0028d0                __vector_11
 
-.vector_new_23  0x9d0028f0       0x20
- .vector_new_23
+.vector_new_12  0x9d0028f0       0x20
+ .vector_new_12
                 0x9d0028f0       0x20 build/default/production/vectors.o
-                0x9d0028f0                __vector_23
+                0x9d0028f0                __vector_12
 
-.vector_new_24  0x9d002910       0x20
- .vector_new_24
+.vector_new_13  0x9d002910       0x20
+ .vector_new_13
                 0x9d002910       0x20 build/default/production/vectors.o
-                0x9d002910                __vector_24
+                0x9d002910                __vector_13
 
-.vector_new_25  0x9d002930       0x20
- .vector_new_25
+.vector_new_14  0x9d002930       0x20
+ .vector_new_14
                 0x9d002930       0x20 build/default/production/vectors.o
-                0x9d002930                __vector_25
+                0x9d002930                __vector_14
 
-.vector_new_26  0x9d002950       0x20
- .vector_new_26
+.vector_new_15  0x9d002950       0x20
+ .vector_new_15
                 0x9d002950       0x20 build/default/production/vectors.o
-                0x9d002950                __vector_26
+                0x9d002950                __vector_15
 
-.vector_new_27  0x9d002970       0x20
- .vector_new_27
+.vector_new_16  0x9d002970       0x20
+ .vector_new_16
                 0x9d002970       0x20 build/default/production/vectors.o
-                0x9d002970                __vector_27
+                0x9d002970                __vector_16
 
-.vector_new_28  0x9d002990       0x20
- .vector_new_28
+.vector_new_17  0x9d002990       0x20
+ .vector_new_17
                 0x9d002990       0x20 build/default/production/vectors.o
-                0x9d002990                __vector_28
+                0x9d002990                __vector_17
 
-.vector_new_29  0x9d0029b0       0x20
- .vector_new_29
+.vector_new_18  0x9d0029b0       0x20
+ .vector_new_18
                 0x9d0029b0       0x20 build/default/production/vectors.o
-                0x9d0029b0                __vector_29
+                0x9d0029b0                __vector_18
 
-.vector_new_30  0x9d0029d0       0x20
- .vector_new_30
+.vector_new_19  0x9d0029d0       0x20
+ .vector_new_19
                 0x9d0029d0       0x20 build/default/production/vectors.o
-                0x9d0029d0                __vector_30
+                0x9d0029d0                __vector_19
 
-.vector_new_31  0x9d0029f0       0x20
- .vector_new_31
+.vector_new_20  0x9d0029f0       0x20
+ .vector_new_20
                 0x9d0029f0       0x20 build/default/production/vectors.o
-                0x9d0029f0                __vector_31
+                0x9d0029f0                __vector_20
 
-.vector_new_32  0x9d002a10       0x20
- .vector_new_32
+.vector_new_21  0x9d002a10       0x20
+ .vector_new_21
                 0x9d002a10       0x20 build/default/production/vectors.o
-                0x9d002a10                __vector_32
+                0x9d002a10                __vector_21
 
-.vector_new_33  0x9d002a30       0x20
- .vector_new_33
+.vector_new_22  0x9d002a30       0x20
+ .vector_new_22
                 0x9d002a30       0x20 build/default/production/vectors.o
-                0x9d002a30                __vector_33
+                0x9d002a30                __vector_22
 
-.vector_new_34  0x9d002a50       0x20
- .vector_new_34
+.vector_new_23  0x9d002a50       0x20
+ .vector_new_23
                 0x9d002a50       0x20 build/default/production/vectors.o
-                0x9d002a50                __vector_34
+                0x9d002a50                __vector_23
 
-.vector_new_35  0x9d002a70       0x20
- .vector_new_35
+.vector_new_24  0x9d002a70       0x20
+ .vector_new_24
                 0x9d002a70       0x20 build/default/production/vectors.o
-                0x9d002a70                __vector_35
+                0x9d002a70                __vector_24
 
-.vector_new_36  0x9d002a90       0x20
- .vector_new_36
+.vector_new_25  0x9d002a90       0x20
+ .vector_new_25
                 0x9d002a90       0x20 build/default/production/vectors.o
-                0x9d002a90                __vector_36
+                0x9d002a90                __vector_25
 
-.vector_new_37  0x9d002ab0       0x20
- .vector_new_37
+.vector_new_26  0x9d002ab0       0x20
+ .vector_new_26
                 0x9d002ab0       0x20 build/default/production/vectors.o
-                0x9d002ab0                __vector_37
+                0x9d002ab0                __vector_26
 
-.vector_new_38  0x9d002ad0       0x20
- .vector_new_38
+.vector_new_27  0x9d002ad0       0x20
+ .vector_new_27
                 0x9d002ad0       0x20 build/default/production/vectors.o
-                0x9d002ad0                __vector_38
+                0x9d002ad0                __vector_27
 
-.vector_new_39  0x9d002af0       0x20
- .vector_new_39
+.vector_new_28  0x9d002af0       0x20
+ .vector_new_28
                 0x9d002af0       0x20 build/default/production/vectors.o
-                0x9d002af0                __vector_39
+                0x9d002af0                __vector_28
 
-.vector_new_40  0x9d002b10       0x20
- .vector_new_40
+.vector_new_29  0x9d002b10       0x20
+ .vector_new_29
                 0x9d002b10       0x20 build/default/production/vectors.o
-                0x9d002b10                __vector_40
+                0x9d002b10                __vector_29
 
-.vector_new_41  0x9d002b30       0x20
- .vector_new_41
+.vector_new_30  0x9d002b30       0x20
+ .vector_new_30
                 0x9d002b30       0x20 build/default/production/vectors.o
-                0x9d002b30                __vector_41
+                0x9d002b30                __vector_30
 
-.vector_new_42  0x9d002b50       0x20
- .vector_new_42
+.vector_new_31  0x9d002b50       0x20
+ .vector_new_31
                 0x9d002b50       0x20 build/default/production/vectors.o
-                0x9d002b50                __vector_42
+                0x9d002b50                __vector_31
 
-.vector_new_43  0x9d002b70       0x20
- .vector_new_43
+.vector_new_32  0x9d002b70       0x20
+ .vector_new_32
                 0x9d002b70       0x20 build/default/production/vectors.o
-                0x9d002b70                __vector_43
+                0x9d002b70                __vector_32
 
-.vector_new_44  0x9d002b90       0x20
- .vector_new_44
+.vector_new_33  0x9d002b90       0x20
+ .vector_new_33
                 0x9d002b90       0x20 build/default/production/vectors.o
-                0x9d002b90                __vector_44
+                0x9d002b90                __vector_33
 
-.vector_new_45  0x9d002bb0       0x20
- .vector_new_45
+.vector_new_34  0x9d002bb0       0x20
+ .vector_new_34
                 0x9d002bb0       0x20 build/default/production/vectors.o
-                0x9d002bb0                __vector_45
+                0x9d002bb0                __vector_34
 
-.vector_new_46  0x9d002bd0       0x20
- .vector_new_46
+.vector_new_35  0x9d002bd0       0x20
+ .vector_new_35
                 0x9d002bd0       0x20 build/default/production/vectors.o
-                0x9d002bd0                __vector_46
+                0x9d002bd0                __vector_35
 
-.vector_new_47  0x9d002bf0       0x20
- .vector_new_47
+.vector_new_36  0x9d002bf0       0x20
+ .vector_new_36
                 0x9d002bf0       0x20 build/default/production/vectors.o
-                0x9d002bf0                __vector_47
+                0x9d002bf0                __vector_36
 
-.vector_new_48  0x9d002c10       0x20
- .vector_new_48
+.vector_new_37  0x9d002c10       0x20
+ .vector_new_37
                 0x9d002c10       0x20 build/default/production/vectors.o
-                0x9d002c10                __vector_48
+                0x9d002c10                __vector_37
 
-.vector_new_49  0x9d002c30       0x20
- .vector_new_49
+.vector_new_38  0x9d002c30       0x20
+ .vector_new_38
                 0x9d002c30       0x20 build/default/production/vectors.o
-                0x9d002c30                __vector_49
+                0x9d002c30                __vector_38
 
-.vector_new_50  0x9d002c50       0x20
- .vector_new_50
+.vector_new_39  0x9d002c50       0x20
+ .vector_new_39
                 0x9d002c50       0x20 build/default/production/vectors.o
-                0x9d002c50                __vector_50
+                0x9d002c50                __vector_39
 
-.vector_new_51  0x9d002c70       0x20
- .vector_new_51
+.vector_new_40  0x9d002c70       0x20
+ .vector_new_40
                 0x9d002c70       0x20 build/default/production/vectors.o
-                0x9d002c70                __vector_51
+                0x9d002c70                __vector_40
 
-.vector_new_52  0x9d002c90       0x20
- .vector_new_52
+.vector_new_41  0x9d002c90       0x20
+ .vector_new_41
                 0x9d002c90       0x20 build/default/production/vectors.o
-                0x9d002c90                __vector_52
+                0x9d002c90                __vector_41
 
-.vector_new_53  0x9d002cb0       0x20
- .vector_new_53
+.vector_new_42  0x9d002cb0       0x20
+ .vector_new_42
                 0x9d002cb0       0x20 build/default/production/vectors.o
-                0x9d002cb0                __vector_53
+                0x9d002cb0                __vector_42
 
-.vector_new_54  0x9d002cd0       0x20
- .vector_new_54
+.vector_new_43  0x9d002cd0       0x20
+ .vector_new_43
                 0x9d002cd0       0x20 build/default/production/vectors.o
-                0x9d002cd0                __vector_54
+                0x9d002cd0                __vector_43
 
-.vector_new_55  0x9d002cf0       0x20
- .vector_new_55
+.vector_new_44  0x9d002cf0       0x20
+ .vector_new_44
                 0x9d002cf0       0x20 build/default/production/vectors.o
-                0x9d002cf0                __vector_55
+                0x9d002cf0                __vector_44
 
-.vector_new_56  0x9d002d10       0x20
- .vector_new_56
+.vector_new_45  0x9d002d10       0x20
+ .vector_new_45
                 0x9d002d10       0x20 build/default/production/vectors.o
-                0x9d002d10                __vector_56
+                0x9d002d10                __vector_45
 
-.vector_new_57  0x9d002d30       0x20
- .vector_new_57
+.vector_new_46  0x9d002d30       0x20
+ .vector_new_46
                 0x9d002d30       0x20 build/default/production/vectors.o
-                0x9d002d30                __vector_57
+                0x9d002d30                __vector_46
 
-.vector_new_58  0x9d002d50       0x20
- .vector_new_58
+.vector_new_47  0x9d002d50       0x20
+ .vector_new_47
                 0x9d002d50       0x20 build/default/production/vectors.o
-                0x9d002d50                __vector_58
+                0x9d002d50                __vector_47
 
-.vector_new_59  0x9d002d70       0x20
- .vector_new_59
+.vector_new_48  0x9d002d70       0x20
+ .vector_new_48
                 0x9d002d70       0x20 build/default/production/vectors.o
-                0x9d002d70                __vector_59
+                0x9d002d70                __vector_48
 
-.vector_new_60  0x9d002d90       0x20
- .vector_new_60
+.vector_new_49  0x9d002d90       0x20
+ .vector_new_49
                 0x9d002d90       0x20 build/default/production/vectors.o
-                0x9d002d90                __vector_60
+                0x9d002d90                __vector_49
 
-.vector_new_61  0x9d002db0       0x20
- .vector_new_61
+.vector_new_50  0x9d002db0       0x20
+ .vector_new_50
                 0x9d002db0       0x20 build/default/production/vectors.o
-                0x9d002db0                __vector_61
+                0x9d002db0                __vector_50
 
-.vector_new_62  0x9d002dd0       0x20
- .vector_new_62
+.vector_new_51  0x9d002dd0       0x20
+ .vector_new_51
                 0x9d002dd0       0x20 build/default/production/vectors.o
-                0x9d002dd0                __vector_62
+                0x9d002dd0                __vector_51
 
-.vector_new_63  0x9d002df0       0x14
+.vector_new_52  0x9d002df0       0x20
+ .vector_new_52
+                0x9d002df0       0x20 build/default/production/vectors.o
+                0x9d002df0                __vector_52
+
+.vector_new_53  0x9d002e10       0x20
+ .vector_new_53
+                0x9d002e10       0x20 build/default/production/vectors.o
+                0x9d002e10                __vector_53
+
+.vector_new_54  0x9d002e30       0x20
+ .vector_new_54
+                0x9d002e30       0x20 build/default/production/vectors.o
+                0x9d002e30                __vector_54
+
+.vector_new_55  0x9d002e50       0x20
+ .vector_new_55
+                0x9d002e50       0x20 build/default/production/vectors.o
+                0x9d002e50                __vector_55
+
+.vector_new_56  0x9d002e70       0x20
+ .vector_new_56
+                0x9d002e70       0x20 build/default/production/vectors.o
+                0x9d002e70                __vector_56
+
+.vector_new_57  0x9d002e90       0x20
+ .vector_new_57
+                0x9d002e90       0x20 build/default/production/vectors.o
+                0x9d002e90                __vector_57
+
+.vector_new_58  0x9d002eb0       0x20
+ .vector_new_58
+                0x9d002eb0       0x20 build/default/production/vectors.o
+                0x9d002eb0                __vector_58
+
+.vector_new_59  0x9d002ed0       0x20
+ .vector_new_59
+                0x9d002ed0       0x20 build/default/production/vectors.o
+                0x9d002ed0                __vector_59
+
+.vector_new_60  0x9d002ef0       0x20
+ .vector_new_60
+                0x9d002ef0       0x20 build/default/production/vectors.o
+                0x9d002ef0                __vector_60
+
+.vector_new_61  0x9d002f10       0x20
+ .vector_new_61
+                0x9d002f10       0x20 build/default/production/vectors.o
+                0x9d002f10                __vector_61
+
+.vector_new_62  0x9d002f30       0x20
+ .vector_new_62
+                0x9d002f30       0x20 build/default/production/vectors.o
+                0x9d002f30                __vector_62
+
+.vector_new_63  0x9d002f50       0x14
  .vector_new_63
-                0x9d002df0       0x14 build/default/production/vectors.o
-                0x9d002df0                __vector_63
+                0x9d002f50       0x14 build/default/production/vectors.o
+                0x9d002f50                __vector_63
 
 .text           0x00000000        0x0
  .text          0x00000000        0x0 c:/program files (x86)/microchip/xc32/v1.42/bin/bin/../../lib/gcc/pic32mx/4.8.3/../../../../pic32mx/lib\libpic32.a(defaultinterrupt.o)

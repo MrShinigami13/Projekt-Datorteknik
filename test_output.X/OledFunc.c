@@ -9,17 +9,17 @@ int		ycoOledCur;
 char *	pbOledCur;
 
 int		bnOledCur;
-char		clrOledCur;
+char	clrOledCur;
 char *	pbOledPatCur;
-char (*pfnDoRop)(char Pix,char bDsp, char mskPix);
+char    (*pfnDoRop)(char Pix,char bDsp, char mskPix);
 /*
 void	OledMoveDown();
 void	OledMoveUp();
 void	OledMoveRight();
 void	OledMoveLeft();*/
 
-int		OledClampXco(int xco);
-int		OledClampYco(int yco);
+//int		OledClampXco(int xco);
+//int		OledClampYco(int yco);
 
 
 
@@ -360,9 +360,11 @@ OledClampXco(int xco)
 	if (xco < 0) {
 		xco = 0;
 	}
-	if (xco >= ccolOledMax) {
+	else if (xco >= ccolOledMax) {
 		xco = ccolOledMax-1;
 	}
+    else
+        xco = xco;
 
 	return xco;
 
@@ -390,9 +392,11 @@ OledClampYco(int yco)
 	if (yco < 0) {
 		yco = 0;
 	}
-	if (yco >= crowOledMax) {
+	else if (yco >= crowOledMax) {
 		yco = crowOledMax-1;
 	}
+    else
+        yco = yco;
 
 	return yco;
 

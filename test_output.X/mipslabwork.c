@@ -61,7 +61,8 @@ int ball_y = 14;
 int ball_speed = 0;
 int player1score = 0;
 int player2score = 0;
-
+int oledlek = 0;
+int oledlek2 = 0;
 char textstring[] = "text, more text, and even more text!";
 
 unsigned int random (void)
@@ -81,7 +82,7 @@ unsigned int random (void)
 
 /* Interrupt Service Routine */
 
-void user_isr( void )
+void _isr( void )
 {
     LATEbits.LATE3 = 1;
 	if (IFS0 & 0x100)
@@ -89,9 +90,9 @@ void user_isr( void )
 		if (timeoutcounter == 100)
 		{
 		timeoutcounter = 0;
-		time2string(textstring, mytime);
-		display_string(3, textstring);
-    display_update();
+		//time2string(textstring, mytime);
+		//display_string(3, textstring);
+    //display_update();
     //OledMoveTo(paddle2_x,paddle2_y);
     //OledPutBmp(2,8,paddle2);
     //display_paddle(paddle1_x,paddle1_y,paddle1);
@@ -248,16 +249,16 @@ void labinit( void )
 	//IEC(0) = 0x8100;			//lade till bit för INT3, tidigare 0x100 fungerandome
 	//IEC0 = 0x88980; // för interrupts sw1-4 och timer2
     //IEC0 = 0x100;
-    IEC0bits.INT1IE = 1;
-    IEC0bits.INT2IE = 1;
-    IEC0bits.INT3IE = 1;
-    IEC0bits.INT4IE = 1;
-    IFS0bits.INT1IF = 0;
-    IFS0bits.INT2IF = 0;
-    IFS0bits.INT3IF = 0;
-    IFS0bits.INT4IF = 0;
-    IEC0bits.T2IE = 1;
-    IFS0bits.T2IF = 0;
+    IEC0bits.INT1IE = 0x1;
+    IEC0bits.INT2IE = 0x1;
+    IEC0bits.INT3IE = 0x1;
+    IEC0bits.INT4IE = 0x1;
+    IFS0bits.INT1IF = 0x0;
+    IFS0bits.INT2IF = 0x0;
+    IFS0bits.INT3IF = 0x0;
+    IFS0bits.INT4IF = 0x0;
+    IEC0bits.T2IE = 0x1;
+    IFS0bits.T2IF = 0x0;
   
     
 	enable_interrupt();
@@ -271,15 +272,38 @@ void labinit( void )
 /* This function is called repetitively from the main program */
 void labwork( void )
 {
+    
+    display_image((oledlek-oledlek2),icon2);
+    display_image(oledlek,icon);
+    oledlek +=oledlek2;
+    if(oledlek <= 8)
+        oledlek2 = +4;
+    else if(oledlek > 96)
+        oledlek2 = -4;
+    
+  volatile int sw1 = PORTD;
+			sw1 = sw1 >> 8;
+			sw1 &= 0x1;
+   volatile int sw2 = PORTD;
+			sw2 = sw2 >> 9;
+			sw2 &= 0x1;
+   volatile int sw3 = PORTD;
+			sw3 = sw3 >> 10;
+			sw3 &= 0x1;
+    volatile int sw4 = PORTD;
+			sw4 = sw4 >> 11;
+			sw4 &= 0x1;
+            
+			bindis = bindis + sw1;
+			PORTE = bindis;
 
-   
-	display_string(0, itoaconv(prime));
-    display_image(96,icon);
-	display_update();
-   // OledMoveTo(paddle2_x,paddle2_y);
-    //OledPutBmp(2,8,paddle2);
+	//display_string(0, itoaconv(prime));
+    //display_image(96,icon);
+	//display_update();
+  // OledMoveTo(paddle2_x,paddle2_y);
+   //OledPutBmp(2,8,paddle2);
 	
-  //display_image(paddle1_x,paddle1);
+  //isplay_image(paddle1_x,paddle1);
 }
 
 void gameplay() {
