@@ -36,18 +36,6 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define MINY 9
 #define MAXY 32
 
-/*T2CON = 0x60;
-#define TMR2PERIOD ((80000000 / 64) / 10)
-
-#if TMR2PERIOD > 0xffff
-#error "Timer_period_is_too_big."
-#endif
-
-PR2 = TMR2PERIOD;
-
-TMR2 = 0; */
-
-//T2CONSET = 0x8000;
 int prime = 1234567;
 int timeoutcounter = 0;
 int bindis = 0;
