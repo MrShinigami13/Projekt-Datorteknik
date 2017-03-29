@@ -117,6 +117,7 @@ void labinit( void )
 }
 
 /* This function is called repetitively from the main program */
+
 void labwork( void )
 {
   int i = 0;
@@ -132,6 +133,15 @@ void labwork( void )
     volatile int sw4 = PORTD;
     sw4 = sw4 >> 11;
     sw4 &= 0x1;
+
+  /*
+UI
+ball
+paddel1+2
+score
+to display
+
+  */
 
 
 }

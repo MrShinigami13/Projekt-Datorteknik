@@ -160,7 +160,128 @@ void display_image(int x, const uint8_t *data) {
 	}
 }
 
+void ball_to_matrix(int x, int y){
+
+	for(int i = 0; i< 2 ; i++){
+		thematrix[y][x+i] = ball[i][0];
+
+	}
+	for(int i = 0; i< 2 ; i++){
+		thematrix[y+i][x] = ball[0][i];
+
+	}
+
+}
+void paddle1_to_matrix(int y){
+
+	for(int i = 0; i< 6 ; i++){
+		thematrix[y][0+i] = paddle1[i][0];
+
+	}
+	for(int i = 0; i< 3 ; i++){
+		thematrix[y+i][0] = paddle1[0][i];
+
+	}
+
+}
+void paddle2_to_matrix(int y){
+
+	for(int i = 0; i< 6 ; i++){
+		thematrix[y][125+i] = paddle2[i][0];
+
+	}
+	for(int i = 0; i< 3 ; i++){
+		thematrix[y+i][125] = paddle2[0][i];
+
+	}
+
+}
+void score_to_matrix(void){
+
+
+switch (player1score) {
+	case 0: for(int i = 0; i< 8 ; i++){
+		thematrix[i][32] = scorezero[i][0];
+
+	}
+	for(int i = 0; i< 8 ; i++){
+		thematrix[0][32+i] = scorezero[0][i];
+
+	}
+	case 1: for(int i = 0; i< 8 ; i++){
+		thematrix[i][32] = scoreone[i][0];
+
+	}
+	for(int i = 0; i< 8 ; i++){
+		thematrix[0][32+i] = scoreone[0][i];
+
+	}
+	case 2: for(int i = 0; i< 8 ; i++){
+		thematrix[i][32] = scoretwo[i][0];
+
+	}
+	for(int i = 0; i< 8 ; i++){
+		thematrix[0][32+i] = scoretwo[0][i];
+
+	}
+	case 3: for(int i = 0; i< 8 ; i++){
+		thematrix[i][32] = scorethree[i][0];
+
+	}
+	for(int i = 0; i< 8 ; i++){
+		thematrix[0][32+i] = scorethree[0][i];
+
+	}
+
+}
+switch (player2score) {
+	case 0: for(int i = 0; i< 8 ; i++){
+		thematrix[i][96] = scorezero[i][0];
+
+	}
+	for(int i = 0; i< 8 ; i++){
+		thematrix[0][96+i] = scorezero[0][i];
+
+	}
+	case 1: for(int i = 0; i< 8 ; i++){
+		thematrix[i][96] = scoreone[i][0];
+
+	}
+	for(int i = 0; i< 8 ; i++){
+		thematrix[0][96+i] = scoreone[0][i];
+
+	}
+	case 2: for(int i = 0; i< 8 ; i++){
+		thematrix[i][96] = scoretwo[i][0];
+
+	}
+	for(int i = 0; i< 8 ; i++){
+		thematrix[0][96+i] = scoretwo[0][i];
+
+	}
+	case 3: for(int i = 0; i< 8 ; i++){
+		thematrix[i][96] = scorethree[i][0];
+
+	}
+	for(int i = 0; i< 8 ; i++){
+		thematrix[0][96+i] = scorethree[0][i];
+
+	}
+
+}
+
+
+}
+void ui_to_matrix(void) {
+	for(int i = 0; i <9; i++){
+		for(int j = 0; i<128; j++){
+			thematrix[i][j] = ui[i][j];
+		}
+	}
+}
+
 void matrix_to_textbuffer(void){
+
 
 	void  SetBit(int z , int w , int k)
    {
