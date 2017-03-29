@@ -19,6 +19,12 @@ void display_init(void);
 void display_string(int line, char *s);
 void display_update(void);
 uint8_t spi_send_recv(uint8_t data);
+void ball_to_matrix(void);
+void paddle1_to_matrix(void);
+void paddle2_to_matrix(void);
+void score_to_matrix(void);
+void ui_to_matrix(void);
+void matrix_to_textbuffer(void);
 
 /* Declare lab-related functions from mipslabfunc.c */
 char * itoaconv( int num );

@@ -133,7 +133,13 @@ void labwork( void )
     volatile int sw4 = PORTD;
     sw4 = sw4 >> 11;
     sw4 &= 0x1;
-
+    ui_to_matrix();
+    ball_to_matrix();
+    paddle1_to_matrix();
+    paddle2_to_matrix();
+    score_to_matrix();
+    matrix_to_textbuffer();
+    display_update();
   /*
 UI
 ball

@@ -160,38 +160,38 @@ void display_image(int x, const uint8_t *data) {
 	}
 }
 
-void ball_to_matrix(int x, int y){
+void ball_to_matrix(void){
 
 	for(int i = 0; i< 2 ; i++){
-		thematrix[y][x+i] = ball[i][0];
+		thematrix[ball_y][ball_x+i] = ball[i][0];
 
 	}
 	for(int i = 0; i< 2 ; i++){
-		thematrix[y+i][x] = ball[0][i];
+		thematrix[ball_y+i][ball_x] = ball[0][i];
 
 	}
 
 }
-void paddle1_to_matrix(int y){
+void paddle1_to_matrix(void){
 
 	for(int i = 0; i< 6 ; i++){
-		thematrix[y][0+i] = paddle1[i][0];
+		thematrix[paddle1_y][0+i] = paddle1[i][0];
 
 	}
 	for(int i = 0; i< 3 ; i++){
-		thematrix[y+i][0] = paddle1[0][i];
+		thematrix[paddle1_y+i][0] = paddle1[0][i];
 
 	}
 
 }
-void paddle2_to_matrix(int y){
+void paddle2_to_matrix(void){
 
 	for(int i = 0; i< 6 ; i++){
-		thematrix[y][125+i] = paddle2[i][0];
+		thematrix[paddle2_y][125+i] = paddle2[i][0];
 
 	}
 	for(int i = 0; i< 3 ; i++){
-		thematrix[y+i][125] = paddle2[0][i];
+		thematrix[paddle2_y+i][125] = paddle2[0][i];
 
 	}
 
