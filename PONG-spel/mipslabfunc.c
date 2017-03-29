@@ -386,9 +386,12 @@ void display_update(void) {
 			if(c & 0x80)
 				continue;
 
+				spi_send_recv(c);
+			}
+/*
 			for(k = 0; k < 8; k++)
 				spi_send_recv(font[c*8 + k]);
-		}
+		}*/
 	}
 }
 
