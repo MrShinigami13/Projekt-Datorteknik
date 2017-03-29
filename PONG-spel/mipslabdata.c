@@ -9,6 +9,7 @@
 #include "mipslab.h"  /* Declatations for these labs */
 
 char textbuffer[4][16];
+int thematrix[32][128];
 
 
 const uint8_t const icon[] = {  // doge

@@ -231,7 +231,7 @@ void matrix_to_textbuffer(void){
 		          if (k>7){
 		            k = 0;
 		          }
-		        int e = bitarray[j][i]; // byt namn till passande
+		        int e = thematrix[j][i]; // byt namn till passande
 		        if (e ==1){
 		          SetBit(z,w,k);
 		        }

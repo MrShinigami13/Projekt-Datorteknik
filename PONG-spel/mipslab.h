@@ -9,19 +9,12 @@
 
 /* Declare display-related functions from mipslabfunc.c */
 
-#define	cbOledDispMax	512		//max number of bytes in display buffer
 
 #define	ccolOledMax		128		//number of display columns
 #define	crowOledMax		32		//number of display rows
 #define	cpagOledMax		4		//number of display memory pages
 
 void display_image(int x, const uint8_t *data);
-void display_score(int x, int y, const uint8_t *data);
-void display_paddle1(int x, int y, const uint8_t *data);
-void display_paddle2(int x, int y, const uint8_t *data);
-void display_ball(int x, int y, const uint8_t *data);
-void OledMoveTo(int xco, int yco);
-void OledPutBmp(int dxco, int dyco, char * pbBits);
 void display_init(void);
 void display_string(int line, char *s);
 void display_update(void);
@@ -72,6 +65,7 @@ extern const uint8_t const paddle2[2];
 extern const uint8_t const ball[4];
 /* Declare text buffer for display output */
 extern char textbuffer[4][16];
+extern int thematrix[32][128];
 
 /* Declare functions written by students.
    Note: Since we declare these functions here,
