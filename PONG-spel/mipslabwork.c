@@ -52,7 +52,7 @@ int player2score = 0;*/
 
 char textstring[] = "text, more text, and even more text!";
 
-unsigned int rand (void)
+unsigned int random (void)
 {
    static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
    unsigned int b;
@@ -111,7 +111,7 @@ void labinit( void )
   IEC0bits.T2IE = 0x1;
   IFS0bits.T2IF = 0x0;
 
-	enable_interrupt();
+	//enable_interrupt();
   LATEbits.LATE4 = 1;
   return;
 }
@@ -162,11 +162,11 @@ void gameplay() {
   // it gets to the top or bottom of the screen.
   ball_y += ball_y;
   if(ball_y >= (MAXY - BALL_LENGTH)) {
-    ball_y *= (rand() % (-10) + (-1));
-	ball_x *= (rand() % (10) + (-10));
+    ball_y *= (random() % (-10) + (-1));
+	ball_x *= (random() % (10) + (-10));
   } else if (ball_y <= MINY) {
-    ball_y *= (rand() % (10) + (1));
-	ball_x *= (rand() % (10) + (-10));
+    ball_y *= (random() % (10) + (1));
+	ball_x *= (random() % (10) + (-10));
   }
 
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
@@ -174,10 +174,10 @@ void gameplay() {
   if(ball_x >= MAXX) {
     if((ball_y > paddle2_y - BALL_LENGTH) && (ball_y < (paddle2_y + PADDLE_LENGTH))) {
       // ball hit bat2
-      ball_x *= (rand() % (-10) + (-1));          // just reflect it for now
+      ball_x *= (random() % (-10) + (-1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
-      ball_y *= (rand() % (10) + (-10));
+      ball_y *= (random() % (10) + (-10));
     } else {
       // player 2 missed the ball, increment player 1's score
       player1score++;
@@ -190,8 +190,8 @@ void gameplay() {
   } else if(ball_x <= MINX) {
     if((ball_y > paddle1_y - BALL_LENGTH) && (ball_y < (paddle1_y + PADDLE_LENGTH))) {
       // ball hit bat1
-      ball_x *= (rand() % (10) + (1));
-      ball_y *= (rand() % (10) + (-10));
+      ball_x *= (random() % (10) + (1));
+      ball_y *= (random() % (10) + (-10));
     } else {
       // player 1 missed the ball, give player 2 the points and serve
       player2score++;

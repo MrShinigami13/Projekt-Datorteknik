@@ -7,10 +7,11 @@
 
    For copyright and licensing, see file COPYING */
 
-#include <stdint.h>   /* Declarations of uint_32 and the like */
-#include <pic32mx.h>  /* Declarations of system-specific addresses etc */
-#include "mipslab.h"  /* Declatations for these labs */
-
+	 #include <stdint.h>   /* Declarations of uint_32 and the like */
+	 #include <stdio.h>
+	 #include <p32xxxx.h>  /* Declarations of system-specific addresses etc */
+	 #include "mipslab.h"  /* Declatations for these labs */
+	 #include <xc.h>
 int paddle1_x = 0;
 int paddle1_y = 12;
 int paddle2_x = 126;
@@ -58,13 +59,13 @@ int main(void) {
 	SPI2CONSET = 0x8000;
 
 	display_init();
-	display_string(0, "KTH/ICT lab");
-	display_string(1, "in Computer");
-	display_string(2, "Engineering");
-	display_string(3, "Welcome!");
-	display_update();
+	//display_string(0, "KTH/ICT lab");
+	//display_string(1, "in Computer");
+	//display_string(2, "Engineering");
+	//display_string(3, "Welcome!");
+	//display_update();
 
-	display_image(96, icon);
+	//display_image(96, icon);
 
 	labinit(); /* Do any lab-specific initialization */
 

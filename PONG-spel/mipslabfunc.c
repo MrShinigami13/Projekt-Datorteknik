@@ -4,12 +4,14 @@
 
    For copyright and licensing, see file COPYING */
 
-#include <stdint.h>   /* Declarations of uint_32 and the like */
-#include <pic32mx.h>  /* Declarations of system-specific addresses etc */
-#include "mipslab.h"  /* Declatations for these labs */
+	 #include <stdint.h>   /* Declarations of uint_32 and the like */
+	 #include <stdio.h>
+	 #include <p32xxxx.h>  /* Declarations of system-specific addresses etc */
+	 #include "mipslab.h"  /* Declatations for these labs */
+	 #include <xc.h>
 
 /* Declare a helper function which is local to this file */
-static void num32asc( char * s, int );
+//static void num32asc( char * s, int );
 
 #define DISPLAY_CHANGE_TO_COMMAND_MODE (PORTFCLR = 0x10)
 #define DISPLAY_CHANGE_TO_DATA_MODE (PORTFSET = 0x10)
@@ -80,6 +82,7 @@ void tick( unsigned int * timep )
    repeated calls to display_image; display_image overwrites
    about half of the digits shown by display_debug.
 */
+/*
 void display_debug( volatile int * const addr )
 {
   display_string( 1, "Addr" );
@@ -88,7 +91,7 @@ void display_debug( volatile int * const addr )
   num32asc( &textbuffer[2][6], *addr );
   display_update();
 }
-
+*/
 uint8_t spi_send_recv(uint8_t data) {
 	while(!(SPI2STAT & 0x08));
 	SPI2BUF = data;
@@ -126,6 +129,7 @@ void display_init(void) {
 	spi_send_recv(0xAF);
 }
 
+
 void display_string(int line, char *s) {
 	int i;
 	if(line < 0 || line >= 4)
@@ -161,109 +165,109 @@ void display_image(int x, const uint8_t *data) {
 }
 
 void ball_to_matrix(void){
-
-	for(int i = 0; i< 2 ; i++){
+int i;
+	for(i = 0; i< 2 ; i++){
 		thematrix[ball_y][ball_x+i] = ball[i][0];
 
 	}
-	for(int i = 0; i< 2 ; i++){
+	for(i = 0; i< 2 ; i++){
 		thematrix[ball_y+i][ball_x] = ball[0][i];
 
 	}
 
 }
 void paddle1_to_matrix(void){
-
-	for(int i = 0; i< 6 ; i++){
+int i;
+	for(i = 0; i< 6 ; i++){
 		thematrix[paddle1_y][0+i] = paddle1[i][0];
 
 	}
-	for(int i = 0; i< 3 ; i++){
+	for(i = 0; i< 3 ; i++){
 		thematrix[paddle1_y+i][0] = paddle1[0][i];
 
 	}
 
 }
 void paddle2_to_matrix(void){
-
-	for(int i = 0; i< 6 ; i++){
+int i;
+	for(i = 0; i< 6 ; i++){
 		thematrix[paddle2_y][125+i] = paddle2[i][0];
 
 	}
-	for(int i = 0; i< 3 ; i++){
+	for(i = 0; i< 3 ; i++){
 		thematrix[paddle2_y+i][125] = paddle2[0][i];
 
 	}
 
 }
 void score_to_matrix(void){
-
+int i;
 
 switch (player1score) {
-	case 0: for(int i = 0; i< 8 ; i++){
+	case 0: for(i = 0; i< 8 ; i++){
 		thematrix[i][32] = scorezero[i][0];
 
 	}
-	for(int i = 0; i< 8 ; i++){
+	for(i = 0; i< 8 ; i++){
 		thematrix[0][32+i] = scorezero[0][i];
 
 	}
-	case 1: for(int i = 0; i< 8 ; i++){
+	case 1: for(i = 0; i< 8 ; i++){
 		thematrix[i][32] = scoreone[i][0];
 
 	}
-	for(int i = 0; i< 8 ; i++){
+	for(i = 0; i< 8 ; i++){
 		thematrix[0][32+i] = scoreone[0][i];
 
 	}
-	case 2: for(int i = 0; i< 8 ; i++){
+	case 2: for(i = 0; i< 8 ; i++){
 		thematrix[i][32] = scoretwo[i][0];
 
 	}
-	for(int i = 0; i< 8 ; i++){
+	for(i = 0; i< 8 ; i++){
 		thematrix[0][32+i] = scoretwo[0][i];
 
 	}
-	case 3: for(int i = 0; i< 8 ; i++){
+	case 3: for(i = 0; i< 8 ; i++){
 		thematrix[i][32] = scorethree[i][0];
 
 	}
-	for(int i = 0; i< 8 ; i++){
+	for(i = 0; i< 8 ; i++){
 		thematrix[0][32+i] = scorethree[0][i];
 
 	}
 
 }
 switch (player2score) {
-	case 0: for(int i = 0; i< 8 ; i++){
+	case 0: for(i = 0; i< 8 ; i++){
 		thematrix[i][96] = scorezero[i][0];
 
 	}
-	for(int i = 0; i< 8 ; i++){
+	for(i = 0; i< 8 ; i++){
 		thematrix[0][96+i] = scorezero[0][i];
 
 	}
-	case 1: for(int i = 0; i< 8 ; i++){
+	case 1: for(i = 0; i< 8 ; i++){
 		thematrix[i][96] = scoreone[i][0];
 
 	}
-	for(int i = 0; i< 8 ; i++){
+	for(i = 0; i< 8 ; i++){
 		thematrix[0][96+i] = scoreone[0][i];
 
 	}
-	case 2: for(int i = 0; i< 8 ; i++){
+	case 2: for(i = 0; i< 8 ; i++){
 		thematrix[i][96] = scoretwo[i][0];
 
 	}
-	for(int i = 0; i< 8 ; i++){
+	for(i = 0; i< 8 ; i++){
 		thematrix[0][96+i] = scoretwo[0][i];
 
 	}
-	case 3: for(int i = 0; i< 8 ; i++){
+	case 3: for(i = 0; i< 8 ; i++){
 		thematrix[i][96] = scorethree[i][0];
 
 	}
-	for(int i = 0; i< 8 ; i++){
+	for(i = 0; i< 8 ; i++){
 		thematrix[0][96+i] = scorethree[0][i];
 
 	}
@@ -273,11 +277,26 @@ switch (player2score) {
 
 }
 void ui_to_matrix(void) {
-	for(int i = 0; i <9; i++){
-		for(int j = 0; i<128; j++){
-			thematrix[i][j] = ui[i][j];
-		}
+	int i,j;
+	for (i = 0; i < 9; i++)
+	{
+		thematrix[i][64] = 1;
 	}
+	for (j = 0; j < 128; j++)
+	{
+		thematrix[8][j] = 1;
+	}
+}
+void clear_matrix(void) {
+	int i,j;
+	for (i = 0; i < 32; i++)
+	{
+
+	for (j = 0; j < 128; j++)
+	{
+		thematrix[i][j] = 0;
+	}
+}
 }
 
 void matrix_to_textbuffer(void){
@@ -303,10 +322,11 @@ void matrix_to_textbuffer(void){
       }
 
 		void whritetochar(){
+			int i,j;
 		  int w = 0;
 		  int z = 0;
 		  int k = 0;
-		  for(int j =0; j<32;j++){
+		  for(j =0; j<32;j++){
 		    if (j > 7 && j < 16) {
 		      z = 1;
 		    } else if (j > 15 && j < 24) {
@@ -314,7 +334,7 @@ void matrix_to_textbuffer(void){
 		    } else if (j > 23 && j < 32) {
 		      z = 3;
 		    }
-		    for(int i = 0; i<128;i++){
+		    for(i = 0; i<128;i++){
 		      if (i > 7 && i < 16) {
 		        w = 1;
 		      } else if (i > 15 && i < 24) {
@@ -396,7 +416,7 @@ void display_update(void) {
 }
 
 /* Helper function, local to this file.
-   Converts a number to hexadecimal ASCII digits. */
+   Converts a number to hexadecimal ASCII digits.
 static void num32asc( char * s, int n )
 {
   int i;

@@ -25,6 +25,7 @@ void paddle2_to_matrix(void);
 void score_to_matrix(void);
 void ui_to_matrix(void);
 void matrix_to_textbuffer(void);
+void clear_matrix(void);
 
 /* Declare lab-related functions from mipslabfunc.c */
 char * itoaconv( int num );
@@ -62,16 +63,18 @@ extern const uint8_t const font[128*8];
 /* Declare bitmap array containing icon */
 extern const uint8_t const icon[128];
 // Declar bitmap array containing score numbers
-extern const uint8_t const scorezero[8];
-extern const uint8_t const scoreone[8];
-extern const uint8_t const scoretwo[8];
-extern const uint8_t const scorethree[8];
-extern const uint8_t const paddle1[2];
-extern const uint8_t const paddle2[2];
-extern const uint8_t const ball[4];
+extern const int scorezero[8][8];
+extern const int scoreone[8][8];
+extern const int scoretwo[8][8];
+extern const int scorethree[8][8];
+extern const int paddle1[6][3];
+extern const int paddle2[6][3];
+extern const int ball[2][2];
+
+
 /* Declare text buffer for display output */
 extern char textbuffer[4][16];
-extern int thematrix[32][128];
+extern uint8_t thematrix[32][128];
 
 /* Declare functions written by students.
    Note: Since we declare these functions here,
