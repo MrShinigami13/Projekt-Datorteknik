@@ -23,14 +23,14 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define HSYNC_MASK 0x01
 #define VSYNC_MASK 0x02
 
-#define PADDLE_LENGTH 2
-#define BALL_LENGTH 4
+#define PADDLE_LENGTH 6
+#define BALL_LENGTH 2
 
 #define PADDLE_COL 0xF
 #define BALL_COL 0xF
 
 #define MINX 0
-#define MAXX 128
+#define MAXX 127
 #define MINY 9
 #define MAXY 32
 
@@ -263,7 +263,7 @@ void gameplay() {
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
   ball_x += ball_x;
   if(ball_x >= MAXX) {
-    if((ball_y > paddle2_y - BALL_LENGTH) && (ball < (paddle2_y + PADDLE_LENGTH))) {
+    if((ball_y > paddle2_y - BALL_LENGTH) && (ball_y < (paddle2_y + PADDLE_LENGTH))) {
       // ball hit bat2
       ball_x *= (rand() % (-10) + (-1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
