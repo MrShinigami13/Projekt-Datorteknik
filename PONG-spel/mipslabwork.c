@@ -99,9 +99,6 @@ void labinit( void )
   INTCONbits.INT3EP = 1;
   INTCONbits.INT4EP = 1;
 
-
-
-
 	// enable the timers and output compare
 	T2CONSET = 0x8000;
 	T3CONSET = 0x8000;
