@@ -156,51 +156,96 @@ void display_image(int x, const uint8_t *data) {
 		DISPLAY_CHANGE_TO_DATA_MODE;
 
 		for(j = 0; j < 32; j++)
-			spi_send_recv(data[i*32 + j]);
+			spi_send_recv(~data[i*32 + j]);
 	}
 }
-void display_score(int x, int y, const uint8_t *data) {
-	int j;
 
-//	for(i = 0; i < 1; i++) {
-		DISPLAY_CHANGE_TO_COMMAND_MODE;
+void matrix_to_textbuffer(void){
 
-		spi_send_recv(0x22);
-		spi_send_recv(y);
+	void  SetBit(int z , int w , int k)
+   {
 
-		//spi_send_recv(0x30);
-		//spi_send_recv(0x40);
+      int pos = k;      //gives the corresponding bit position in A[i]
 
-		spi_send_recv(x & 0xF); // original
-		spi_send_recv(0x10 | ((x >> 4) & 0xF));
+      unsigned char flag = 1;   // flag = 0000.....00001
 
-		DISPLAY_CHANGE_TO_DATA_MODE;
+      flag = flag << pos;      // flag = 0000...010...000   (shifted k positions)
 
-		for(j = 0; j < 8; j++)
-			spi_send_recv(data[j]);
-//	}
+      textbuffer[z][w] = textbuffer[z][w] | flag;      // Set the bit at the k-th position in A[i]
+      //printf("\n1");
+   }
+
+   void  ClearBit( int z , int w,  int k )
+      {
+         textbuffer[z][w] &= ~(1 << (k));
+         //printf("\n0");
+      }
+
+		void whritetochar(){
+		  int w = 0;
+		  int z = 0;
+		  int k = 0;
+		  for(int j =0; j<32;j++){
+		    if (j > 7 && j < 16) {
+		      z = 1;
+		    } else if (j > 15 && j < 24) {
+		      z = 2;
+		    } else if (j > 23 && j < 32) {
+		      z = 3;
+		    }
+		    for(int i = 0; i<128;i++){
+		      if (i > 7 && i < 16) {
+		        w = 1;
+		      } else if (i > 15 && i < 24) {
+		        w = 2;
+		      } else if (i > 23 && i < 32) {
+		        w = 3;
+		      } else if (i > 31 && i < 40) {
+		        w = 4;
+		      } else if (i > 39 && i < 48) {
+		        w = 5;
+		      } else if (i > 47 && i < 56) {
+		        w = 6;
+		      } else if (i > 55 && i < 64) {
+		        w = 7;
+		      } else if (i > 63 && i < 72) {
+		        w = 8;
+		      } else if (i > 71 && i < 80) {
+		        w = 9;
+		      } else if (i > 79 && i < 88) {
+		        w = 10;
+		      } else if (i > 87 && i < 96) {
+		        w = 11;
+		      } else if (i > 95 && i < 104) {
+		        w = 12;
+		      } else if (i > 103 && i < 112) {
+		        w = 13;
+		      } else if (i > 111 && i < 120) {
+		        w = 14;
+		      } else if (i > 119 && i < 128) {
+		        w = 15;
+		      }
+
+
+
+		          if (k>7){
+		            k = 0;
+		          }
+		        int e = bitarray[j][i]; // byt namn till passande
+		        if (e ==1){
+		          SetBit(z,w,k);
+		        }
+		        else{
+		          ClearBit(z,w,k);
+		        }
+		        k++;
+
+		      }
+
+		    }
+  }
 }
-void display_paddle(int x, int y, const uint8_t *data) {
-	int j;
 
-//	for(i = 0; i < 1; i++) {
-		DISPLAY_CHANGE_TO_COMMAND_MODE;
-
-		spi_send_recv(0x22);
-		spi_send_recv(y/8);
-
-		//spi_send_recv(0x30);
-		//spi_send_recv(0x40);
-
-		spi_send_recv(x & 0xF); // original
-		spi_send_recv(0x10 | ((x >> 4) & 0xF));
-
-		DISPLAY_CHANGE_TO_DATA_MODE;
-
-		for(j = 0; j < 2; j++)
-			spi_send_recv(data[j]);
-//	}
-}
 
 void display_update(void) {
 	int i, j, k;
