@@ -70,6 +70,7 @@ extern const int scorethree[8][8];
 extern const int paddle1[6][3];
 extern const int paddle2[6][3];
 extern const int ball[2][2];
+extern const uint8_t const test[127*8];
 
 
 /* Declare text buffer for display output */

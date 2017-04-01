@@ -390,7 +390,7 @@ void matrix_to_textbuffer(void){
 
 void display_update(void) {
 	int i, j, k;
-	int c;
+	uint8_t c;
 	for(i = 0; i < 4; i++) {
 		DISPLAY_CHANGE_TO_COMMAND_MODE;
 		spi_send_recv(0x22);
@@ -402,7 +402,8 @@ void display_update(void) {
 		DISPLAY_CHANGE_TO_DATA_MODE;
 
 		for(j = 0; j < 16; j++) {
-			c = textbuffer[i][j];
+			//c = textbuffer[i][j];
+			c  = test[16*i + j];
 			if(c & 0x80)
 				continue;
 
