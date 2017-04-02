@@ -64,6 +64,7 @@ int ball_y_speed = 0;
 int ball_speed = 0;
 int player1score = 0;
 int player2score = 0;
+int playerwin = 0;
 
 char textstring[] = "text, more text, and even more text!";
 
@@ -145,6 +146,20 @@ void labwork( void )
               start = 1;
 			  }
 			  gameplay_paddle();
+			  while ( playerwin == 1){
+				  ball_x_speed = 0;
+				  if (sw1 == 1 || sw2 == 1){
+					  ball_x_speed = -2;
+					  playerwin = 0;
+				  }
+			  }
+			  while ( playerwin == 2){
+				  ball_x_speed = 0;
+				  if (sw3 == 1 || sw4 == 1){
+					  ball_x_speed = 2;
+					  playerwin = 0;
+				  }
+			  } 
 			  if (delay == 2){
 				  gameplay_ball();
 				  delay = 0;
@@ -198,6 +213,7 @@ void gameplay_paddle() {
 }
 
 void gameplay_ball() {
+	
 
 
   // vertical motion of the ball, just invert the vertical component if
@@ -252,9 +268,10 @@ void gameplay_ball() {
                     player1score++;
                     // reset the ball to the centre of the screen player 1 serves
                     ball_y_speed = 0;
-                    ball_x_speed = 2;
+                    ball_x_speed = 0;
                     ball_x = 62 + ball_x_speed;
                     ball_y = 20 + ball_y_speed;
+					playerwin = 1;
                    
           }
   } else if(ball_x <= MINX) {
@@ -280,9 +297,11 @@ void gameplay_ball() {
             // player 1 missed the ball, give player 2 the points and serve
             player2score++;
             ball_y_speed = 0;
-            ball_x_speed = -2;
+            ball_x_speed = 0;
             ball_x = 62 + ball_x_speed;
             ball_y = 20 + ball_y_speed;
+			playerwin = 2;
+			
             
           }
   }
