@@ -380,10 +380,7 @@ void clear_matrix(void) {
 }
 }
 
-void matrix_to_textbuffer(void){
-
-
-	void  SetBit(int z , int w , int k)
+void  SetBit(int z , int w , int k)
    {
 
       int pos = k;      //gives the corresponding bit position in A[i]
@@ -392,17 +389,20 @@ void matrix_to_textbuffer(void){
 
       flag = flag << pos;      // flag = 0000...010...000   (shifted k positions)
 
-      textbuffer[z][w] = textbuffer[z][w] | flag;      // Set the bit at the k-th position in A[i]
+      //textbuffer[z][w] = textbuffer[z][w] | flag;      // Set the bit at the k-th position in A[i]
+	  textbuffer2[(z*128) + w] = textbuffer2[(z*128) + w] | flag;      // Set the bit at the k-th position in A[i]
       //printf("\n1");
    }
-
-   void  ClearBit( int z , int w,  int k )
+   
+void  ClearBit( int z , int w,  int k )
       {
-         textbuffer[z][w] &= ~(1 << (k));
+         textbuffer2[(z*128) + w] &= ~(1 << (k));
          //printf("\n0");
       }
+	  
+void matrix_to_textbuffer(void){
 
-		void whritetochar(){
+		void whritetochar(void){
 			int i,j;
 		  int w = 0;
 		  int z = 0;
@@ -456,16 +456,17 @@ void matrix_to_textbuffer(void){
 		          }
 		        int e = thematrix[j][i]; // byt namn till passande
 		        if (e ==1){
-		          SetBit(i,z,k);
+		          SetBit(z,i,k);
 		        }
 		        else{
-		          ClearBit(i,z,k);
+		          ClearBit(z,i,k);
 		        }
 		        k++;
 
 		      }
 
 		    }
+		  }
   }
 	/*int i,j;
 	for(j = 0; j<4 ; j++){
