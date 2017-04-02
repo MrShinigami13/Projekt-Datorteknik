@@ -25,7 +25,7 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define HSYNC_MASK 0x01
 #define VSYNC_MASK 0x02
 
-#define PADDLE_LENGTH 2
+#define PADDLE_LENGTH 6
 #define BALL_LENGTH 4
 
 #define PADDLE_COL 0xF
@@ -158,6 +158,7 @@ void labinit( void )
 /* This function is called repetitively from the main program */
 void labwork( void )
 {
+	while ( player1score != 3 && player2score != 3){
     /*int i = 0;
    volatile int sw1 = PORTD;
 			sw1 = sw1 >> 8;
@@ -196,6 +197,7 @@ void labwork( void )
 
 			  }
 			}
+	}
 
 			
 
@@ -247,11 +249,11 @@ void gameplay() {
   // it gets to the top or bottom of the screen.
   ball_y = ball_y + ball_y_speed;
   if(ball_y >= (MAXY - BALL_LENGTH)) {
-    ball_y_speed = (random() % (-10) + (-1));
-	ball_x_speed = (random() % (10) + (-10));
+    ball_y_speed = (random() % (-5) + (-1));
+	ball_x_speed = (random() % (5) + (-5));
   } else if (ball_y <= MINY) {
-    ball_y_speed = (random() % (10) + (1));
-	ball_x_speed = (random() % (10) + (-10));
+    ball_y_speed = (random() % (5) + (1));
+	ball_x_speed = (random() % (5) + (-5));
   }
 
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
@@ -259,10 +261,10 @@ void gameplay() {
   if(ball_x >= MAXX) {
     if((ball_y > paddle2_y - BALL_LENGTH) && (ball_y < (paddle2_y + PADDLE_LENGTH))) {
       // ball hit bat2
-      ball_x_speed = (random() % (-10) + (-1));          // just reflect it for now
+      ball_x_speed = (random() % (-5) + (-1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
-      ball_y_speed = (random() % (10) + (-10));
+      ball_y_speed = (random() % (5) + (-5));
     } else {
       // player 2 missed the ball, increment player 1's score
       player1score++;
@@ -275,8 +277,8 @@ void gameplay() {
   } else if(ball_x <= MINX) {
     if((ball_y > paddle1_y - BALL_LENGTH) && (ball_y < (paddle1_y + PADDLE_LENGTH))) {
       // ball hit bat1
-      ball_x_speed = (random() % (10) + (1));
-      ball_y_speed = (random() % (10) + (-10));
+      ball_x_speed = (random() % (5) + (1));
+      ball_y_speed = (random() % (5) + (-5));
     } else {
       // player 1 missed the ball, give player 2 the points and serve
       player2score++;
