@@ -255,11 +255,11 @@ void gameplay() {
 	  ball_y = 8;
   }
   if(ball_y >= (MAXY - BALL_LENGTH)) {
-    ball_y_speed = (random() % (-5) + (-1));
-	ball_x_speed = (random() % (5) + (-5));
+    ball_y_speed = -(random() % (5) + (1));
+	ball_x_speed = ((random() % (10) + (0) - (random() % (10) + (0));
   } else if (ball_y <= MINY) {
     ball_y_speed = (random() % (5) + (1));
-	ball_x_speed = (random() % (5) + (-5));
+	ball_x_speed = ((random() % (10) + (0) - (random() % (10) + (0));
   }
   ball_y = ball_y + ball_y_speed;
 
@@ -274,10 +274,10 @@ void gameplay() {
   if(ball_x >= MAXX) {
     if((ball_y > paddle2_y - BALL_LENGTH) && (ball_y < (paddle2_y + PADDLE_LENGTH))) {
       // ball hit bat2
-      ball_x_speed = (random() % (-5) + (-1));          // just reflect it for now
+      ball_x_speed = -(random() % (5) + (1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
-      ball_y_speed = (random() % (5) + (-5));
+      ball_y_speed = ((random() % (10) + (0) - (random() % (10) + (0));
 	  ball_x = ball_x + ball_x_speed;
 	  ball_y = ball_y_speed;
     } else {
@@ -295,14 +295,14 @@ void gameplay() {
     if((ball_y > paddle1_y - BALL_LENGTH) && (ball_y < (paddle1_y + PADDLE_LENGTH))) {
       // ball hit bat1
       ball_x_speed = (random() % (5) + (1));
-      ball_y_speed = (random() % (5) + (-5));
+      ball_y_speed = ((random() % (10) + (0) - (random() % (10) + (0));
 	  ball_x = ball_x + ball_x_speed;
 	  ball_y = ball_y_speed;
     } else {
       // player 1 missed the ball, give player 2 the points and serve
       player2score++;
 	  ball_y_speed = 0;
-	  ball_x_speed = (random() % (-5) + (-2));
+	  ball_x_speed = -(random() % (5) + (2));
       ball_x = 62 + ball_x_speed;
       ball_y = 14 + ball_y_speed;
       //ball_x = (MAXX - MINX) / 2 + MINX;
