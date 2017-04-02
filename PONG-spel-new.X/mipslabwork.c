@@ -249,10 +249,10 @@ void gameplay() {
   // it gets to the top or bottom of the screen.
   ball_y = ball_y + ball_y_speed;
   if (ball_y > MAXY){
-	  ball_y = 31;
+	  ball_y = 30;
   }
   else if (ball_y < MINY){
-	  ball_y = 8;
+	  ball_y = 9;
   }
   if(ball_y >= (MAXY - BALL_LENGTH)) {
     ball_y_speed = -(random() % (5) + (1));
@@ -285,7 +285,7 @@ void gameplay() {
       player1score++;
       // reset the ball to the centre of the screen player 1 serves
 	  ball_y_speed = 0;
-	  ball_x_speed = (random() % (5) + (2));
+	  ball_x_speed = 2;
       ball_x = 62 + ball_x_speed;
       ball_y = 14 + ball_y_speed;
       //ball_x = (MAXX - MINX) / 2 + MINX;
@@ -302,7 +302,7 @@ void gameplay() {
       // player 1 missed the ball, give player 2 the points and serve
       player2score++;
 	  ball_y_speed = 0;
-	  ball_x_speed = -(random() % (5) + (2));
+	  ball_x_speed = -2;
       ball_x = 62 + ball_x_speed;
       ball_y = 14 + ball_y_speed;
       //ball_x = (MAXX - MINX) / 2 + MINX;
