@@ -188,10 +188,11 @@ void labwork( void )
               display_matrix(0, textbuffer2);
 			  if (start == 0){
 			  gamestart();
+              start = 1;
 			  } else{
 			  gameplay();
 
-			  start = 1;}
+			  }
 			}
 
 			
