@@ -129,6 +129,7 @@ void labwork( void )
     }*/
         while ( player1score != 3 && player2score != 3){
 
+                   
 
               clear_matrix();
 
@@ -148,15 +149,39 @@ void labwork( void )
 			  gameplay_paddle();
 			  while ( playerwin == 1){
 				  ball_x_speed = 0;
-				  if (sw1 == 1 || sw2 == 1){
-					  ball_x_speed = -2;
+                  volatile int sw1 = PORTD;
+                            sw1 = sw1 >> 8;
+                            sw1 &= 0x1;
+                   volatile int sw2 = PORTD;
+                            sw2 = sw2 >> 9;
+                            sw2 &= 0x1;
+                   volatile int sw3 = PORTD;
+                            sw3 = sw3 >> 10;
+                            sw3 &= 0x1;
+                    volatile int sw4 = PORTD;
+                            sw4 = sw4 >> 11;
+                            sw4 &= 0x1;
+				  if (sw3 == 1 || sw4 == 1){
+					  ball_x_speed = 2;
 					  playerwin = 0;
 				  }
 			  }
 			  while ( playerwin == 2){
+                  volatile int sw1 = PORTD;
+                            sw1 = sw1 >> 8;
+                            sw1 &= 0x1;
+                   volatile int sw2 = PORTD;
+                            sw2 = sw2 >> 9;
+                            sw2 &= 0x1;
+                   volatile int sw3 = PORTD;
+                            sw3 = sw3 >> 10;
+                            sw3 &= 0x1;
+                    volatile int sw4 = PORTD;
+                            sw4 = sw4 >> 11;
+                            sw4 &= 0x1;
 				  ball_x_speed = 0;
-				  if (sw3 == 1 || sw4 == 1){
-					  ball_x_speed = 2;
+				  if (sw1 == 1 || sw2 == 1){
+					  ball_x_speed = -2;
 					  playerwin = 0;
 				  }
 			  } 
