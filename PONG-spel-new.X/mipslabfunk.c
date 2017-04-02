@@ -152,8 +152,6 @@ void display_image(int x, const uint8_t *data) {
 
 		spi_send_recv(0x22);
 		spi_send_recv(i); // var i best�mmer vilken rad som ska skrivas till
-		//spi_send_recv(0x0);
-		//spi_send_recv(0x10);
 		spi_send_recv(x & 0xF);
 		spi_send_recv(0x10 | ((x >> 4) & 0xF));
 
@@ -172,8 +170,6 @@ void display_screen(int x, const uint8_t *data) {
 
 		spi_send_recv(0x22);
 		spi_send_recv(i); // var i best�mmer vilken rad som ska skrivas till
-		//spi_send_recv(0x0);
-		//spi_send_recv(0x10);
 		spi_send_recv(x & 0xF);
 		spi_send_recv(0x10 | ((x >> 4) & 0xF));
 
@@ -192,8 +188,6 @@ void display_matrix(int x, const uint8_t *data) {
 
 		spi_send_recv(0x22);
 		spi_send_recv(i); // var i best�mmer vilken rad som ska skrivas till
-		//spi_send_recv(0x0);
-		//spi_send_recv(0x10);
 		spi_send_recv(x & 0xF);
 		spi_send_recv(0x10 | ((x >> 4) & 0xF));
 
@@ -402,15 +396,13 @@ void  SetBit(int z , int w , int k)
 
       flag = flag << pos;      // flag = 0000...010...000   (shifted k positions)
 
-      //textbuffer[z][w] = textbuffer[z][w] | flag;      // Set the bit at the k-th position in A[i]
 	  textbuffer2[(z*128) + w] = textbuffer2[(z*128) + w] | flag;      // Set the bit at the k-th position in A[i]
-      //printf("\n1");
+
    }
 
 void  ClearBit( int z , int w,  int k )
       {
          textbuffer2[(z*128) + w] &= ~(1 << (k));
-         //printf("\n0");
       }
 
 void matrix_to_textbuffer(void){
@@ -429,40 +421,7 @@ void matrix_to_textbuffer(void){
 		      z = 3;
 		    }
 		    for(i = 0; i<128;i++){
-				/*
-		      if (i > 7 && i < 16) {
-		        w = 1;
-		      } else if (i > 15 && i < 24) {
-		        w = 2;
-		      } else if (i > 23 && i < 32) {
-		        w = 3;
-		      } else if (i > 31 && i < 40) {
-		        w = 4;
-		      } else if (i > 39 && i < 48) {
-		        w = 5;
-		      } else if (i > 47 && i < 56) {
-		        w = 6;
-		      } else if (i > 55 && i < 64) {
-		        w = 7;
-		      } else if (i > 63 && i < 72) {
-		        w = 8;
-		      } else if (i > 71 && i < 80) {
-		        w = 9;
-		      } else if (i > 79 && i < 88) {
-		        w = 10;
-		      } else if (i > 87 && i < 96) {
-		        w = 11;
-		      } else if (i > 95 && i < 104) {
-		        w = 12;
-		      } else if (i > 103 && i < 112) {
-		        w = 13;
-		      } else if (i > 111 && i < 120) {
-		        w = 14;
-		      } else if (i > 119 && i < 128) {
-		        w = 15;
-		      }*/
-
-
+				
 
 		          if (k>7){
 		            k = 0;
@@ -482,14 +441,7 @@ void matrix_to_textbuffer(void){
 		   k++;
 		  }
 		  
-  
-	/*int i,j;
-	for(j = 0; j<4 ; j++){
 
-	for(i = 0; i<128 ; i++){
-		textbuffer2[4*j+i] = textbuffer[j][i];
-	}
-}*/
 } //---------------------------------------------------------------------------
 
 /*
@@ -623,15 +575,4 @@ char * itoaconv( int num )
 }
 
 
-void matrix_to_oled (void){
 
-	int i, j, k;
-	k = 0;
-	for (j = 0; j < 4; j++){
-
-		for (i = 0; i < 128; i++){
-			textbuffer2[k] = textbuffer[j][i];
-			k++;
-		}
-	}
-}
