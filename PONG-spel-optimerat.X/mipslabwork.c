@@ -192,6 +192,12 @@ void labwork( void )
 			  delay++;
 			  
 			}
+			if (player1score == 3){
+				
+			}
+			else if (player2score == 3){
+				
+			}
 	}
 
 			
@@ -251,11 +257,11 @@ void gameplay_ball() {
 	  ball_y = MINY;
   }
   if(ball_y >= (MAXY - BALL_LENGTH)) {
-    ball_y_speed = -(random() % (3) + (1));
-	ball_x_speed = ((random() % (3) + (1)) - (random() % (3) + (1)));
+    ball_y_speed = -(random() % (2) + (1));
+	ball_x_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
   } else if (ball_y <= MINY) {
-    ball_y_speed = (random() % (3) + (1));
-	ball_x_speed = ((random() % (3) + (1)) - (random() % (3) + (1)));
+    ball_y_speed = (random() % (2) + (1));
+	ball_x_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
   }
   ball_y = ball_y + ball_y_speed;
 
@@ -282,10 +288,10 @@ void gameplay_ball() {
     //if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
 		if(k == 1 ) {
             // ball hit bat2
-            ball_x_speed = -(random() % (3) + (1));          // just reflect it for now
+            ball_x_speed = -(random() % (2) + (1));          // just reflect it for now
             // this makes it bounce off up or down the screen depending on
             // where you hit it
-            ball_y_speed = ((random() % (3) + (1)) - (random() % (3) + (1)));
+            ball_y_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
             ball_x = ball_x + ball_x_speed;
             ball_y = ball_y + ball_y_speed;
            } else {
@@ -314,8 +320,8 @@ void gameplay_ball() {
     //if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
 		if(k == 1 ) {
             // ball hit bat1
-            ball_x_speed = (random() % (3) + (1));
-            ball_y_speed = ((random() % (3) + (1)) - (random() % (3) + (1)));
+            ball_x_speed = (random() % (2) + (1));
+            ball_y_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
             ball_x = ball_x + ball_x_speed;
             ball_y = ball_y + ball_y_speed;
           } else {
