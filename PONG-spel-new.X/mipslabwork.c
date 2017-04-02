@@ -31,8 +31,8 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define PADDLE_COL 0xF
 #define BALL_COL 0xF
 
-#define MINX 0
-#define MAXX 126
+#define MINX 2
+#define MAXX 123
 #define MINY 9
 #define MAXY 30
 
@@ -266,7 +266,7 @@ void gameplay() {
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
   ball_x = ball_x + ball_x_speed;
   if (ball_x > MAXX){
-	  ball_x = 125;
+	  ball_x = 124;
   }
   else if (ball_x < MINX){
 	  ball_x = 2;
