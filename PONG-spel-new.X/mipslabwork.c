@@ -182,12 +182,16 @@ void labwork( void )
             //  score_to_matrix();
               matrix_to_textbuffer();
               display_matrix(0, textbuffer2);
+			  //gamestart();
+			  gameplay();
             }
 
 
 }
 
-
+void gamestart() {
+	ball_x++;
+}
 
 void gameplay() {
 
