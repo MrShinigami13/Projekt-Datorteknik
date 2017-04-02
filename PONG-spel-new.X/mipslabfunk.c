@@ -283,29 +283,36 @@ int i,j;
 void score_to_matrix(void){
 int i,j;
 
-switch (player1score) {
-	case 0: for(i = 0; i< 8 ; i++){
+if(player1score == 0) {
+	for(i = 0; i< 8 ; i++){
 		
         for(j = 0; j< 8 ; j++){
             thematrix[i][32+j] = scorezero[i][j];
 
         }
     }
-	case 1: for(i = 0; i< 8 ; i++){
+}
+else if (player1score == 1){
+      for(i = 0; i< 8 ; i++){
 		
         for(j = 0; j< 8 ; j++){
             thematrix[i][32+j] = scoreone[i][j];
 
         }
     }
-	case 2: for(i = 0; i< 8 ; i++){
+}
+else if(player1score == 2){
+    
+    for(i = 0; i< 8 ; i++){
 			
         for(j = 0; j< 8 ; j++){
             thematrix[i][32+j] = scoretwo[i][j];
 
         }
     }
-	case 3: for(i = 0; i< 8 ; i++){
+}
+else if(player1score == 3){
+	for(i = 0; i< 8 ; i++){
 		
         for(j = 0; j< 8 ; j++){
             thematrix[i][32+j] = scorethree[i][j];
@@ -314,15 +321,17 @@ switch (player1score) {
     }
 
 }
-switch (player2score) {
-	case 0: for(i = 0; i< 8 ; i++){
+if(player2score == 0) {
+	for(i = 0; i< 8 ; i++){
 		
         for(j = 0; j< 8 ; j++){
             thematrix[i][96+j] = scorezero[i][j];
 
         }
     }
-	case 1: for(i = 0; i< 8 ; i++){
+}
+else if(player2score == 1){
+	for(i = 0; i< 8 ; i++){
 
         
         for(j = 0; j< 8 ; j++){
@@ -330,14 +339,18 @@ switch (player2score) {
 
         }
     }
-	case 2: for(i = 0; i< 8 ; i++){
+}
+else if(player2score == 2){
+	for(i = 0; i< 8 ; i++){
 
         for(j = 0; j< 8 ; j++){
             thematrix[i][96+j] = scoretwo[i][j];
 
         }
     }
-	case 3: for(i = 0; i< 8 ; i++){
+}
+else if(player2score == 3){
+	for(i = 0; i< 8 ; i++){
 
         for(j = 0; j< 8 ; j++){
             thematrix[i][96+j] = scorethree[i][j];

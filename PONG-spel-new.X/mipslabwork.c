@@ -285,7 +285,7 @@ void gameplay() {
       player1score++;
       // reset the ball to the centre of the screen player 1 serves
 	  ball_y_speed = 0;
-	  ball_x_speed = (random() % (5) + (2))
+	  ball_x_speed = (random() % (5) + (2));
       ball_x = 62 + ball_x_speed;
       ball_y = 14 + ball_y_speed;
       //ball_x = (MAXX - MINX) / 2 + MINX;
@@ -302,7 +302,7 @@ void gameplay() {
       // player 1 missed the ball, give player 2 the points and serve
       player2score++;
 	  ball_y_speed = 0;
-	  ball_x_speed = (random() % (-5) + (-2))
+	  ball_x_speed = (random() % (-5) + (-2));
       ball_x = 62 + ball_x_speed;
       ball_y = 14 + ball_y_speed;
       //ball_x = (MAXX - MINX) / 2 + MINX;
