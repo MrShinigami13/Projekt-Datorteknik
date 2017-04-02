@@ -188,10 +188,11 @@ void labwork( void )
               display_matrix(0, textbuffer2);
 			  if (start == 0){
 			  gamestart();
+              start = 1;
 			  } else{
 			  gameplay();
 
-			  start = 1;}
+			  }
 			}
 
 			
@@ -222,10 +223,10 @@ void gameplay() {
 			sw4 = sw4 >> 11;
 			sw4 &= 0x1;
 			
-			if (sw1 == 1 && (paddle2_y < 24){
+			if (sw1 == 1 && (paddle2_y < 24)){
 					paddle2_y++;
 			}
-			else if ( sw2 == 1 && (paddle2_y > 8){
+			else if ( sw2 == 1 && (paddle2_y > 8)){
 				paddle2_y--;
 			}
 			

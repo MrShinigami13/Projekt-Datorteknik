@@ -281,7 +281,7 @@ int i,j;
 
 }
 void score_to_matrix(void){
-int i;
+int i,j;
 
 switch (player1score) {
 	case 0: for(i = 0; i< 8 ; i++){
@@ -320,13 +320,12 @@ switch (player1score) {
 }
 switch (player2score) {
 	case 0: for(i = 0; i< 8 ; i++){
-		thematrix[i][96] = scorezero[i][0];
+		
+        for(j = 0; j< 8 ; j++){
+            thematrix[i][96+j] = scorezero[i][j];
 
-	}
-	for(i = 0; i< 8 ; i++){
-		thematrix[0][96+i] = scorezero[0][i];
-
-	}
+        }
+    }
 	case 1: for(i = 0; i< 8 ; i++){
 		thematrix[i][96] = scoreone[i][0];
 
