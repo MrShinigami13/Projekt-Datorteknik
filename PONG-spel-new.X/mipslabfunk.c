@@ -285,37 +285,33 @@ int i,j;
 
 switch (player1score) {
 	case 0: for(i = 0; i< 8 ; i++){
-		thematrix[i][32] = scorezero[i][0];
+		
+        for(j = 0; j< 8 ; j++){
+            thematrix[i][32+j] = scorezero[i][j];
 
-	}
-	for(i = 0; i< 8 ; i++){
-		thematrix[0][32+i] = scorezero[0][i];
-
-	}
+        }
+    }
 	case 1: for(i = 0; i< 8 ; i++){
-		thematrix[i][32] = scoreone[i][0];
+		
+        for(j = 0; j< 8 ; j++){
+            thematrix[i][32+j] = scoreone[i][j];
 
-	}
-	for(i = 0; i< 8 ; i++){
-		thematrix[0][32+i] = scoreone[0][i];
-
-	}
+        }
+    }
 	case 2: for(i = 0; i< 8 ; i++){
-		thematrix[i][32] = scoretwo[i][0];
+			
+        for(j = 0; j< 8 ; j++){
+            thematrix[i][32+j] = scoretwo[i][j];
 
-	}
-	for(i = 0; i< 8 ; i++){
-		thematrix[0][32+i] = scoretwo[0][i];
-
-	}
+        }
+    }
 	case 3: for(i = 0; i< 8 ; i++){
-		thematrix[i][32] = scorethree[i][0];
+		
+        for(j = 0; j< 8 ; j++){
+            thematrix[i][32+j] = scorethree[i][j];
 
-	}
-	for(i = 0; i< 8 ; i++){
-		thematrix[0][32+i] = scorethree[0][i];
-
-	}
+        }
+    }
 
 }
 switch (player2score) {
@@ -327,29 +323,27 @@ switch (player2score) {
         }
     }
 	case 1: for(i = 0; i< 8 ; i++){
-		thematrix[i][96] = scoreone[i][0];
 
-	}
-	for(i = 0; i< 8 ; i++){
-		thematrix[0][96+i] = scoreone[0][i];
+        
+        for(j = 0; j< 8 ; j++){
+            thematrix[i][96+j] = scoreone[i][j];
 
-	}
+        }
+    }
 	case 2: for(i = 0; i< 8 ; i++){
-		thematrix[i][96] = scoretwo[i][0];
 
-	}
-	for(i = 0; i< 8 ; i++){
-		thematrix[0][96+i] = scoretwo[0][i];
+        for(j = 0; j< 8 ; j++){
+            thematrix[i][96+j] = scoretwo[i][j];
 
-	}
+        }
+    }
 	case 3: for(i = 0; i< 8 ; i++){
-		thematrix[i][96] = scorethree[i][0];
 
-	}
-	for(i = 0; i< 8 ; i++){
-		thematrix[0][96+i] = scorethree[0][i];
+        for(j = 0; j< 8 ; j++){
+            thematrix[i][96+j] = scorethree[i][j];
 
-	}
+        }
+    }
 
 }
 
