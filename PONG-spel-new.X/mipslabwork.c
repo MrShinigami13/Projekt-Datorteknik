@@ -58,7 +58,9 @@ int paddle1_y = 12;
 int paddle2_x = 126;
 int paddle2_y = 12;
 int ball_x = 62;
+int ball_x_speed = 2;
 int ball_y = 14;
+int ball_y_speed = 0;
 int ball_speed = 0;
 int player1score = 0;
 int player2score = 0;
@@ -243,24 +245,24 @@ void gameplay() {
 
   // vertical motion of the ball, just invert the vertical component if
   // it gets to the top or bottom of the screen.
-  ball_y += ball_y;
+  ball_y = ball_y + ball_y_speed;
   if(ball_y >= (MAXY - BALL_LENGTH)) {
-    ball_y *= (random() % (-10) + (-1));
-	ball_x *= (random() % (10) + (-10));
+    ball_y_speed = (random() % (-10) + (-1));
+	ball_x_speed = (random() % (10) + (-10));
   } else if (ball_y <= MINY) {
-    ball_y *= (random() % (10) + (1));
-	ball_x *= (random() % (10) + (-10));
+    ball_y_speed = (random() % (10) + (1));
+	ball_x_speed = (random() % (10) + (-10));
   }
 
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
-  ball_x += ball_x;
+  ball_x = ball_x + ball_x_speed;
   if(ball_x >= MAXX) {
     if((ball_y > paddle2_y - BALL_LENGTH) && (ball_y < (paddle2_y + PADDLE_LENGTH))) {
       // ball hit bat2
-      ball_x *= (random() % (-10) + (-1));          // just reflect it for now
+      ball_x_speed = (random() % (-10) + (-1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
-      ball_y *= (random() % (10) + (-10));
+      ball_y_speed = (random() % (10) + (-10));
     } else {
       // player 2 missed the ball, increment player 1's score
       player1score++;
@@ -273,8 +275,8 @@ void gameplay() {
   } else if(ball_x <= MINX) {
     if((ball_y > paddle1_y - BALL_LENGTH) && (ball_y < (paddle1_y + PADDLE_LENGTH))) {
       // ball hit bat1
-      ball_x *= (random() % (10) + (1));
-      ball_y *= (random() % (10) + (-10));
+      ball_x_speed = (random() % (10) + (1));
+      ball_y_speed = (random() % (10) + (-10));
     } else {
       // player 1 missed the ball, give player 2 the points and serve
       player2score++;
