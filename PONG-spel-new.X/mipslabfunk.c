@@ -378,6 +378,14 @@ void clear_matrix(void) {
 	}
 }
 }
+void clear_textbuffer2(void) {
+	int i;
+	for (i = 0; i < 512; i++)
+	{
+        textbuffer2[i] = 0;
+	
+}
+}
 
 void  SetBit(int z , int w , int k)
    {
