@@ -279,7 +279,7 @@ void gameplay() {
       // where you hit it
       ball_y_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
 	  ball_x = ball_x + ball_x_speed;
-	  ball_y = ball_y_speed;
+	  ball_y = ball_y + ball_y_speed;
     } else {
       // player 2 missed the ball, increment player 1's score
       player1score++;
@@ -297,7 +297,7 @@ void gameplay() {
       ball_x_speed = (random() % (5) + (1));
       ball_y_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
 	  ball_x = ball_x + ball_x_speed;
-	  ball_y = ball_y_speed;
+	  ball_y = ball_y + ball_y_speed;
     } else {
       // player 1 missed the ball, give player 2 the points and serve
       player2score++;
