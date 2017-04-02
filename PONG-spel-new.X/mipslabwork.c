@@ -32,7 +32,7 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define BALL_COL 0xF
 
 #define MINX 2
-#define MAXX 123
+#define MAXX 124
 #define MINY 9
 #define MAXY 30
 
