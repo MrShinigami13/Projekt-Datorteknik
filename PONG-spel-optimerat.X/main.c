@@ -14,6 +14,7 @@
 
 
 
+
 // PIC32MX320F128H Configuration Bit Settings
 
 // 'C' source line config statements
@@ -27,7 +28,7 @@
 #pragma config FPLLODIV = DIV_1         // System PLL Output Clock Divider (PLL Divide by 1)
 
 // DEVCFG1
-#pragma config FNOSC = FRCDIV           // Oscillator Selection Bits (Fast RC Osc w/Div-by-N (FRCDIV))
+#pragma config FNOSC = FRCPLL           // Oscillator Selection Bits (Fast RC Osc with PLL)
 #pragma config FSOSCEN = ON             // Secondary Oscillator Enable (Enabled)
 #pragma config IESO = ON                // Internal/External Switch Over (Enabled)
 #pragma config POSCMOD = OFF            // Primary Oscillator Configuration (Primary osc disabled)

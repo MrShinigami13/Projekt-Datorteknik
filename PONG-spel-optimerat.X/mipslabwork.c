@@ -114,7 +114,18 @@ void labinit( void )
 /* This function is called repetitively from the main program */
 void labwork( void )
 {
-	while ( player1score != 3 && player2score != 3){
+    /*int i, j;
+    i = 0;
+    j = 0;
+    for (i= 0; i< 512; i++)
+    {
+        textbuffer2[i] = 1;
+        if (i > 0){
+            textbuffer2[(i-1)] = 0;
+        }
+        display_screen(0, textbuffer2);
+    }*/
+        while ( player1score != 3 && player2score != 3){
 
 
               clear_matrix();
