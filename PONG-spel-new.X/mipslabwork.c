@@ -32,9 +32,9 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define BALL_COL 0xF
 
 #define MINX 0
-#define MAXX 128
+#define MAXX 126
 #define MINY 9
-#define MAXY 32
+#define MAXY 30
 
 /*T2CON = 0x60;
 #define TMR2PERIOD ((80000000 / 64) / 10)
@@ -261,6 +261,7 @@ void gameplay() {
     ball_y_speed = (random() % (5) + (1));
 	ball_x_speed = (random() % (5) + (-5));
   }
+  ball_y = ball_y + ball_y_speed;
 
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
   ball_x = ball_x + ball_x_speed;
@@ -277,12 +278,16 @@ void gameplay() {
       // this makes it bounce off up or down the screen depending on
       // where you hit it
       ball_y_speed = (random() % (5) + (-5));
+	  ball_x = ball_x + ball_x_speed;
+	  ball_y = ball_y_speed;
     } else {
       // player 2 missed the ball, increment player 1's score
       player1score++;
       // reset the ball to the centre of the screen player 1 serves
-      ball_x = 62;
-      ball_y = 14;
+	  ball_y_speed = 0;
+	  ball_x_speed = (random() % (5) + (2))
+      ball_x = 62 + ball_x_speed;
+      ball_y = 14 + ball_y_speed;
       //ball_x = (MAXX - MINX) / 2 + MINX;
       //ball = 13;
     }
@@ -291,11 +296,15 @@ void gameplay() {
       // ball hit bat1
       ball_x_speed = (random() % (5) + (1));
       ball_y_speed = (random() % (5) + (-5));
+	  ball_x = ball_x + ball_x_speed;
+	  ball_y = ball_y_speed;
     } else {
       // player 1 missed the ball, give player 2 the points and serve
       player2score++;
-      ball_x = 62;
-      ball_y = 14;
+	  ball_y_speed = 0;
+	  ball_x_speed = (random() % (-5) + (-2))
+      ball_x = 62 + ball_x_speed;
+      ball_y = 14 + ball_y_speed;
       //ball_x = (MAXX - MINX) / 2 + MINX;
       //ball = 13;
     }
