@@ -145,7 +145,7 @@ void labwork( void )
               start = 1;
 			  }
 			  gameplay_paddle();
-			  if (delay == 10){
+			  if (delay == 7){
 				  gameplay_ball();
 				  delay = 0;
 			  }
@@ -194,13 +194,11 @@ void gameplay_paddle() {
 			else if ( sw4 == 1 && (paddle1_y > 8)){
 				paddle1_y--;
 			}
+			
 }
 
 void gameplay_ball() {
 
-  // read the two paddle controllers and set the two bat postitions
-									//bat1 = analogRead(0) / 3 + 50;	här skriver vi input för ms
-									//bat2 = analogRead(1) / 3 + 50;
 
   // vertical motion of the ball, just invert the vertical component if
   // it gets to the top or bottom of the screen.
@@ -229,7 +227,8 @@ void gameplay_ball() {
 	  ball_x = MINX;
   }
   if(ball_x >= MAXX) {
-    if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
+    //if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
+		if(((ball_y + 2) >= paddle_y) && (ball_y <= (paddle2_y + 6)) ) {
             // ball hit bat2
             ball_x_speed = -(random() % (5) + (1));          // just reflect it for now
             // this makes it bounce off up or down the screen depending on
