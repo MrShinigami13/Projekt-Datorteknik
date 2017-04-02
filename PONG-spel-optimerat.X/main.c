@@ -104,13 +104,7 @@ int main(void) {
 
     LATEbits.LATE5 = 1;
 	display_init();
-	display_string(0, "KTH/ICT lab");
-	display_string(1, "in Computer");
-	display_string(2, "Engineering");
-	display_string(3, "Welcome!");
-	display_update();
 
-	display_image(96, icon);
 
 	labinit(); /* Do any lab-specific initialization */
     

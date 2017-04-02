@@ -86,21 +86,7 @@ int random (void)
 
 void _isr( void )
 {
-    LATEbits.LATE3 = 1;
-	if (IFS0 & 0x100)
-	{
-		if (timeoutcounter == 100)
-		{
-		timeoutcounter = 0;
-
-
-		tick(&mytime);
-		}
-		timeoutcounter++;
-		IFS0 &= ~0x100;
-	}
-
-
+ 
 	return;
 }
 
@@ -110,41 +96,11 @@ void labinit( void )
 
 
 	*trise = *trise & 0xff00; // 1111 1111 0000 0000
-	//*porte = *porte & 0x0;
+
 	PORTE = 0x0;
 	TRISD |= 0x7f0; // va |=
-	/*INTCON = 0x1E; // high flank on swith 3 (rising edge)
-
-	IPC1 = 0x1c000000;			// external interrupt 1
-	IPC2 = 0x1c00001c;			// external interrupt 2 och timer 2
-	IPC3 = 0x1c000000;			// external interrupt 3
-	IPC4 = 0x1c000000;			// external interrupt 4
 
 */
-
-    INTCONbits.INT1EP = 1;
-    INTCONbits.INT2EP = 1;
-    INTCONbits.INT3EP = 1;
-    INTCONbits.INT4EP = 1;
-
-
-
-    T2CONbits.ON = 1;
-	PR2 = TMR2PERIOD;
-
-
-	TMR2 = 0;
-
-    IEC0bits.INT1IE = 0x1;
-    IEC0bits.INT2IE = 0x1;
-    IEC0bits.INT3IE = 0x1;
-    IEC0bits.INT4IE = 0x1;
-    IFS0bits.INT1IF = 0x0;
-    IFS0bits.INT2IF = 0x0;
-    IFS0bits.INT3IF = 0x0;
-    IFS0bits.INT4IF = 0x0;
-    IEC0bits.T2IE = 0x1;
-    IFS0bits.T2IF = 0x0;
 
 
 	enable_interrupt();
@@ -159,24 +115,7 @@ void labinit( void )
 void labwork( void )
 {
 	while ( player1score != 3 && player2score != 3){
-    /*int i = 0;
-   volatile int sw1 = PORTD;
-			sw1 = sw1 >> 8;
-			sw1 &= 0x1;
-   volatile int sw2 = PORTD;
-			sw2 = sw2 >> 9;
-			sw2 &= 0x1;
-   volatile int sw3 = PORTD;
-			sw3 = sw3 >> 10;
-			sw3 &= 0x1;
-    volatile int sw4 = PORTD;
-			sw4 = sw4 >> 11;
-			sw4 &= 0x1;
 
-            if(sw1 == 1){
-              display_screen(0, test);
-            }
-            else{*/
 
               clear_matrix();
 
@@ -288,8 +227,7 @@ void gameplay() {
                     ball_x_speed = 2;
                     ball_x = 62 + ball_x_speed;
                     ball_y = 20 + ball_y_speed;
-                    //ball_x = (MAXX - MINX) / 2 + MINX;
-                    //ball = 13;
+                   
           }
   } else if(ball_x <= MINX) {
     if((ball_y  > (paddle1_y - 2)) && (ball_y < (paddle1_y + 6))) {
@@ -305,15 +243,10 @@ void gameplay() {
             ball_x_speed = -2;
             ball_x = 62 + ball_x_speed;
             ball_y = 20 + ball_y_speed;
-            //ball_x = (MAXX - MINX) / 2 + MINX;
-            //ball = 13;
+            
           }
   }
 
-  // toggle the lsb of p to alternate who gets the score next time
- // p^=1;
-  // delay a bit before the next position update
-  //delay(10);
 
 
 }
