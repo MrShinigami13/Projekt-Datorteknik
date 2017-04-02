@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="dist/default/production/PONG-spel-new.X.production.elf">                 
+  <executable name="dist/default/production/PONG-spel-optimerat.X.production.elf">                 
     <memory name="program">                 
       <units>bytes</units>                 
       <length>138752</length>                 
-      <used>18552</used>                     
-      <free>120200</free>                     
+      <used>12832</used>                     
+      <free>125920</free>                     
     </memory>                              
     <memory name="data">              
       <units>bytes</units>                 
       <length>16384</length>                 
-      <used>5296</used>                     
-      <free>11088</free>                     
+      <used>4732</used>                     
+      <free>11652</free>                     
     </memory>                              
   </executable>                            
 </project>                                 

@@ -19,8 +19,6 @@
       <itemPath>mipslabfunk.c</itemPath>
       <itemPath>mipslabwork.c</itemPath>
       <itemPath>vectors.s</itemPath>
-      <itemPath>stubs.c</itemPath>
-      <itemPath>OledFunc.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

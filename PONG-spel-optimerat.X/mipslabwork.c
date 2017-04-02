@@ -100,7 +100,7 @@ void labinit( void )
 	PORTE = 0x0;
 	TRISD |= 0x7f0; // va |=
 
-*/
+
 
 
 	enable_interrupt();

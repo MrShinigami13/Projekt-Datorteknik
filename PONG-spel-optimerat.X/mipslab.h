@@ -23,6 +23,7 @@ void display_init(void);
 void display_string(int line, char *s);
 void display_update(void);
 void gameplay(void);
+void gamestart(void);
 uint8_t spi_send_recv(uint8_t data);
 
 void ball_to_matrix(void);
