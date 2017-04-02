@@ -81,8 +81,8 @@ extern const uint8_t const scorezero[8][8];
 extern const uint8_t const scoreone[8][8];
 extern const uint8_t const scoretwo[8][8];
 extern const uint8_t const scorethree[8][8];
-extern const uint8_t const paddle1[3][6];
-extern const uint8_t const paddle2[3][6];
+extern const uint8_t const paddle1[6][3];
+extern const uint8_t const paddle2[6][3];
 extern const uint8_t const ball[2][2];
 
 

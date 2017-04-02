@@ -206,7 +206,7 @@ const uint8_t const scorethree[8][8] = {
 	{0, 0, 1, 1, 1, 1, 0, 0},
 };
 
-const uint8_t const paddle1[3][6] = {
+const uint8_t const paddle1[6][3] = {
 	{1, 1, 1},
 	{1, 1, 1},
 	{1, 1, 1},
@@ -215,7 +215,7 @@ const uint8_t const paddle1[3][6] = {
 	{1, 1, 1},
 };
 
-const uint8_t const paddle2[3][6] = {
+const uint8_t const paddle2[6][3] = {
 	{1, 1, 1},
 	{1, 1, 1},
 	{1, 1, 1},

@@ -256,10 +256,10 @@ void gameplay() {
   }
   if(ball_y >= (MAXY - BALL_LENGTH)) {
     ball_y_speed = -(random() % (5) + (1));
-	ball_x_speed = ((random() % (10) + (0) - (random() % (10) + (0));
+	ball_x_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
   } else if (ball_y <= MINY) {
     ball_y_speed = (random() % (5) + (1));
-	ball_x_speed = ((random() % (10) + (0) - (random() % (10) + (0));
+	ball_x_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
   }
   ball_y = ball_y + ball_y_speed;
 
@@ -277,7 +277,7 @@ void gameplay() {
       ball_x_speed = -(random() % (5) + (1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
-      ball_y_speed = ((random() % (10) + (0) - (random() % (10) + (0));
+      ball_y_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
 	  ball_x = ball_x + ball_x_speed;
 	  ball_y = ball_y_speed;
     } else {
@@ -295,7 +295,7 @@ void gameplay() {
     if((ball_y > paddle1_y - BALL_LENGTH) && (ball_y < (paddle1_y + PADDLE_LENGTH))) {
       // ball hit bat1
       ball_x_speed = (random() % (5) + (1));
-      ball_y_speed = ((random() % (10) + (0) - (random() % (10) + (0));
+      ball_y_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
 	  ball_x = ball_x + ball_x_speed;
 	  ball_y = ball_y_speed;
     } else {
