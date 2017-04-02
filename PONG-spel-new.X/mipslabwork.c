@@ -174,8 +174,8 @@ void labwork( void )
             }
             else{
 
-              clear_matrix();
-              //ui_to_matrix();
+             // clear_matrix();
+              ui_to_matrix();
             //  ball_to_matrix();
             //  paddle1_to_matrix();
             //  paddle2_to_matrix();

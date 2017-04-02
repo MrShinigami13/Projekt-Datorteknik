@@ -393,16 +393,16 @@ void  SetBit(int z , int w , int k)
 	  textbuffer2[(z*128) + w] = textbuffer2[(z*128) + w] | flag;      // Set the bit at the k-th position in A[i]
       //printf("\n1");
    }
-   
+
 void  ClearBit( int z , int w,  int k )
       {
          textbuffer2[(z*128) + w] &= ~(1 << (k));
          //printf("\n0");
       }
-	  
+
 void matrix_to_textbuffer(void){
 
-		void whritetochar(void){
+		
 			int i,j;
 		  int w = 0;
 		  int z = 0;
@@ -459,7 +459,7 @@ void matrix_to_textbuffer(void){
 		          SetBit(z,i,k);
 		        }
 		        else{
-		          ClearBit(z,i,k);
+		         // ClearBit(z,i,k);
 		        }
 		        k++;
 
@@ -467,14 +467,14 @@ void matrix_to_textbuffer(void){
 
 		    }
 		  }
-  }
+  
 	/*int i,j;
 	for(j = 0; j<4 ; j++){
 
 	for(i = 0; i<128 ; i++){
 		textbuffer2[4*j+i] = textbuffer[j][i];
-	}*/
-}
+	}
+}*/
 } //---------------------------------------------------------------------------
 
 /*
@@ -609,11 +609,11 @@ char * itoaconv( int num )
 
 
 void matrix_to_oled (void){
-	
+
 	int i, j, k;
 	k = 0;
 	for (j = 0; j < 4; j++){
-		
+
 		for (i = 0; i < 128; i++){
 			textbuffer2[k] = textbuffer[j][i];
 			k++;
