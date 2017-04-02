@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>doge_pong</name>
+            <name>doge_pong-optimerat</name>
             <creation-uuid>6efcfa78-325c-432f-9ffe-ce8de45e1eba</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>

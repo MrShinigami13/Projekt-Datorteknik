@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=PONG-spel-new.X
+PROJECTNAME=PONG-spel-optimerat.X
 
 # Active Configuration
 DEFAULTCONF=default
