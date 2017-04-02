@@ -58,7 +58,7 @@ int paddle1_y = 16;
 int paddle2_x = 126;
 int paddle2_y = 16;
 int ball_x = 62;
-int ball_x_speed = -2;
+int ball_x_speed = 1;
 int ball_y = 20;
 int ball_y_speed = 0;
 int ball_speed = 0;
@@ -114,6 +114,7 @@ void labinit( void )
 /* This function is called repetitively from the main program */
 void labwork( void )
 {
+	int delay = 0;
     /*int i, j;
     i = 0;
     j = 0;
@@ -142,10 +143,14 @@ void labwork( void )
 			  if (start == 0){
 			  gamestart();
               start = 1;
-			  } else{
-			  gameplay();
-
 			  }
+			  gameplay_paddle();
+			  if (delay == 10){
+				  gameplay_ball();
+				  delay = 0;
+			  }
+			  delay++;
+			  
 			}
 	}
 
@@ -158,12 +163,11 @@ void labwork( void )
 
 
 void gamestart() {
-	ball_x--;
+	ball_x++;
 	player1score = 0;
 	player2score = 0;
 }
-
-void gameplay() {
+void gameplay_paddle() {
 	volatile int sw1 = PORTD;
 			sw1 = sw1 >> 8;
 			sw1 &= 0x1;
@@ -190,6 +194,9 @@ void gameplay() {
 			else if ( sw4 == 1 && (paddle1_y > 8)){
 				paddle1_y--;
 			}
+}
+
+void gameplay_ball() {
 
   // read the two paddle controllers and set the two bat postitions
 									//bat1 = analogRead(0) / 3 + 50;	här skriver vi input för ms
@@ -206,10 +213,10 @@ void gameplay() {
   }
   if(ball_y >= (MAXY - BALL_LENGTH)) {
     ball_y_speed = -(random() % (5) + (1));
-	ball_x_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
+	ball_x_speed = ((random() % (5) + (0)) - (random() % (5) + (0)));
   } else if (ball_y <= MINY) {
     ball_y_speed = (random() % (5) + (1));
-	ball_x_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
+	ball_x_speed = ((random() % (5) + (0)) - (random() % (5) + (0)));
   }
   ball_y = ball_y + ball_y_speed;
 
