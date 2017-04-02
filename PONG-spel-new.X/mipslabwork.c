@@ -54,11 +54,11 @@ int timeoutcounter = 0;
 int bindis = 0;
 int mytime = 0x5957;
 int paddle1_x = 0;
-int paddle1_y = 18;
+int paddle1_y = 16;
 int paddle2_x = 126;
-int paddle2_y = 18;
+int paddle2_y = 16;
 int ball_x = 62;
-int ball_x_speed = 2;
+int ball_x_speed = -2;
 int ball_y = 20;
 int ball_y_speed = 0;
 int ball_speed = 0;
@@ -208,7 +208,7 @@ void labwork( void )
 
 
 void gamestart() {
-	ball_x++;
+	ball_x--;
 	player1score = 0;
 	player2score = 0;
 }
@@ -272,7 +272,7 @@ void gameplay() {
 	  ball_x = MINX;
   }
   if(ball_x >= MAXX) {
-    if((ball_y  >= (paddle2_y - BALL_LENGTH)) && (ball_y <= (paddle2_y + PADDLE_LENGTH))) {
+    if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
             // ball hit bat2
             ball_x_speed = -(random() % (5) + (1));          // just reflect it for now
             // this makes it bounce off up or down the screen depending on
@@ -292,7 +292,7 @@ void gameplay() {
                     //ball = 13;
           }
   } else if(ball_x <= MINX) {
-    if((ball_y  >= (paddle1_y - BALL_LENGTH)) && (ball_y <= (paddle1_y + PADDLE_LENGTH))) {
+    if((ball_y  > (paddle1_y - 2)) && (ball_y < (paddle1_y + 6))) {
             // ball hit bat1
             ball_x_speed = (random() % (5) + (1));
             ball_y_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
