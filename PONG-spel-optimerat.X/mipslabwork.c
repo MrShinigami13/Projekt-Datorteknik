@@ -227,8 +227,19 @@ void gameplay_ball() {
 	  ball_x = MINX;
   }*/
   if(ball_x >= MAXX) {
+      int i, j, k;
+      i = paddle2_y + 6;
+      j = paddle2_y - 2;
+      if (ball_y > j){
+          if (ball_y < i)
+          {
+              k = 1;
+          }
+      }
+          
+      
     //if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
-		if((paddle2_y - 2) < ball_y < (paddle2_y + 6) ) {
+		if(k == 1 ) {
             // ball hit bat2
             ball_x_speed = -(random() % (3) + (1));          // just reflect it for now
             // this makes it bounce off up or down the screen depending on
@@ -247,7 +258,19 @@ void gameplay_ball() {
                    
           }
   } else if(ball_x <= MINX) {
-    if((paddle1_y - 2) < ball_y < (paddle1_y + 6)) {
+      int i, j, k;
+      i = paddle1_y + 6;
+      j = paddle1_y - 2;
+      if (ball_y > j){
+          if (ball_y < i)
+          {
+              k = 1;
+          }
+      }
+          
+      
+    //if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
+		if(k == 1 ) {
             // ball hit bat1
             ball_x_speed = (random() % (3) + (1));
             ball_y_speed = ((random() % (3) + (1)) - (random() % (3) + (1)));
