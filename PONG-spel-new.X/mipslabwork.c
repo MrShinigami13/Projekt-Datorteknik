@@ -48,6 +48,7 @@ PR2 = TMR2PERIOD;
 TMR2 = 0; */
 
 //T2CONSET = 0x8000;
+int start = 0;
 int prime = 1234567;
 int timeoutcounter = 0;
 int bindis = 0;
@@ -155,7 +156,7 @@ void labinit( void )
 /* This function is called repetitively from the main program */
 void labwork( void )
 {
-    int i = 0;
+    /*int i = 0;
    volatile int sw1 = PORTD;
 			sw1 = sw1 >> 8;
 			sw1 &= 0x1;
@@ -172,7 +173,7 @@ void labwork( void )
             if(sw1 == 1){
               display_screen(0, test);
             }
-            else{
+            else{*/
 
               clear_matrix();
               clear_textbuffer2();
@@ -183,18 +184,51 @@ void labwork( void )
             //  score_to_matrix();
               matrix_to_textbuffer();
               display_matrix(0, textbuffer2);
+			  if (start == 0){
 			  gamestart();
-			  //gameplay();
-            }
+			  } else{
+			  gameplay();
+			  start = 1;
+              }
+            
+
 
 
 }
 
 void gamestart() {
 	ball_x++;
+	player1score = 0;
+	player2score = 0;
 }
 
 void gameplay() {
+	volatile int sw1 = PORTD;
+			sw1 = sw1 >> 8;
+			sw1 &= 0x1;
+   volatile int sw2 = PORTD;
+			sw2 = sw2 >> 9;
+			sw2 &= 0x1;
+   volatile int sw3 = PORTD;
+			sw3 = sw3 >> 10;
+			sw3 &= 0x1;
+    volatile int sw4 = PORTD;
+			sw4 = sw4 >> 11;
+			sw4 &= 0x1;
+			
+			if (sw1 == 1){
+					paddle2_y++;
+			}
+			else if ( sw2 == 1){
+				paddle2_y--;
+			}
+			
+			if (sw3 == 1){
+					paddle1_y++;
+			}
+			else if ( sw4 == 1){
+				paddle1_y--;
+			}
 
   // read the two paddle controllers and set the two bat postitions
 									//bat1 = analogRead(0) / 3 + 50;	här skriver vi input för ms
