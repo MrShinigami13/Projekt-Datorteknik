@@ -54,12 +54,12 @@ int timeoutcounter = 0;
 int bindis = 0;
 int mytime = 0x5957;
 int paddle1_x = 0;
-int paddle1_y = 12;
+int paddle1_y = 18;
 int paddle2_x = 126;
-int paddle2_y = 12;
+int paddle2_y = 18;
 int ball_x = 62;
 int ball_x_speed = 2;
-int ball_y = 14;
+int ball_y = 20;
 int ball_y_speed = 0;
 int ball_speed = 0;
 int player1score = 0;
@@ -266,7 +266,7 @@ void gameplay() {
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
   ball_x = ball_x + ball_x_speed;
   if (ball_x > MAXX){
-	  ball_x = MAXX;
+	  ball_x = (MAXX + 1);
   }
   else if (ball_x < MINX){
 	  ball_x = MINX;
