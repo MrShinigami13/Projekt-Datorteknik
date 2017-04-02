@@ -415,7 +415,7 @@ void matrix_to_textbuffer(void){
 		    } else if (j > 23 && j < 32) {
 		      z = 3;
 		    }
-		    {for(i = 0; i<128;i++){
+		    for(i = 0; i<128;i++){
 				/*
 		      if (i > 7 && i < 16) {
 		        w = 1;
@@ -461,12 +461,14 @@ void matrix_to_textbuffer(void){
 		        else{
 		         // ClearBit(z,i,k);
 		        }
-		        k++;
+
 
 		      }
 
-		    }
+		    
+		   k++;
 		  }
+		  
   
 	/*int i,j;
 	for(j = 0; j<4 ; j++){
