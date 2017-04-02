@@ -226,7 +226,7 @@ void gameplay_ball() {
   else if (ball_x < MINX){
 	  ball_x = MINX;
   }*/
-  if(ball_x >= 120) {
+  if(ball_x >= MAXX) {
     //if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
 		if((paddle2_y - 2) < ball_y < (paddle2_y + 6) ) {
             // ball hit bat2
