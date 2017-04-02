@@ -248,6 +248,12 @@ void gameplay() {
   // vertical motion of the ball, just invert the vertical component if
   // it gets to the top or bottom of the screen.
   ball_y = ball_y + ball_y_speed;
+  if (ball_y > MAXY){
+	  ball_y = 31;
+  }
+  else if (ball_y < MINY){
+	  ball_y = 8;
+  }
   if(ball_y >= (MAXY - BALL_LENGTH)) {
     ball_y_speed = (random() % (-5) + (-1));
 	ball_x_speed = (random() % (5) + (-5));
@@ -258,6 +264,12 @@ void gameplay() {
 
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
   ball_x = ball_x + ball_x_speed;
+  if (ball_x > MAXX){
+	  ball_x = 126;
+  }
+  else if (ball_x < MINX){
+	  ball_x = 0;
+  }
   if(ball_x >= MAXX) {
     if((ball_y > paddle2_y - BALL_LENGTH) && (ball_y < (paddle2_y + PADDLE_LENGTH))) {
       // ball hit bat2
