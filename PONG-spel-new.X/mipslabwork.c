@@ -26,7 +26,7 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define VSYNC_MASK 0x02
 
 #define PADDLE_LENGTH 6
-#define BALL_LENGTH 4
+#define BALL_LENGTH 2
 
 #define PADDLE_COL 0xF
 #define BALL_COL 0xF
@@ -266,10 +266,10 @@ void gameplay() {
   // horizontal motion of the ball.  Need to decide if it hit a bat or not
   ball_x = ball_x + ball_x_speed;
   if (ball_x > MAXX){
-	  ball_x = 126;
+	  ball_x = 125;
   }
   else if (ball_x < MINX){
-	  ball_x = 0;
+	  ball_x = 2;
   }
   if(ball_x >= MAXX) {
     if((ball_y > paddle2_y - BALL_LENGTH) && (ball_y < (paddle2_y + PADDLE_LENGTH))) {
@@ -277,7 +277,7 @@ void gameplay() {
       ball_x_speed = -(random() % (5) + (1));          // just reflect it for now
       // this makes it bounce off up or down the screen depending on
       // where you hit it
-      ball_y_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
+      ball_y_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
 	  ball_x = ball_x + ball_x_speed;
 	  ball_y = ball_y + ball_y_speed;
     } else {
@@ -295,7 +295,7 @@ void gameplay() {
     if((ball_y > paddle1_y - BALL_LENGTH) && (ball_y < (paddle1_y + PADDLE_LENGTH))) {
       // ball hit bat1
       ball_x_speed = (random() % (5) + (1));
-      ball_y_speed = ((random() % (10) + (0)) - (random() % (10) + (0)));
+      ball_y_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
 	  ball_x = ball_x + ball_x_speed;
 	  ball_y = ball_y + ball_y_speed;
     } else {
