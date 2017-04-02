@@ -63,6 +63,8 @@ extern int paddle2_x;
 extern int paddle2_y;
 extern int ball_x;
 extern int ball_y;
+extern int ball_x_speed;
+extern int ball_y_speed;
 extern int ball_speed;
 extern int player1score;
 extern int player2score;
