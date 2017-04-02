@@ -175,19 +175,19 @@ void labwork( void )
             }
             else{*/
 
-             // clear_matrix();
+              clear_matrix();
               ui_to_matrix();
               ball_to_matrix();
               paddle1_to_matrix();
               paddle2_to_matrix();
-            //  score_to_matrix();
+              score_to_matrix();
               matrix_to_textbuffer();
               display_matrix(0, textbuffer2);
 			  if (start == 0){
 			  gamestart();
-			  } else
+			  } else{
 			  gameplay();
-			  start = 1;
+			  start = 1;}
             
 
 
