@@ -73,6 +73,7 @@ int main(void) {
 	display_image(96, icon);
 
 	labinit(); /* Do any lab-specific initialization */
+    
 
 	while(1)
 	{

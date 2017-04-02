@@ -176,6 +176,9 @@ void labwork( void )
             else{*/
 
               clear_matrix();
+
+              clear_textbuffer2();
+
               ui_to_matrix();
               ball_to_matrix();
               paddle1_to_matrix();
@@ -187,11 +190,17 @@ void labwork( void )
 			  gamestart();
 			  } else{
 			  gameplay();
+
 			  start = 1;}
+			}
+
+			
+
             
 
 
-}
+
+
 
 void gamestart() {
 	ball_x++;
