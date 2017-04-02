@@ -67,7 +67,7 @@ int player2score = 0;
 
 char textstring[] = "text, more text, and even more text!";
 
-unsigned int random (void)
+int random (void)
 {
    static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
    unsigned int b;
