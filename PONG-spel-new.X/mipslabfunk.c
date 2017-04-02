@@ -246,39 +246,38 @@ static void num32asc( char * s, int n )
 
 
 void ball_to_matrix(void){
-int i;
+int i,j;
 	for(i = 0; i< 2 ; i++){
-		thematrix[ball_y][ball_x+i] = ball[i][0];
+	
+        for(j = 0; j< 2 ; j++){
+            thematrix[ball_y+i][ball_x+j] = ball[i][j];
 
-	}
-	for(i = 0; i< 2 ; i++){
-		thematrix[ball_y+i][ball_x] = ball[0][i];
-
-	}
+        }
+    }
 
 }
 void paddle1_to_matrix(void){
-int i;
+int i,j;
 	for(i = 0; i< 6 ; i++){
-		thematrix[paddle1_y][0+i] = paddle1[i][0];
+	
 
-	}
-	for(i = 0; i< 3 ; i++){
-		thematrix[paddle1_y+i][0] = paddle1[0][i];
+	
+        for(j = 0; j< 3 ; j++){
+            thematrix[paddle1_y+i][j] = paddle1[i][j];
 
-	}
+        }
+    }
 
 }
 void paddle2_to_matrix(void){
-int i;
+int i,j;
 	for(i = 0; i< 6 ; i++){
-		thematrix[paddle2_y][125+i] = paddle2[i][0];
+	
+        for(j = 0; j< 3 ; j++){
+            thematrix[paddle2_y+i][124+j] = paddle2[i][j];
 
-	}
-	for(i = 0; i< 3 ; i++){
-		thematrix[paddle2_y+i][125] = paddle2[0][i];
-
-	}
+        }
+    }
 
 }
 void score_to_matrix(void){

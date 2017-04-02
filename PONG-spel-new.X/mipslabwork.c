@@ -176,9 +176,9 @@ void labwork( void )
 
              // clear_matrix();
               ui_to_matrix();
-            //  ball_to_matrix();
-            //  paddle1_to_matrix();
-            //  paddle2_to_matrix();
+              ball_to_matrix();
+              paddle1_to_matrix();
+              paddle2_to_matrix();
             //  score_to_matrix();
               matrix_to_textbuffer();
               display_matrix(0, textbuffer2);
