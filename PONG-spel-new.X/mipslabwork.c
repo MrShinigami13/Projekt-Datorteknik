@@ -287,7 +287,7 @@ void gameplay() {
                     ball_y_speed = 0;
                     ball_x_speed = 2;
                     ball_x = 62 + ball_x_speed;
-                    ball_y = 14 + ball_y_speed;
+                    ball_y = 20 + ball_y_speed;
                     //ball_x = (MAXX - MINX) / 2 + MINX;
                     //ball = 13;
           }
@@ -304,7 +304,7 @@ void gameplay() {
             ball_y_speed = 0;
             ball_x_speed = -2;
             ball_x = 62 + ball_x_speed;
-            ball_y = 14 + ball_y_speed;
+            ball_y = 20 + ball_y_speed;
             //ball_x = (MAXX - MINX) / 2 + MINX;
             //ball = 13;
           }
