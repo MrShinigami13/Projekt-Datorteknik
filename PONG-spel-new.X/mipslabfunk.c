@@ -604,3 +604,17 @@ char * itoaconv( int num )
    * we must add 1 in order to return a pointer to the first occupied position. */
   return( &itoa_buffer[ i + 1 ] );
 }
+
+
+void matrix_to_oled (void){
+	
+	int i, j, k;
+	k = 0;
+	for (j = 0; j < 4; j++){
+		
+		for (i = 0; i < 128; i++){
+			textbuffer2[k] = textbuffer[j][i];
+			k++;
+		}
+	}
+}
