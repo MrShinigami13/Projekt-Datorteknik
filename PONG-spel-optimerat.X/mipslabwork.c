@@ -119,32 +119,37 @@ void labwork( void )
     int i;
     
     player1score = 3;
-    display_matrix(0, tohoho);
-    display_matrix(0, tohoho2);
-   /* while(delay<50000){ // delay p� 50000 �r l�sbart men inte f�r l�ngsamt
+    /*display_matrix(0, reflexplogga);
+    display_matrix(0, reflexploggatext);*/
+    /*while(delay<50000){ // delay p� 50000 �r l�sbart men inte f�r l�ngsamt
             delay++;
         }
         delay = 0;
     
     for(i = 0; i<128;i++){
-        while(delay<50000){ // delay p� 50000 �r l�sbart men inte f�r l�ngsamt
+        while(delay<5000){ // delay p� 50000 �r l�sbart men inte f�r l�ngsamt
             delay++;
         }
         delay = 0;
         display_matrix(i, welcome); // display welcome scroll
-    }
+    }*/
     while(player1score == 3 || player2score == 3){ // press sw to start loop
         // delay innan man kollar sw?
         while(delay<10){
+			display_matrix(0, reflexplogga);
             delay++;
         }
-        
+        while ( delay < 20){
+			display_matrix(0, reflexploggatext);
+			delay++;
+		}
+		delay = 0;
                             if(PORTD >= 1 ){
                                 player1score = 0;
                                 player2score = 0;
                                 start = 0;
                             }
-    }*/
+    }
         
       
         

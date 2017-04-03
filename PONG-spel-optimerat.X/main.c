@@ -125,10 +125,54 @@ int main(void) {
         display_matrix(i, welcome); // display welcome scroll
     }
        
-        while(delay<100){ // delay på 50000 är läsbart men inte för långsamt
-            delay++;
-             display_matrix(0, lightning);
-        }
+        for (i= 0; i<3; i++){
+		while (delay<5){
+			display_matrix(0, lightning1);
+		delay++;}
+		while (delay<10){
+			display_matrix(0, lightning2);
+		delay++;}
+		while (delay<15){
+			display_matrix(0, lightning3);
+		delay++;}
+		while (delay<20){
+			display_matrix(0, lightning4);
+		delay++;}
+		while (delay<25){
+			display_matrix(0, lightning5);
+		delay++;}
+		while (delay<30){
+			display_matrix(0, lightning6);
+		delay++;}
+		while (delay<35){
+			display_matrix(0, lightning7);
+		delay++;}
+		while (delay<40){
+			display_matrix(0, lightning8);
+		delay++;}
+		while (delay<45){
+			display_matrix(0, lightning9);
+		delay++;}
+		while (delay<50){
+			display_matrix(0, lightning10);
+		delay++;}
+		while (delay<55){
+			display_matrix(0, lightning11);
+		delay++;}
+		while (delay<60){
+			display_matrix(0, lightning12);
+		delay++;}
+		while (delay<65){
+			display_matrix(0, lightning13);
+		delay++;}
+		while (delay<70){
+			display_matrix(0, lightning14);
+		delay++;}
+		while (delay<75){
+			display_matrix(0, lightning15);
+		delay++;}
+		delay = 0;
+	i++;}
         delay = 0;
         
         while(delay<500){ // delay på 50000 är läsbart men inte för långsamt
