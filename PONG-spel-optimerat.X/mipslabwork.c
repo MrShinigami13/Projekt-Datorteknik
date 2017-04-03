@@ -117,10 +117,21 @@ void labwork( void )
 {
 	int delay = 0;
     int i;
+    
     player1score = 3;
-    for(i = 128; i>0;i--){
-        display_matrix(i, reflexp1); // display welcome scroll
-    }
+    display_matrix(0, lightning);
+    while(delay<50000){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+        }
+        delay = 0;
+    
+    for(i = 0; i<128;i++){
+        while(delay<50000){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+        }
+        delay = 0;
+        display_matrix(i, welcome); // display welcome scroll
+    }/*
     while(player1score == 3 || player2score == 3){ // press sw to start loop
         // delay innan man kollar sw?
         while(delay<10){
@@ -132,8 +143,8 @@ void labwork( void )
                                 player2score = 0;
                                 start = 0;
                             }
-    }
-        delay = 0;
+    }*/
+        
       
         
         while ( player1score != 3 && player2score != 3){
