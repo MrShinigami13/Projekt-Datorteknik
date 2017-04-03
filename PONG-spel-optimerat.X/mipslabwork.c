@@ -116,17 +116,10 @@ void labinit( void )
 void labwork( void )
 {
 	int delay = 0;
-    /*int i, j;
-    i = 0;
-    j = 0;
-    for (i= 0; i< 512; i++)
-    {
-        textbuffer2[i] = 1;
-        if (i > 0){
-            textbuffer2[(i-1)] = 0;
-        }
-        display_screen(0, textbuffer2);
-    }*/
+    player1score = 3;
+    
+        display_matrix(0, reflexp4);
+        
         while ( player1score != 3 && player2score != 3){
 
                    

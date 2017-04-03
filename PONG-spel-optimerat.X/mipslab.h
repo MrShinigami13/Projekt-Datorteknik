@@ -76,6 +76,13 @@ extern const uint8_t const font[128*8];
 extern const uint8_t const icon[128];
 extern const uint8_t const icon2[128];
 extern const uint8_t const test[128*8];
+extern const uint8_t const welcome[128*8];
+extern const uint8_t const lightning[128*8];
+extern const uint8_t const tohoho[128*8];
+extern const uint8_t const reflexp1[128*8];
+extern const uint8_t const reflexp2[128*8];
+extern const uint8_t const reflexp3[128*8];
+extern const uint8_t const reflexp4[128*8];
 // Declar bitmap array containing score numbers
 
 extern const uint8_t const scorezero[8][8];
