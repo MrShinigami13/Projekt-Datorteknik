@@ -109,9 +109,61 @@ int main(void) {
 
 	labinit(); /* Do any lab-specific initialization */
     
+    int delay = 0;
+        int i;
+        while(delay<100000){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+             
+        }
+        delay = 0;
+        
+        for(i = 0; i<128;i++){
+        while(delay<50000){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+        }
+        delay = 0;
+        display_matrix(i, welcome); // display welcome scroll
+    }
+       
+        while(delay<100){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+             display_matrix(0, lightning);
+        }
+        delay = 0;
+        
+        while(delay<500){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+            display_matrix(0, tohoho);
+            display_matrix(0, tohoho2);
+        }
+        delay = 0;
+        
+        while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+             display_matrix(0, reflexp1);
+        }
+        delay = 0;
+        while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+             display_matrix(0, reflexp2);
+        }
+        delay = 0;
+        while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+             display_matrix(0, reflexp3);
+        }
+        delay = 0;
+        while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
+            delay++;
+             display_matrix(0, reflexp4);
+        }
+        delay = 0;
+        
+    
 
 	while(1)
 	{
+        
 	  labwork(); /* Do lab-specific things again and again */
 
 	}

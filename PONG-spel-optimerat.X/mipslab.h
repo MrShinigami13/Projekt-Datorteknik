@@ -69,6 +69,7 @@ extern int ball_y_speed;
 extern int ball_speed;
 extern int player1score;
 extern int player2score;
+extern int startgame;
 
 /* Declare bitmap array containing font */
 extern const uint8_t const font[128*8];
@@ -84,6 +85,10 @@ extern const uint8_t const reflexp1[128*8];
 extern const uint8_t const reflexp2[128*8];
 extern const uint8_t const reflexp3[128*8];
 extern const uint8_t const reflexp4[128*8];
+extern const uint8_t const reflexplogga[128*8];
+extern const uint8_t const reflexploggatext[128*8];
+extern const uint8_t const player1win[128*8];
+extern const uint8_t const player2win[128*8];
 // Declar bitmap array containing score numbers
 
 extern const uint8_t const scorezero[8][8];
