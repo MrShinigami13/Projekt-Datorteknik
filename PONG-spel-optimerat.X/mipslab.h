@@ -79,6 +79,7 @@ extern const uint8_t const test[128*8];
 extern const uint8_t const welcome[128*8];
 extern const uint8_t const lightning[128*8];
 extern const uint8_t const tohoho[128*8];
+extern const uint8_t const tohoho2[128*8];
 extern const uint8_t const reflexp1[128*8];
 extern const uint8_t const reflexp2[128*8];
 extern const uint8_t const reflexp3[128*8];

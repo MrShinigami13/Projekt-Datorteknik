@@ -119,8 +119,9 @@ void labwork( void )
     int i;
     
     player1score = 3;
-    display_matrix(0, lightning);
-    while(delay<50000){ // delay på 50000 är läsbart men inte för långsamt
+    display_matrix(0, tohoho);
+    display_matrix(0, tohoho2);
+   /* while(delay<50000){ // delay på 50000 är läsbart men inte för långsamt
             delay++;
         }
         delay = 0;
@@ -131,7 +132,7 @@ void labwork( void )
         }
         delay = 0;
         display_matrix(i, welcome); // display welcome scroll
-    }/*
+    }
     while(player1score == 3 || player2score == 3){ // press sw to start loop
         // delay innan man kollar sw?
         while(delay<10){
