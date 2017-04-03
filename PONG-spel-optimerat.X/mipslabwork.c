@@ -65,7 +65,6 @@ int ball_speed = 0;
 int player1score = 0;
 int player2score = 0;
 int playerwin = 0;
-int startgame = 0;
 
 char textstring[] = "text, more text, and even more text!";
 
@@ -119,104 +118,33 @@ void labwork( void )
 	int delay = 0;
     int i;
     
-  
-
-    while(player1score == 3 || player2score == 3 || startgame == 0){ // press sw to start loop
-        // delay innan man kollar sw?
-        if(startgame == 0){
-          
-            while(delay<100){ // delay på 50000 är läsbart men inte för långsamt
-                    delay++;
-                    display_matrix(0, reflexplogga);
-                }
-          delay = 0;
-          while(delay<100){ // delay på 50000 är läsbart men inte för långsamt
-                    delay++;
-                    display_matrix(0, reflexploggatext);
-                }
-          delay = 0;
-    
-                   volatile int sw1 = PORTD;
-                            sw1 = sw1 >> 8;
-                            sw1 &= 0x1;
-                   volatile int sw2 = PORTD;
-                            sw2 = sw2 >> 9;
-                            sw2 &= 0x1;
-                   volatile int sw3 = PORTD;
-                            sw3 = sw3 >> 10;
-                            sw3 &= 0x1;
-                    volatile int sw4 = PORTD;
-                            sw4 = sw4 >> 11;
-                            sw4 &= 0x1;
-        
-        
-                            if(sw1 == 1 || sw2 == 2 || sw3 == 1 || sw4 == 1 ){
-                                player1score = 0;
-                                player2score = 0;
-                                start = 0;
-                                startgame = 1;
-                            }
+    player1score = 3;
+    display_matrix(0, tohoho);
+    display_matrix(0, tohoho2);
+   /* while(delay<50000){ // delay pï¿½ 50000 ï¿½r lï¿½sbart men inte fï¿½r lï¿½ngsamt
+            delay++;
         }
-        else if(player1score == 3){
-            while(delay<5000){ // delay på 50000 är läsbart men inte för långsamt
-                    delay++;
-                }
-          delay = 0;
-          display_matrix(0, player1win);
+        delay = 0;
     
-                   volatile int sw1 = PORTD;
-                            sw1 = sw1 >> 8;
-                            sw1 &= 0x1;
-                   volatile int sw2 = PORTD;
-                            sw2 = sw2 >> 9;
-                            sw2 &= 0x1;
-                   volatile int sw3 = PORTD;
-                            sw3 = sw3 >> 10;
-                            sw3 &= 0x1;
-                    volatile int sw4 = PORTD;
-                            sw4 = sw4 >> 11;
-                            sw4 &= 0x1;
-        
-        
-                            if(sw3 == 1 || sw4 == 1 ){
-                                player1score = 0;
-                                player2score = 0;
-                                start = 0;
-                                startgame = 0;
-                            }
-            
+    for(i = 0; i<128;i++){
+        while(delay<50000){ // delay pï¿½ 50000 ï¿½r lï¿½sbart men inte fï¿½r lï¿½ngsamt
+            delay++;
         }
-        else if(player2score == 3){
-            while(delay<5000){ // delay på 50000 är läsbart men inte för långsamt
-                    delay++;
-                }
-          delay = 0;
-          display_matrix(0, player2win);
-    
-                   volatile int sw1 = PORTD;
-                            sw1 = sw1 >> 8;
-                            sw1 &= 0x1;
-                   volatile int sw2 = PORTD;
-                            sw2 = sw2 >> 9;
-                            sw2 &= 0x1;
-                   volatile int sw3 = PORTD;
-                            sw3 = sw3 >> 10;
-                            sw3 &= 0x1;
-                    volatile int sw4 = PORTD;
-                            sw4 = sw4 >> 11;
-                            sw4 &= 0x1;
-        
-        
-                            if(sw1 == 1 || sw2 == 2 ){
-                                player1score = 0;
-                                player2score = 0;
-                                start = 0;
-                                startgame = 0;
-                            }
-            
-        }
-        
+        delay = 0;
+        display_matrix(i, welcome); // display welcome scroll
     }
+    while(player1score == 3 || player2score == 3){ // press sw to start loop
+        // delay innan man kollar sw?
+        while(delay<10){
+            delay++;
+        }
+        
+                            if(PORTD >= 1 ){
+                                player1score = 0;
+                                player2score = 0;
+                                start = 0;
+                            }
+    }*/
         
       
         
@@ -285,7 +213,12 @@ void labwork( void )
 			  delay++;
 			  
 			}
-			
+			if (player1score == 3){
+				
+			}
+			else if (player2score == 3){
+				
+			}
 	}
 
 			
@@ -376,10 +309,10 @@ void gameplay_ball() {
     //if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
 		if(k == 1 ) {
             // ball hit bat2
-            ball_x_speed = -(random() % (2) + (1));          // just reflect it for now
+            ball_x_speed = -(random() % (5) + (2));          // just reflect it for now
             // this makes it bounce off up or down the screen depending on
             // where you hit it
-            ball_y_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
+            ball_y_speed = ((random() % (3) + (1)) - (random() % (3) + (1)));
             ball_x = ball_x + ball_x_speed;
             ball_y = ball_y + ball_y_speed;
            } else {
@@ -408,8 +341,8 @@ void gameplay_ball() {
     //if((ball_y  > (paddle2_y - 2)) && (ball_y < (paddle2_y + 6))) {
 		if(k == 1 ) {
             // ball hit bat1
-            ball_x_speed = (random() % (2) + (1));
-            ball_y_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
+            ball_x_speed = (random() % (5) + (2));
+            ball_y_speed = ((random() % (3) + (1)) - (random() % (3) + (1)));
             ball_x = ball_x + ball_x_speed;
             ball_y = ball_y + ball_y_speed;
           } else {
