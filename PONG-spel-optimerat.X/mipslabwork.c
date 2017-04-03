@@ -116,9 +116,25 @@ void labinit( void )
 void labwork( void )
 {
 	int delay = 0;
+    int i;
     player1score = 3;
-    
-        display_matrix(0, reflexp4);
+    for(i = 128; i>0;i--){
+        display_matrix(i, reflexp1); // display welcome scroll
+    }
+    while(player1score == 3 || player2score == 3){ // press sw to start loop
+        // delay innan man kollar sw?
+        while(delay<10){
+            delay++;
+        }
+        
+                            if(PORTD >= 1 ){
+                                player1score = 0;
+                                player2score = 0;
+                                start = 0;
+                            }
+    }
+        delay = 0;
+      
         
         while ( player1score != 3 && player2score != 3){
 
