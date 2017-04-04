@@ -119,21 +119,7 @@ void labwork( void )
 	int delay = 0;
     int i;
     
-    player1score = 3;
-    /*display_matrix(0, reflexplogga);
-    display_matrix(0, reflexploggatext);*/
-    /*while(delay<50000){ // delay p� 50000 �r l�sbart men inte f�r l�ngsamt
-            delay++;
-        }
-        delay = 0;
-    
-    for(i = 0; i<128;i++){
-        while(delay<5000){ // delay p� 50000 �r l�sbart men inte f�r l�ngsamt
-            delay++;
-        }
-        delay = 0;
-        display_matrix(i, welcome); // display welcome scroll
-    }*/
+   
     while(player1score == 3 || player2score == 3 || startgame == 0) { // press sw to start loop
         // delay innan man kollar sw?
         if(startgame == 0){
