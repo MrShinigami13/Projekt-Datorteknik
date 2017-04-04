@@ -125,11 +125,12 @@ void labwork( void )
         if(startgame == 0){
             
         
-        while(delay<10){
+        while(delay<60){
 			display_matrix(0, reflexplogga);
             delay++;
         }
-        while ( delay < 20){
+        delay = 0;
+        while ( delay < 60){
 			display_matrix(0, reflexploggatext);
 			delay++;
 		}
@@ -146,7 +147,7 @@ void labwork( void )
                     volatile int sw4 = PORTD;
                             sw4 = sw4 >> 11;
                             sw4 &= 0x1;
-				  if (sw1 == 1 || sw2 == 2 ||sw3 == 1 || sw4 == 1){
+				  if (sw1 == 1 || sw2 == 1 ||sw3 == 1 || sw4 == 1){
                       startgame = 1;
 				  }
                             
@@ -176,6 +177,7 @@ void labwork( void )
 					  player1score = 0;
                       player2score = 0;
                       startgame = 0;
+                      start = 0;
 				  }
                             
         }
@@ -200,10 +202,11 @@ void labwork( void )
                     volatile int sw4 = PORTD;
                             sw4 = sw4 >> 11;
                             sw4 &= 0x1;
-				  if (sw1 == 1 || sw2 == 2){
+				  if (sw1 == 1 || sw2 == 1){
 					  player1score = 0;
                       player2score = 0;
                       startgame = 0;
+                      start = 0;
 				  }
                             
         }
@@ -227,7 +230,7 @@ void labwork( void )
               matrix_to_textbuffer();
               display_matrix(0, textbuffer2);
 			  if (start == 0){
-                  //delay här för att starta lite långsamare?
+                  
 			  gamestart();
               start = 1;
 			  }
@@ -249,6 +252,10 @@ void labwork( void )
 				  if (sw3 == 1 || sw4 == 1){
 					  ball_x_speed = 2;
 					  playerwin = 0;
+                      int paddle1_x = 0;
+                      int paddle1_y = 16;
+                      int paddle2_x = 126;
+                      int paddle2_y = 16;
 				  }
 			  }
 			  while ( playerwin == 2){
@@ -268,6 +275,10 @@ void labwork( void )
 				  if (sw1 == 1 || sw2 == 1){
 					  ball_x_speed = -2;
 					  playerwin = 0;
+                      int paddle1_x = 0;
+                      int paddle1_y = 16;
+                      int paddle2_x = 126;
+                      int paddle2_y = 16;
 				  }
 			  } 
 			  if (delay == 2){
@@ -297,6 +308,11 @@ void gamestart() {
 	ball_x++;
 	player1score = 0;
 	player2score = 0;
+    int paddle1_x = 0;
+    int paddle1_y = 16;
+    int paddle2_x = 126;
+    int paddle2_y = 16;
+    
 }
 void gameplay_paddle() {
 	volatile int sw1 = PORTD;
