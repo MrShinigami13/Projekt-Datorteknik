@@ -65,6 +65,7 @@ int ball_speed = 0;
 int player1score = 0;
 int player2score = 0;
 int playerwin = 0;
+int startgame = 0;
 
 char textstring[] = "text, more text, and even more text!";
 
@@ -133,8 +134,11 @@ void labwork( void )
         delay = 0;
         display_matrix(i, welcome); // display welcome scroll
     }*/
-    while(player1score == 3 || player2score == 3){ // press sw to start loop
+    while(player1score == 3 || player2score == 3 || startgame == 0) { // press sw to start loop
         // delay innan man kollar sw?
+        if(startgame == 0){
+            
+        
         while(delay<10){
 			display_matrix(0, reflexplogga);
             delay++;
@@ -144,11 +148,79 @@ void labwork( void )
 			delay++;
 		}
 		delay = 0;
-                            if(PORTD >= 1 ){
-                                player1score = 0;
-                                player2score = 0;
-                                start = 0;
-                            }
+                   volatile int sw1 = PORTD;
+                            sw1 = sw1 >> 8;
+                            sw1 &= 0x1;
+                   volatile int sw2 = PORTD;
+                            sw2 = sw2 >> 9;
+                            sw2 &= 0x1;
+                   volatile int sw3 = PORTD;
+                            sw3 = sw3 >> 10;
+                            sw3 &= 0x1;
+                    volatile int sw4 = PORTD;
+                            sw4 = sw4 >> 11;
+                            sw4 &= 0x1;
+				  if (sw1 == 1 || sw2 == 2 ||sw3 == 1 || sw4 == 1){
+                      startgame = 1;
+				  }
+                            
+        }
+        else if(player1score == 3){
+            
+        
+        while(delay<10){
+			display_matrix(0, player1win);
+            delay++;
+        }
+        
+		delay = 0;
+                   volatile int sw1 = PORTD;
+                            sw1 = sw1 >> 8;
+                            sw1 &= 0x1;
+                   volatile int sw2 = PORTD;
+                            sw2 = sw2 >> 9;
+                            sw2 &= 0x1;
+                   volatile int sw3 = PORTD;
+                            sw3 = sw3 >> 10;
+                            sw3 &= 0x1;
+                    volatile int sw4 = PORTD;
+                            sw4 = sw4 >> 11;
+                            sw4 &= 0x1;
+				  if (sw3 == 1 || sw4 == 1){
+					  player1score = 0;
+                      player2score = 0;
+                      startgame = 0;
+				  }
+                            
+        }
+        else if(player2score == 3){
+            
+        
+        while(delay<10){
+			display_matrix(0, player2win);
+            delay++;
+        }
+        
+		delay = 0;
+                   volatile int sw1 = PORTD;
+                            sw1 = sw1 >> 8;
+                            sw1 &= 0x1;
+                   volatile int sw2 = PORTD;
+                            sw2 = sw2 >> 9;
+                            sw2 &= 0x1;
+                   volatile int sw3 = PORTD;
+                            sw3 = sw3 >> 10;
+                            sw3 &= 0x1;
+                    volatile int sw4 = PORTD;
+                            sw4 = sw4 >> 11;
+                            sw4 &= 0x1;
+				  if (sw1 == 1 || sw2 == 2){
+					  player1score = 0;
+                      player2score = 0;
+                      startgame = 0;
+				  }
+                            
+        }
     }
         
       
@@ -169,6 +241,7 @@ void labwork( void )
               matrix_to_textbuffer();
               display_matrix(0, textbuffer2);
 			  if (start == 0){
+                  //delay här för att starta lite långsamare?
 			  gamestart();
               start = 1;
 			  }
