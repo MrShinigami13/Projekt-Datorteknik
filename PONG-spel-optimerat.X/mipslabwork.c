@@ -32,7 +32,7 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define BALL_COL 0xF
 
 #define MINX 2
-#define MAXX 124
+#define MAXX 123
 #define MINY 9
 #define MAXY 30
 
@@ -125,9 +125,9 @@ void explosion_anim_p1(void){
                 }*/
             lim++;
         
-        paddle1_to_matrix();
-        paddle2_to_matrix();
-        score_to_matrix();
+        //paddle1_to_matrix();
+        //paddle2_to_matrix();
+        //score_to_matrix();
         matrix_to_textbuffer();
         display_matrix(0, textbuffer2);
         frames++;
@@ -162,9 +162,9 @@ void explosion_anim_p2(void){
             }
         lim++;
         
-        paddle1_to_matrix();
-        paddle2_to_matrix();
-        score_to_matrix();
+        //paddle1_to_matrix();
+        //paddle2_to_matrix();
+        //score_to_matrix();
         matrix_to_textbuffer();
         display_matrix(0, textbuffer2);
         frames++;
