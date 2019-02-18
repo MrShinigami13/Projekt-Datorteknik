@@ -1,6 +1,9 @@
 # Projekt-Datorteknik
 Projekt i kursen datorteknik
 
+mplab version 3.55
+xc32 version 1.42
+
 om pic32mx: http://www.microchip.com/wwwproducts/en/PIC32MX320F128H
 
 
@@ -17,9 +20,17 @@ fungerande pong med vga: http://nathandumont.com/blog/pong-on-a-vga-monitor-with
 
 Nytt:
 Basic I/O-manualen har all info om displayen i Appendix B.
-I stort sett samma kod som finns i våra labbar. Behövs initaliseras och clearas på rätt sätt om displayen inte ska paja.
+I stort sett samma kod som finns i vÃ¥ra labbar. BehÃ¶vs initaliseras och clearas pÃ¥ rÃ¤tt sÃ¤tt om displayen inte ska paja.
 
-Att göra:
-Få koll på smidiga sätt att generera pixlar i OLEDen. Än så länge har vi bara sett bmp-konvertering till pixelmatriser.
-/Möjlig lösning paddel: Skulle gå att rita paddlar med rätt mängd pixlar i typ paint och sen konvertera och infoga på samma sät som icon och font hanteras.
-/Kvarstående problem: Kolla hur pixelpekare hanteras på OLEDen. så vi kan peka på rätt pixel osv.
+Att gÃ¶ra:
+FÃ¥ koll pÃ¥ smidiga sÃ¤tt att generera pixlar i OLEDen. Ã„n sÃ¥ lÃ¤nge har vi bara sett bmp-konvertering till pixelmatriser.
+/MÃ¶jlig lÃ¶sning paddel: Skulle gÃ¥ att rita paddlar med rÃ¤tt mÃ¤ngd pixlar i typ paint och sen konvertera och infoga pÃ¥ samma sÃ¤t som icon och font hanteras.
+/KvarstÃ¥ende problem: Kolla hur pixelpekare hanteras pÃ¥ OLEDen. sÃ¥ vi kan peka pÃ¥ rÃ¤tt pixel osv.
+
+
+pinlayout pÃ¥ io shild:
+sw1 pin 2
+sw2 pin 7
+sw3 pin 8
+sw3 pin 35 
+tryck pÃ¥ switch Ã¤r att sluta den mot +5v
