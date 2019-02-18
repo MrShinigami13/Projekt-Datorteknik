@@ -66,7 +66,6 @@ int player1score = 0;
 int player2score = 0;
 int playerwin = 0;
 int startgame = 0;
-char score = 0;
 
 char textstring[] = "text, more text, and even more text!";
 
@@ -92,31 +91,77 @@ void _isr( void )
  
 	return;
 }
-
-void explosion_anim(void){
+void explosion_anim_p1(void){
     int frames = 0;
-    int const i,j,lim;
-    const = 1;
-    lim = 4;
-    while(frames <= 10){
-        clear_matrix();
-        clear_textbuffer2();
+    int constant,i,j,lim;
+    constant = 1;
+    lim = 1;
+    while(frames <= 60){
+        //clear_matrix();
+        //clear_textbuffer2();
         ui_to_matrix();
-        if(const < 5){
-            for(i = 0; i< 2*const ; i++){
-                for(j = 0; j< 2*const ; j++){
-                    thematrix[(ball_y)+i][(ball_x)+j] = ball[i][j];
+        //if(constant < 5){
+        //    for(i = 0; i< 2*constant ; i++){
+        //        for(j = 0; j< 2*constant ; j++){
+        //            thematrix[(ball_y)+i][(ball_x)+j] = ball[i][j];
+        //        }
+        //    }
+        //    constant = constant*2;
+        //}
+        //else if(constant > 4){
+            for(i = 0; i<lim; i++){
+                if(((ball_y+i) <= 31) && ((ball_y-i) >= 0)){
+                    thematrix[(ball_y)][(ball_x)] = 1;
+                    thematrix[(ball_y)+i][(ball_x)+i] = 1;
+                    thematrix[(ball_y)-i][(ball_x)+i] = 1;
+                    ball_x++;
                 }
             }
-            const = const*2;
-        }
-        else if(const > 4){
-            for(int i = 0; i<lim; i++){
-                thematrix[(ball_y)+i][(ball_x)] = 1;
-                thematrix[(ball_y)+i][(ball_x)+lim] = 1;
+            /*for(i = 0; i<lim; i++){
+                if(((ball_y+i) <= 127) && ((ball_y-i) >= 0)){
+                    thematrix[(ball_y)][(ball_x)] = 1;
+                    thematrix[(ball_y)+i][(ball_x)] = 1;
+                    thematrix[(ball_y)-i][(ball_x)] = 1;
+                }*/
+            lim++;
+        
+        paddle1_to_matrix();
+        paddle2_to_matrix();
+        score_to_matrix();
+        matrix_to_textbuffer();
+        display_matrix(0, textbuffer2);
+        frames++;
+    }
+}
+
+void explosion_anim_p2(void){
+    int frames = 0;
+    int constant,i,j,lim;
+    constant = 1;
+    lim = 1;
+    while(frames <= 60){
+        //clear_matrix();
+        //clear_textbuffer2();
+        ui_to_matrix();
+        //if(constant < 5){
+        //    for(i = 0; i< 2*constant ; i++){
+        //        for(j = 0; j< 2*constant ; j++){
+        //            thematrix[(ball_y)+i][(ball_x)+j] = ball[i][j];
+        //        }
+        //    }
+        //    constant = constant*2;
+        //}
+        //else if(constant > 4){
+            for(i = 0; i<lim; i++){
+                if(((ball_y+i) <= 31) && ((ball_y-i) >= 0)){
+                    thematrix[(ball_y)][(ball_x)] = 1;
+                    thematrix[(ball_y)+i][(ball_x)-i] = 1;
+                    thematrix[(ball_y)-i][(ball_x)-i] = 1;
+                    ball_x--;
+                }
             }
-            lim = lim*2;
-        }
+        lim++;
+        
         paddle1_to_matrix();
         paddle2_to_matrix();
         score_to_matrix();
@@ -249,10 +294,10 @@ void labwork( void )
       
         
         while ( player1score != 3 && player2score != 3){
-            if(score == 1){
+            /*if(score == 1){
                 explosion_anim();
                 score = 0;
-            }
+            }*/
                    
 
               clear_matrix();
@@ -434,7 +479,7 @@ void gameplay_ball() {
             ball_y = ball_y + ball_y_speed;
 			k = 0;
            } else {
-                    score = 1;
+                    explosion_anim_p2();
                     // player 2 missed the ball, increment player 1's score
                     player1score++;
                     // reset the ball to the centre of the screen player 1 serves
@@ -462,7 +507,7 @@ void gameplay_ball() {
             ball_y = ball_y + ball_y_speed;
             k = 0;
           } else {
-            score = 1;
+            explosion_anim_p1();
             // player 1 missed the ball, give player 2 the points and serve
             player2score++;
             ball_y_speed = 0;
