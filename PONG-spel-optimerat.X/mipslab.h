@@ -70,6 +70,7 @@ extern int ball_speed;
 extern int player1score;
 extern int player2score;
 extern int startgame;
+extern char score;
 
 /* Declare bitmap array containing font */
 extern const uint8_t const font[128*8];

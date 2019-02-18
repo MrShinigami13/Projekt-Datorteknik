@@ -140,7 +140,6 @@ int i,j;
 
         }
     }
-
 }
 void paddle1_to_matrix(void){
 int i,j;

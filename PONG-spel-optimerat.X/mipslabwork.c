@@ -55,7 +55,7 @@ int bindis = 0;
 int mytime = 0x5957;
 int paddle1_x = 0;
 int paddle1_y = 16;
-int paddle2_x = 126;
+int paddle2_x = 124;
 int paddle2_y = 16;
 int ball_x = 62;
 int ball_x_speed = 1;
@@ -66,6 +66,7 @@ int player1score = 0;
 int player2score = 0;
 int playerwin = 0;
 int startgame = 0;
+char score = 0;
 
 char textstring[] = "text, more text, and even more text!";
 
@@ -90,6 +91,39 @@ void _isr( void )
 {
  
 	return;
+}
+
+void explosion_anim(void){
+    int frames = 0;
+    int const i,j,lim;
+    const = 1;
+    lim = 4;
+    while(frames <= 10){
+        clear_matrix();
+        clear_textbuffer2();
+        ui_to_matrix();
+        if(const < 5){
+            for(i = 0; i< 2*const ; i++){
+                for(j = 0; j< 2*const ; j++){
+                    thematrix[(ball_y)+i][(ball_x)+j] = ball[i][j];
+                }
+            }
+            const = const*2;
+        }
+        else if(const > 4){
+            for(int i = 0; i<lim; i++){
+                thematrix[(ball_y)+i][(ball_x)] = 1;
+                thematrix[(ball_y)+i][(ball_x)+lim] = 1;
+            }
+            lim = lim*2;
+        }
+        paddle1_to_matrix();
+        paddle2_to_matrix();
+        score_to_matrix();
+        matrix_to_textbuffer();
+        display_matrix(0, textbuffer2);
+        frames++;
+    }
 }
 
 /* Lab-specific initialization goes here */
@@ -215,7 +249,10 @@ void labwork( void )
       
         
         while ( player1score != 3 && player2score != 3){
-
+            if(score == 1){
+                explosion_anim();
+                score = 0;
+            }
                    
 
               clear_matrix();
@@ -254,7 +291,7 @@ void labwork( void )
 					  playerwin = 0;
                       int paddle1_x = 0;
                       int paddle1_y = 16;
-                      int paddle2_x = 126;
+                      int paddle2_x = 124;
                       int paddle2_y = 16;
 				  }
 			  }
@@ -277,7 +314,7 @@ void labwork( void )
 					  playerwin = 0;
                       int paddle1_x = 0;
                       int paddle1_y = 16;
-                      int paddle2_x = 126;
+                      int paddle2_x = 124;
                       int paddle2_y = 16;
 				  }
 			  } 
@@ -310,7 +347,7 @@ void gamestart() {
 	player2score = 0;
     int paddle1_x = 0;
     int paddle1_y = 16;
-    int paddle2_x = 126;
+    int paddle2_x = 124;
     int paddle2_y = 16;
     
 }
@@ -397,6 +434,7 @@ void gameplay_ball() {
             ball_y = ball_y + ball_y_speed;
 			k = 0;
            } else {
+                    score = 1;
                     // player 2 missed the ball, increment player 1's score
                     player1score++;
                     // reset the ball to the centre of the screen player 1 serves
@@ -422,7 +460,9 @@ void gameplay_ball() {
             ball_y_speed = ((random() % (2) + (1)) - (random() % (2) + (1)));
             ball_x = ball_x + ball_x_speed;
             ball_y = ball_y + ball_y_speed;
+            k = 0;
           } else {
+            score = 1;
             // player 1 missed the ball, give player 2 the points and serve
             player2score++;
             ball_y_speed = 0;
