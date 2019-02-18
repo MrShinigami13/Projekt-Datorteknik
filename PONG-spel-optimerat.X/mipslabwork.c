@@ -31,8 +31,8 @@ volatile int * trise = (volatile int *) 0xbf886100;
 #define PADDLE_COL 0xF
 #define BALL_COL 0xF
 
-#define MINX 1
-#define MAXX 126
+#define MINX 2
+#define MAXX 124
 #define MINY 9
 #define MAXY 30
 
@@ -357,12 +357,16 @@ void gameplay_ball() {
   else if (ball_y < MINY){
 	  ball_y = MINY;
   }
-  if(ball_y >= (MAXY - BALL_LENGTH)) {
+  if((ball_y >= (MAXY - BALL_LENGTH)) && (ball_x <= 108) && (ball_x >= 18)) {
     ball_y_speed = -(random() % (2) + (1));
 	ball_x_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
-  } else if (ball_y <= MINY) {
+  } else if ((ball_y <= MINY)  && (ball_x <= 108) && (ball_x >= 18)) {
     ball_y_speed = (random() % (2) + (1));
 	ball_x_speed = ((random() % (5) + (1)) - (random() % (5) + (1)));
+  } else if (ball_y >= (MAXY - BALL_LENGTH)){
+	  ball_y_speed = -ball_y_speed;
+  } else if (ball_y <= MINY){
+	  ball_y_speed = -ball_y_speed;
   }
   ball_y = ball_y + ball_y_speed;
 
@@ -375,14 +379,10 @@ void gameplay_ball() {
 	  ball_x = MINX;
   }*/
   if(ball_x >= MAXX) {
-      int i, j, k;
-      i = paddle2_y + 6;
-      j = paddle2_y - 2;
-      if (ball_y > j){
-          if (ball_y < i)
-          {
-              k = 1;
-          }
+      int paddle2_col, k;
+      paddle2_col = paddle2_y;
+      if ((ball_y >= paddle2_col) && (ball_y <= (paddle2_col +6))){
+           k = 1;
       }
           
       
@@ -392,9 +392,10 @@ void gameplay_ball() {
             ball_x_speed = -(random() % (5) + (2));          // just reflect it for now
             // this makes it bounce off up or down the screen depending on
             // where you hit it
-            ball_y_speed = ((random() % (3) + (1)) - (random() % (3) + (1)));
+            ball_y_speed = ((random() % (2) + (1)) - (random() % (2) + (1)));
             ball_x = ball_x + ball_x_speed;
             ball_y = ball_y + ball_y_speed;
+			k = 0;
            } else {
                     // player 2 missed the ball, increment player 1's score
                     player1score++;
@@ -407,14 +408,10 @@ void gameplay_ball() {
                    
           }
   } else if(ball_x <= MINX) {
-      int i, j, k;
-      i = paddle1_y + 6;
-      j = paddle1_y - 2;
-      if (ball_y > j){
-          if (ball_y < i)
-          {
-              k = 1;
-          }
+      int paddle1_col, k;
+      paddle1_col = paddle1_y;
+      if ((ball_y >= paddle1_col) && (ball_y <= (paddle1_col +6))){
+           k = 1;
       }
           
       
@@ -422,7 +419,7 @@ void gameplay_ball() {
 		if(k == 1 ) {
             // ball hit bat1
             ball_x_speed = (random() % (5) + (2));
-            ball_y_speed = ((random() % (3) + (1)) - (random() % (3) + (1)));
+            ball_y_speed = ((random() % (2) + (1)) - (random() % (2) + (1)));
             ball_x = ball_x + ball_x_speed;
             ball_y = ball_y + ball_y_speed;
           } else {
