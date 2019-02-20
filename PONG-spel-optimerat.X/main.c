@@ -110,22 +110,17 @@ int main(void) {
 	labinit(); /* Do any lab-specific initialization */
     
     int delay = 0;
-        int i;
-        while(delay<100000){ // delay på 50000 är läsbart men inte för långsamt
-            delay++;
-             
-        }
-        delay = 0;
-        
-        for(i = 0; i<128;i++){
-        while(delay<50000){ // delay på 50000 är läsbart men inte för långsamt
-            delay++;
-        }
-        delay = 0;
-        display_matrix(i, welcome); // display welcome scroll
+    int i, j;
+    while(delay<100000){ // delay på 50000 är läsbart men inte för långsamt
+        delay++;             
     }
-       
-        for (i= 0; i<3; i++){
+    delay = 0;
+
+    clear_matrix();
+    clear_textbuffer2();
+    intro_anim();
+    /*lightning animations*/
+    for (i= 0; i<3; i++){
 		while (delay<5){
 			display_matrix(0, lightning1);
 		delay++;}
@@ -170,46 +165,45 @@ int main(void) {
 		delay++;}
 		while (delay<75){
 			display_matrix(0, lightning15);
-		delay++;}
-		delay = 0;
-	i++;}
-        delay = 0;
-        
-        while(delay<500){ // delay på 50000 är läsbart men inte för långsamt
-            delay++;
-            display_matrix(0, tohoho);
-            display_matrix(0, tohoho2);
+		delay++;
         }
-        delay = 0;
-        
-        while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
-            delay++;
-             display_matrix(0, reflexp1);
-        }
-        delay = 0;
-        while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
-            delay++;
-             display_matrix(0, reflexp2);
-        }
-        delay = 0;
-        while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
-            delay++;
-             display_matrix(0, reflexp3);
-        }
-        delay = 0;
-        while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
-            delay++;
-             display_matrix(0, reflexp4);
-        }
-        delay = 0;
-        
-    
+    delay = 0;
+    }
+    for(i = 0; i<5; i++){
+        clear_matrix();
+        clear_textbuffer2();
+        between_anim();
+    }
+    while(delay<500){ // delay på 50000 är läsbart men inte för långsamt
+        delay++;
+        display_matrix(0, tohoho);
+        display_matrix(0, tohoho2);
+    }
+    delay = 0;
+    while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
+        delay++;
+        display_matrix(0, reflexp1);
+    }
+    delay = 0;
+    while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
+        delay++;
+        display_matrix(0, reflexp2);
+    }
+    delay = 0;
+    while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
+        delay++;
+        display_matrix(0, reflexp3);
+    }
+    delay = 0;
+    while(delay<10){ // delay på 50000 är läsbart men inte för långsamt
+        delay++;
+        display_matrix(0, reflexp4);
+    }
+    delay = 0;
 
 	while(1)
-	{
-        
+	{        
 	  labwork(); /* Do lab-specific things again and again */
-
 	}
 	return 0;
 }

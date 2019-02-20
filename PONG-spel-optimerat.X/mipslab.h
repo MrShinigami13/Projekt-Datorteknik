@@ -17,7 +17,6 @@
 #define	cpagOledMax		4		//number of display memory pages
 
 void display_image(int x, const uint8_t *data);
-void display_screen(int x, const uint8_t *data);
 void display_matrix(int x, const uint8_t *data);
 void display_init(void);
 void display_string(int line, char *s);
@@ -25,6 +24,7 @@ void display_update(void);
 void gameplay(void);
 void gamestart(void);
 uint8_t spi_send_recv(uint8_t data);
+int random(void);
 
 void ball_to_matrix(void);
 void paddle1_to_matrix(void);
@@ -33,6 +33,9 @@ void score_to_matrix(void);
 void ui_to_matrix(void);
 void matrix_to_textbuffer(void);
 void clear_matrix(void);
+void intro_anim(void);
+void between_anim(void);
+void explosion_anim(int player);
 
 
 /* Declare lab-related functions from mipslabfunc.c */
@@ -70,6 +73,7 @@ extern int ball_speed;
 extern int player1score;
 extern int player2score;
 extern int startgame;
+extern volatile int sw1, sw2, sw3, sw4;
 
 /* Declare bitmap array containing font */
 extern const uint8_t const font[128*8];
