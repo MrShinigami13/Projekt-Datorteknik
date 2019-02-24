@@ -84,14 +84,6 @@ int random (void)
    return (z1 ^ z2 ^ z3 ^ z4);
 }
 
-/* Interrupt Service Routine */
-
-void _isr( void )
-{
- 
-	return;
-}
-
 /* Lab-specific initialization goes here */
 void labinit( void )
 {
@@ -101,12 +93,28 @@ void labinit( void )
 
 	PORTE = 0x0;
 	TRISD |= 0x7f0; // va |=
+    
+    //test med interupts nedan
+    PORTD |= 0xfe0;
+	
+	IPC1 = 0x1c000000;			// external interrupt 1
+	IPC2 = 0x1c000000;			// external interrupt 2
+	IPC3 = 0x1c000000;			// external interrupt 3
+	IPC4 = 0x1c000000;			// external interrupt 4
+	
+	T2CON = 0x0;
+	TMR2 = 0x0;
+	PR2 = TMR2PERIOD;
+	//PR2 = 0x30d4;
+	T2CONSET = 0x8000;
+	
+	IPC2 = 0x1c;
+    IEC0 = 0x8100;
 
 
 
 
 	enable_interrupt();
-    //interrupts();
 
     LATEbits.LATE4 = 1;
 
@@ -295,14 +303,6 @@ void labwork( void )
 				
 			}
 	}
-
-			
-
-            
-
-
-
-
 
 void gamestart() {
 	ball_x++;

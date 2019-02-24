@@ -57,6 +57,7 @@ void tick( unsigned int * timep );
 */
 void display_debug( volatile int * const addr );
 void enable_interrupt(void);
+void user_isr(void);
 
 extern int paddle1_x;
 extern int paddle1_y;

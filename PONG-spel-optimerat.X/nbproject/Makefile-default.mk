@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c labwork.s mipslabdata.c mipslabfunk.c mipslabwork.c vectors.s
+SOURCEFILES_QUOTED_IF_SPACED=main.c labwork.s mipslabdata.c mipslabfunk.c mipslabwork.c vectors.s vga.c interupts.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/labwork.o ${OBJECTDIR}/mipslabdata.o ${OBJECTDIR}/mipslabfunk.o ${OBJECTDIR}/mipslabwork.o ${OBJECTDIR}/vectors.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/labwork.o.d ${OBJECTDIR}/mipslabdata.o.d ${OBJECTDIR}/mipslabfunk.o.d ${OBJECTDIR}/mipslabwork.o.d ${OBJECTDIR}/vectors.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/labwork.o ${OBJECTDIR}/mipslabdata.o ${OBJECTDIR}/mipslabfunk.o ${OBJECTDIR}/mipslabwork.o ${OBJECTDIR}/vectors.o ${OBJECTDIR}/vga.o ${OBJECTDIR}/interupts.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/labwork.o.d ${OBJECTDIR}/mipslabdata.o.d ${OBJECTDIR}/mipslabfunk.o.d ${OBJECTDIR}/mipslabwork.o.d ${OBJECTDIR}/vectors.o.d ${OBJECTDIR}/vga.o.d ${OBJECTDIR}/interupts.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/labwork.o ${OBJECTDIR}/mipslabdata.o ${OBJECTDIR}/mipslabfunk.o ${OBJECTDIR}/mipslabwork.o ${OBJECTDIR}/vectors.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/labwork.o ${OBJECTDIR}/mipslabdata.o ${OBJECTDIR}/mipslabfunk.o ${OBJECTDIR}/mipslabwork.o ${OBJECTDIR}/vectors.o ${OBJECTDIR}/vga.o ${OBJECTDIR}/interupts.o
 
 # Source Files
-SOURCEFILES=main.c labwork.s mipslabdata.c mipslabfunk.c mipslabwork.c vectors.s
+SOURCEFILES=main.c labwork.s mipslabdata.c mipslabfunk.c mipslabwork.c vectors.s vga.c interupts.c
 
 
 CFLAGS=
@@ -146,6 +146,18 @@ ${OBJECTDIR}/mipslabwork.o: mipslabwork.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/mipslabwork.o 
 	@${FIXDEPS} "${OBJECTDIR}/mipslabwork.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -DPICkit3PlatformTool=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/mipslabwork.o.d" -o ${OBJECTDIR}/mipslabwork.o mipslabwork.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/vga.o: vga.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/vga.o.d 
+	@${RM} ${OBJECTDIR}/vga.o 
+	@${FIXDEPS} "${OBJECTDIR}/vga.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -DPICkit3PlatformTool=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/vga.o.d" -o ${OBJECTDIR}/vga.o vga.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/interupts.o: interupts.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/interupts.o.d 
+	@${RM} ${OBJECTDIR}/interupts.o 
+	@${FIXDEPS} "${OBJECTDIR}/interupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG -DPICkit3PlatformTool=1  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/interupts.o.d" -o ${OBJECTDIR}/interupts.o interupts.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -170,6 +182,18 @@ ${OBJECTDIR}/mipslabwork.o: mipslabwork.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/mipslabwork.o.d 
 	@${RM} ${OBJECTDIR}/mipslabwork.o 
 	@${FIXDEPS} "${OBJECTDIR}/mipslabwork.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/mipslabwork.o.d" -o ${OBJECTDIR}/mipslabwork.o mipslabwork.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/vga.o: vga.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/vga.o.d 
+	@${RM} ${OBJECTDIR}/vga.o 
+	@${FIXDEPS} "${OBJECTDIR}/vga.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/vga.o.d" -o ${OBJECTDIR}/vga.o vga.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/interupts.o: interupts.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/interupts.o.d 
+	@${RM} ${OBJECTDIR}/interupts.o 
+	@${FIXDEPS} "${OBJECTDIR}/interupts.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/interupts.o.d" -o ${OBJECTDIR}/interupts.o interupts.c    -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD) 
 	
 endif
 

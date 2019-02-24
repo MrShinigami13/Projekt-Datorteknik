@@ -206,7 +206,7 @@ _isr_trampoline:
 	# (the C compiler will see to that).
 
 	# call user's handler
-	jal _isr
+	jal user_isr
 	nop
 
 	# restore saved registers
