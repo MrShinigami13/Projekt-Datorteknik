@@ -255,11 +255,11 @@ void labwork( void ) {
 			delay = 0;
 		}
 		delay++; 
-		}
-		if (player1score == 3){	
-		}
-		else if (player2score == 3){	
-		}
+    }
+	/*if (player1score == 3){	
+	}
+	else if (player2score == 3){	
+	}*/
 }
 
 void gamestart(void) {

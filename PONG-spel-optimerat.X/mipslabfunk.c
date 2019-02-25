@@ -123,25 +123,24 @@ void display_matrix(int x, const uint8_t *data) {
 
 void explosion_anim(int player){
     int frames = 0;
-    int constant,i,j,lim;
+    int constant,i,lim;
     constant = 1;
     lim = 1;
     while(frames <= 60){
-        ui_to_matrix();
-            for(i = 0; i<lim; i++){
-                if(((ball_y+i) <= 31) && ((ball_y-i) >= 0)){
-                    thematrix[(ball_y)][(ball_x)] = 1;
-                    if(player == 1){
-                        thematrix[(ball_y)+i][(ball_x)+i] = 1;
-                        thematrix[(ball_y)-i][(ball_x)+i] = 1;
-                        ball_x++;
-                    } else if(player == 2){
-                        thematrix[(ball_y)+i][(ball_x)-i] = 1;
-                        thematrix[(ball_y)-i][(ball_x)-i] = 1;
-                        ball_x--;
-                    }
+        for(i = 0; i<lim; i++){
+            if(((ball_y+i) < 31) && ((ball_y-i) > 0)){
+                thematrix[(ball_y)][(ball_x)] = 1;
+                if(player == 1){
+                    thematrix[(ball_y)+i][(ball_x)+i] = 1;
+                    thematrix[(ball_y)-i][(ball_x)+i] = 1;
+                    ball_x++;
+                } else if(player == 2){
+                    thematrix[(ball_y)+i][(ball_x)-i] = 1;
+                    thematrix[(ball_y)-i][(ball_x)-i] = 1;
+                    ball_x--;
                 }
             }
+        }
         lim++;
         matrix_to_textbuffer();
         display_matrix(0, textbuffer2);
@@ -258,13 +257,13 @@ void score_to_matrix(void){
                 thematrix[i][32+j] = scoretwo[i][j];
             }
         }
-    } else if(player1score == 3){
+    } /*else if(player1score == 3){
         for(i = 0; i< 8 ; i++){	
             for(j = 0; j< 8 ; j++){
                 thematrix[i][32+j] = scorethree[i][j];
             }
         }
-    }
+    }*/
     if(player2score == 0) {
         for(i = 0; i< 8 ; i++){		
             for(j = 0; j< 8 ; j++){
@@ -283,13 +282,13 @@ void score_to_matrix(void){
                 thematrix[i][96+j] = scoretwo[i][j];
             }
         }
-    } else if(player2score == 3){
+    } /*else if(player2score == 3){
         for(i = 0; i< 8 ; i++){
             for(j = 0; j< 8 ; j++){
                 thematrix[i][96+j] = scorethree[i][j];
             }
         }
-    }
+    }*/
 }
 
 void ui_to_matrix(void) {
