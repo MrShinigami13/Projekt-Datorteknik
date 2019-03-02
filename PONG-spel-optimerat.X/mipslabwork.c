@@ -49,11 +49,6 @@ int startgame = 0;
 volatile int sw1, sw2, sw3, sw4;
 
 
-void _isr( void )
-{
-	return;
-}
-
 /* Lab-specific initialization goes here */
 void labinit( void ) {
     *trise = *trise & 0xff00; // 1111 1111 0000 0000
