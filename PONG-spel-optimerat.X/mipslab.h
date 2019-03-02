@@ -33,9 +33,11 @@ void score_to_matrix(void);
 void ui_to_matrix(void);
 void matrix_to_textbuffer(void);
 void clear_matrix(void);
+void full_intro(void);
 void intro_anim(void);
 void between_anim(void);
 void explosion_anim(int player);
+void clear_textbuffer2(void);
 
 
 /* Declare lab-related functions from mipslabfunc.c */
